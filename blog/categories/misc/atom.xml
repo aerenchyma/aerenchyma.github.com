@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[these are the processes]]></title>
-  <link href="http://aerenchyma.github.com/atom.xml" rel="self"/>
+  <title><![CDATA[Category: misc | these are the processes]]></title>
+  <link href="http://aerenchyma.github.com/blog/categories/misc/atom.xml" rel="self"/>
   <link href="http://aerenchyma.github.com/"/>
   <updated>2013-02-18T15:48:19-05:00</updated>
   <id>http://aerenchyma.github.com/</id>
