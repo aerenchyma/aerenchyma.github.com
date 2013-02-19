@@ -1,0 +1,372 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Open.Michigan Analytics, the what - everything's interesting</title>
+  <meta name="author" content="Jackie Cohen">
+
+  
+  <meta name="description" content="Starting in January 2013, I have been a part-time software developer at the Open.Michigan Initiative, which is housed within the Enabling &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://aerenchyma.github.com/blog/2013/02/18/open-dot-michigan-analytics/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="everything's interesting" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">everything's interesting</a></h1>
+  
+    <h2>documentation of project proceedings lives here</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:aerenchyma.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">blog</a></li>
+  <li><a href="/blog/archives">archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Open.Michigan Analytics, the what</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-02-18T17:05:00-05:00" pubdate data-updated="true">Feb 18<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Starting in January 2013, I have been a part-time software developer at the <a href="http://open.umich.edu">Open.Michigan Initiative</a>, which is housed within the Enabling Technologies office of the University of Michigan Medical School Information Services department. (I also do other things within Enabling Technologies, but for the moment and this documentation, that&#8217;s not relevant.)</p>
+
+<p>Open.Michigan (OM) promotes open licensing and open educational resources (OER), and we publish OER on our website, which is run on the <a href="https://github.com/openmichigan/OERbit">OERbit</a> framework, which in turn is based on <a href="http://drupal.org/">Drupal</a>.</p>
+
+<p><small>(True to our goals and our message(s), all the code we produce is open source, free for use and adaptation with attribution. See licenses.)</small></p>
+
+<p>My first project is <strong>Open.Michigan Analytics</strong> &#8211; accessing, displaying, and allowing access to analytics for the resources we publish. (Hereafter tagged as &#8221;<a href="http://aerenchyma.github.com/blog/categories/om-analytics/">om-analytics</a>.&#8221;) With encouragement from my amazing supervisors, I am documenting the process, including decisions and missteps as well as step-by-steps of enacted processes. Below, I set out the original and revised planning stages, and goals for the project. Soon: the first decisions made, setup issues, and options I set out for proceeding.</p>
+
+<!-- more -->
+
+
+<hr />
+
+<h4>01/22/2013:</h4>
+
+<h3>Original plan, analytics project</h3>
+
+<p><em>Our original outline of the project plan, in phases</em></p>
+
+<h3><em>Phase I</em></h3>
+
+<ul>
+<li><strong>Goal:</strong> Display (publically) specific analytics on a given course/resource page.</li>
+<li><strong>Primary audience:</strong> authors of content, and U/M leadership.</li>
+<li><strong>Motivation:</strong> use analytics display as way of promoting creation of open content?
+
+<ul>
+<li>Being able to show results of open content creation and publishing to content-creators.</li>
+<li>&#8220;This has been viewed this many times&#8230;&#8221;</li>
+</ul>
+</li>
+<li><strong>Substance:</strong>
+
+<ul>
+<li>Google Analytics:
+
+<ul>
+<li>total zip downloads #</li>
+<li>most downloaded material (of materials included in a course/resource on OERbit)</li>
+<li>total views of course/resource</li>
+<li>date last material added (?) n.b. this info included in &#8220;date last modified&#8221; field on page</li>
+</ul>
+</li>
+<li>YouTube Analytics:
+
+<ul>
+<li>total youtube views (of videos for a given course/resource)</li>
+<li>total youtube comments (#, potentially store data, depending upon TOS)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+
+<h3><em>Phase II</em></h3>
+
+<ul>
+<li><strong>Goal:</strong> flesh out display and available downloads</li>
+<li><strong>Primary audience:</strong> same as <em>Phase I</em></li>
+<li><strong>Motivation:</strong> same as above, with additonal possibility of content creators drilling deeper into analytics, personal results of content-creation, a better understanding for OM wrt which access points are used in what ways, which forms of material seem to be used most often, etc.</li>
+<li><strong>Substance:</strong>
+
+<ul>
+<li><em>Display, for a given course/resource:</em>
+
+<ul>
+<li>Facebook Likes</li>
+<li>Tweets</li>
+<li><a href="http://deepblue.lib.umich.edu/">Deep Blue</a> downloads/views</li>
+<li>Wikipedia views</li>
+<li>number of countries accessed (Google Analytics/YouTube)</li>
+<li>views within (state of?) Michigan, vs. elsewhere</li>
+<li>potentially a map of views?
+  (can we create a map from a web interface?)</li>
+</ul>
+</li>
+<li><em>Available for download:</em>
+
+<ul>
+<li>YouTube comments (pending TOS check)</li>
+<li>YouTube demographics (from YT analytics)</li>
+<li>Open.Michigan (course/resource landing page? overall?) demographics</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+
+<h3><em>Phase III</em></h3>
+
+<ul>
+<li><strong>Goal:</strong> increased availability of and access to analytics information</li>
+<li><strong>Potentially:</strong>
+
+<ul>
+<li>integrate iTunes U</li>
+<li><a href="http://www.carma.umich.edu/">CARMA</a> views</li>
+<li>more download options</li>
+<li>?</li>
+</ul>
+</li>
+</ul>
+
+
+<hr />
+
+<h4>~02/01/2013:</h4>
+
+<h3>Revised plan, analytics project</h3>
+
+<p><em>Restructured plan, due to process exploration (explanation to come)</em></p>
+
+<p><strong>Overall Goal:</strong> To be certain I can access and manipulate the information we&#8217;re interested in, and then figure out what is the best way (for us) to do so</p>
+
+<h3><em>Phase I</em></h3>
+
+<h4>(i) <strong>Access and publically display, on course/resource landing pages:</strong></h4>
+
+<ul>
+<li>Total course/resource views (from Google Analytics (G.A.) data)</li>
+<li>Total zip downloads of materials for a given course/resource (from G.A. data)</li>
+<li>Most individually downloaded material/file for a given course/resource (from G.A. data)</li>
+<li>(potentially) ratio of materials views : zip downloads</li>
+</ul>
+
+
+<h4>(ii) <strong>Access and publically display, similarly:</strong></h4>
+
+<ul>
+<li>Total YouTube views for videos belonging to given course/resource</li>
+<li>Total YouTube comments (number) for videos belonging to given course/resource</li>
+</ul>
+
+
+<h3><em>Phase II</em></h3>
+
+<ul>
+<li>Deepen access to analytics</li>
+<li>Consider chart/graph displays</li>
+<li>Make data available for download, pending TOS checks</li>
+<li>Design UI</li>
+</ul>
+
+
+<h3><em>Phase III</em></h3>
+
+<ul>
+<li>dependent upon previous phases</li>
+</ul>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Jackie Cohen</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-02-18T17:05:00-05:00" pubdate data-updated="true">Feb 18<span>th</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/docs/'>docs</a>, <a class='category' href='/blog/categories/om-analytics/'>om-analytics</a>, <a class='category' href='/blog/categories/open-michigan/'>open.michigan</a>, <a class='category' href='/blog/categories/processes/'>processes</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://aerenchyma.github.com/blog/2013/02/18/open-dot-michigan-analytics/" data-via="jczetta" data-counturl="http://aerenchyma.github.com/blog/2013/02/18/open-dot-michigan-analytics/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/02/18/initial-post/" title="Previous Post: Testing, testing">&laquo; Testing, testing</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>recent posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/02/18/open-dot-michigan-analytics/">Open.Michigan Analytics, the what</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/02/18/initial-post/">Testing, testing</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>recent observations</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("jczetta", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/jczetta" class="twitter-follow-button" data-show-count="false">Follow @jczetta</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Jackie Cohen -  <span class="license">All content, unless otherwise noted, is <a href="http://creativecommons.org/licenses/by-sa/3.0/us/" target=_blank>CC-BY-SA</a> licensed.</span> -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
