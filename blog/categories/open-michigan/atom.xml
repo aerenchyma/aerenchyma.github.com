@@ -4,7 +4,7 @@
   <title><![CDATA[Category: open.michigan | everything's interesting]]></title>
   <link href="http://aerenchyma.github.com/blog/categories/open-michigan/atom.xml" rel="self"/>
   <link href="http://aerenchyma.github.com/"/>
-  <updated>2013-02-20T13:26:20-05:00</updated>
+  <updated>2013-02-20T13:27:47-05:00</updated>
   <id>http://aerenchyma.github.com/</id>
   <author>
     <name><![CDATA[Jackie Cohen]]></name>
@@ -20,7 +20,7 @@
     <id>http://aerenchyma.github.com/blog/2013/02/20/open-dot-michigan-analytics</id>
     <content type="html"><![CDATA[<p>Okay, so I wanted <a href="http://aerenchyma.github.com/blog/2013/02/18/open-dot-michigan-analytics/">analytics</a>. That meant I needed to access and manipulate data, naturally. The phases laid out in the intial plan in that previous, linked, post were discussed during a meeting to kick off the project, the first day I came back to the office (I worked at a different job at Open.Michigan for nine months 2011 - 2012).</p>
 
-<p>After the whats and the whys came the hows, and my job. What is the appropriate technical architecture for this task?</p>
+<p>After the whats and the whys came the hows, and my job. What is the appropriate technical architecture for this task? (Spoiler: no Answers* here)</p>
 
 <!--more-->
 
@@ -72,6 +72,8 @@
 <p>Documentation of this process (the way it should go) should appear on our wiki in future; documentation of the issues I have should appear internally (hopefully no one else will have to deal with exactly that. Be careful installing MySQL <s>for funsies</s>, all).</p>
 
 <p>(2) was fun. More to come.</p>
+
+<p>*<small>Yes, the capital 'A' is on purpose</small></p>
 ]]></content>
   </entry>
   
