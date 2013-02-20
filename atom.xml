@@ -4,7 +4,7 @@
   <title><![CDATA[everything's interesting]]></title>
   <link href="http://aerenchyma.github.com/atom.xml" rel="self"/>
   <link href="http://aerenchyma.github.com/"/>
-  <updated>2013-02-20T10:53:56-05:00</updated>
+  <updated>2013-02-20T13:26:20-05:00</updated>
   <id>http://aerenchyma.github.com/</id>
   <author>
     <name><![CDATA[Jackie Cohen]]></name>
@@ -12,6 +12,68 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Open.Michigan Analytics, the how (part 1)]]></title>
+    <link href="http://aerenchyma.github.com/blog/2013/02/20/open-dot-michigan-analytics/"/>
+    <updated>2013-02-20T10:55:00-05:00</updated>
+    <id>http://aerenchyma.github.com/blog/2013/02/20/open-dot-michigan-analytics</id>
+    <content type="html"><![CDATA[<p>Okay, so I wanted <a href="http://aerenchyma.github.com/blog/2013/02/18/open-dot-michigan-analytics/">analytics</a>. That meant I needed to access and manipulate data, naturally. The phases laid out in the intial plan in that previous, linked, post were discussed during a meeting to kick off the project, the first day I came back to the office (I worked at a different job at Open.Michigan for nine months 2011 - 2012).</p>
+
+<p>After the whats and the whys came the hows, and my job. What is the appropriate technical architecture for this task?</p>
+
+<!--more-->
+
+
+<h3><em>Facts:</em></h3>
+
+<ul>
+<li>OERbit/we run Drupal 6.x</li>
+<li>Our servers shouldn&#8217;t take too much <em>more</em> load</li>
+<li>We want to run fully open-source software and free software</li>
+<li>MySQL is our db</li>
+<li>Sustainability of and access to the analytics system matters</li>
+<li>The base technical architecture for OERbit isn&#8217;t changing (at least, definitely not changing for this small piece)</li>
+</ul>
+
+
+<h3><em>Resources:</em></h3>
+
+<ul>
+<li><a href="">Python scripts</a> that were written to gather Google Analytics and Youtube Analytics data (for the <a href="https://open.umich.edu/blog/2013/02/20/championing-data-analysis-at-the-sophomore-a2datadive/">DataDive</a>)</li>
+<li><a href="http://blog.amazeelabs.com/en/create-ultimate-google-analytics-dashboard-drupal-part-1">documentation</a> of similar(?) analytics projects on Drupal</li>
+<li>Drupal plugins galore?</li>
+</ul>
+
+
+<h3><em>Options/considerations:</em></h3>
+
+<ul>
+<li>Is there a Drupal plugin (or multiple) that suits our needs?</li>
+<li>Can we customize a Drupal plugin to suit our needs? Or write a new one?</li>
+<li>Should we write custom code? (Probably JavaScript)</li>
+<li>Are there other options we&#8217;re not thinking about?</li>
+<li>What useful (openly licensed) code is available? (Reuse, reuse, reuse)</li>
+</ul>
+
+
+<p>And, in my mind: how can I use my skillset to work on this project most efficiently? At the start, I&#8217;d done very little programming in PHP, but was comfortable with Python and Ruby and reasonably comfortable with JavaScript. PHP is &#8220;like nothing else&#8221; and &#8220;exactly like all the other scripting languages, except with its own special things&#8221; (anonymity protected..). As I write, I&#8217;m still muddling around in the PHP world, hopefully to some success.</p>
+
+<p>With an overarching goal of accessing the appropriate information and manipulating it, I had two immediate goals:</p>
+
+<ol>
+<li>Install a local instance of the OERbit software on my computer, for development</li>
+<li>Edit the extant Python scripts such that they got us the information we wanted, because they were existing resources</li>
+</ol>
+
+
+<p>(1) proved to be much more difficult than any of us expected, but it was a learning process&#8230; which involved the office buying <a href="http://www.mamp.info/en/index.html">MAMP</a> Pro and me installing the university-bought-license of the software on a loaner laptop, clean of my local db issues &#8211; at which point, with a great deal of help from the primary developers of OERbit, my life became much easier (the 2007 Macbook Pro is a pretty nice machine! If heavy <code>/spoiltbyAir</code>).</p>
+
+<p>Documentation of this process (the way it should go) should appear on our wiki in future; documentation of the issues I have should appear internally (hopefully no one else will have to deal with exactly that. Be careful installing MySQL <s>for funsies</s>, all).</p>
+
+<p>(2) was fun. More to come.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Open.Michigan Analytics, the what]]></title>
