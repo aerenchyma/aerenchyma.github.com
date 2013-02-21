@@ -4,7 +4,7 @@
   <title><![CDATA[everything's interesting]]></title>
   <link href="http://aerenchyma.github.com/atom.xml" rel="self"/>
   <link href="http://aerenchyma.github.com/"/>
-  <updated>2013-02-20T13:27:47-05:00</updated>
+  <updated>2013-02-21T15:03:31-05:00</updated>
   <id>http://aerenchyma.github.com/</id>
   <author>
     <name><![CDATA[Jackie Cohen]]></name>
@@ -40,7 +40,7 @@
 <h3><em>Resources:</em></h3>
 
 <ul>
-<li><a href="">Python scripts</a> that were written to gather Google Analytics and Youtube Analytics data (for the <a href="https://open.umich.edu/blog/2013/02/20/championing-data-analysis-at-the-sophomore-a2datadive/">DataDive</a>)</li>
+<li><a href="https://gist.github.com/aerenchyma/5007683">Python</a> <a href="https://gist.github.com/aerenchyma/5007667">scripts</a> that were written to gather Google Analytics and Youtube Analytics data (for the <a href="https://open.umich.edu/blog/2013/02/20/championing-data-analysis-at-the-sophomore-a2datadive/">DataDive</a>)</li>
 <li><a href="http://blog.amazeelabs.com/en/create-ultimate-google-analytics-dashboard-drupal-part-1">documentation</a> of similar(?) analytics projects on Drupal</li>
 <li>Drupal plugins galore?</li>
 </ul>
