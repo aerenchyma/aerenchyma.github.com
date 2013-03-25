@@ -4,7 +4,7 @@
   <title><![CDATA[Category: maps | everything's interesting]]></title>
   <link href="http://aerenchyma.github.com/blog/categories/maps/atom.xml" rel="self"/>
   <link href="http://aerenchyma.github.com/"/>
-  <updated>2013-03-25T00:21:14-04:00</updated>
+  <updated>2013-03-25T00:22:08-04:00</updated>
   <id>http://aerenchyma.github.com/</id>
   <author>
     <name><![CDATA[Jackie Cohen]]></name>
@@ -48,9 +48,12 @@
 
 <hr />
 
-<p><a href="http://aerenchyma.github.com/blog/2013/03/08/bridging-the-mapping-distance-a-ruby-script/">Part I: Introduction to the problem to solve</a>
-Part II: Runthrough of the script and the process
-Part III: Takeaways, teaching, future plans</p>
+<ul>
+<li><a href="http://aerenchyma.github.com/blog/2013/03/08/bridging-the-mapping-distance-a-ruby-script/">Part I: Introduction to the problem to solve</a></li>
+<li>Part II: Runthrough of the script and the process</li>
+<li>Part III: Takeaways, teaching, future plans</li>
+</ul>
+
 ]]></content>
   </entry>
   
