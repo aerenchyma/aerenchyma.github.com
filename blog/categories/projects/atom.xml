@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: projects | everything's interesting]]></title>
+  <link href="http://aerenchyma.github.com/blog/categories/projects/atom.xml" rel="self"/>
+  <link href="http://aerenchyma.github.com/"/>
+  <updated>2013-03-25T00:39:58-04:00</updated>
+  <id>http://aerenchyma.github.com/</id>
+  <author>
+    <name><![CDATA[Jackie Cohen]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[instabitly]]></title>
+    <link href="http://aerenchyma.github.com/blog/2013/03/25/instabitly/"/>
+    <updated>2013-03-25T00:29:00-04:00</updated>
+    <id>http://aerenchyma.github.com/blog/2013/03/25/instabitly</id>
+    <content type="html"><![CDATA[<p>Quick drive-by: <a href="https://github.com/aerenchyma/instabitly">instabitly</a>, a script I wrote recently to import saved links from <a href="http://instapaper.com">Instapaper</a> to <a href="https://bitly.com/">bit.ly</a>.</p>
+
+<p>I did it for personal reasons -- primarily because I want all this stuff stored redundantly. Obviously I haven't solved that problem in its entirety, but there were also other reasons. Because I care about things like this. There's a README. More, like more in the other documentation series I've discussed so far, will have to appear after recent projects calm down some.</p>
+
+<p>Let me also take this opportunity to encourage you to <a href="http://www.instapaper.com/subscription">support Instapaper</a> if you can and it's a service you like/use.</p>
+
+<p>In my imaginary free time, I have been trying to absorb all the <a href="http://pyvideo.org/category/33/pycon-us-2013">fantastic PyCon</a> <a href="https://speakerdeck.com/pyconslides">talks</a> (I have an active imagination).</p>
+]]></content>
+  </entry>
+  
+</feed>

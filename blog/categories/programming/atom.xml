@@ -4,7 +4,7 @@
   <title><![CDATA[Category: programming | everything's interesting]]></title>
   <link href="http://aerenchyma.github.com/blog/categories/programming/atom.xml" rel="self"/>
   <link href="http://aerenchyma.github.com/"/>
-  <updated>2013-03-25T00:25:43-04:00</updated>
+  <updated>2013-03-25T00:39:58-04:00</updated>
   <id>http://aerenchyma.github.com/</id>
   <author>
     <name><![CDATA[Jackie Cohen]]></name>
@@ -12,6 +12,21 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[instabitly]]></title>
+    <link href="http://aerenchyma.github.com/blog/2013/03/25/instabitly/"/>
+    <updated>2013-03-25T00:29:00-04:00</updated>
+    <id>http://aerenchyma.github.com/blog/2013/03/25/instabitly</id>
+    <content type="html"><![CDATA[<p>Quick drive-by: <a href="https://github.com/aerenchyma/instabitly">instabitly</a>, a script I wrote recently to import saved links from <a href="http://instapaper.com">Instapaper</a> to <a href="https://bitly.com/">bit.ly</a>.</p>
+
+<p>I did it for personal reasons -- primarily because I want all this stuff stored redundantly. Obviously I haven't solved that problem in its entirety, but there were also other reasons. Because I care about things like this. There's a README. More, like more in the other documentation series I've discussed so far, will have to appear after recent projects calm down some.</p>
+
+<p>Let me also take this opportunity to encourage you to <a href="http://www.instapaper.com/subscription">support Instapaper</a> if you can and it's a service you like/use.</p>
+
+<p>In my imaginary free time, I have been trying to absorb all the <a href="http://pyvideo.org/category/33/pycon-us-2013">fantastic PyCon</a> <a href="https://speakerdeck.com/pyconslides">talks</a> (I have an active imagination).</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Bridging the mapping distance: a ruby script (part 1)]]></title>
@@ -23,6 +38,9 @@
 <hr />
 
 <p>...I'll spare you the story. The end result was that I began writing a script in order to put together a spreadsheet of locations, names, and phone numbers of certain types of sites within a certain radius. For example, places of worship (e.g. churches, mosques, temples...), within the tri-county area of Southeastern Michigan.</p>
+
+<!--more-->
+
 
 <p>Okay, so, a script to make that happen. To do what exactly? What's the input? What's the output? What are we searching for? What is the expected result? How many sites? What are the requirements of the files to be produced? What kind of things can we definitely process or not process? What sort of things do they need for input to ArcGIS (what they were using for mapping)?</p>
 

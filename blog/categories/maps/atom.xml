@@ -4,7 +4,7 @@
   <title><![CDATA[Category: maps | everything's interesting]]></title>
   <link href="http://aerenchyma.github.com/blog/categories/maps/atom.xml" rel="self"/>
   <link href="http://aerenchyma.github.com/"/>
-  <updated>2013-03-25T00:25:43-04:00</updated>
+  <updated>2013-03-25T00:39:58-04:00</updated>
   <id>http://aerenchyma.github.com/</id>
   <author>
     <name><![CDATA[Jackie Cohen]]></name>
@@ -23,6 +23,9 @@
 <hr />
 
 <p>...I'll spare you the story. The end result was that I began writing a script in order to put together a spreadsheet of locations, names, and phone numbers of certain types of sites within a certain radius. For example, places of worship (e.g. churches, mosques, temples...), within the tri-county area of Southeastern Michigan.</p>
+
+<!--more-->
+
 
 <p>Okay, so, a script to make that happen. To do what exactly? What's the input? What's the output? What are we searching for? What is the expected result? How many sites? What are the requirements of the files to be produced? What kind of things can we definitely process or not process? What sort of things do they need for input to ArcGIS (what they were using for mapping)?</p>
 
