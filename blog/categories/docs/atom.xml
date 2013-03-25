@@ -4,7 +4,7 @@
   <title><![CDATA[Category: docs | everything's interesting]]></title>
   <link href="http://aerenchyma.github.com/blog/categories/docs/atom.xml" rel="self"/>
   <link href="http://aerenchyma.github.com/"/>
-  <updated>2013-02-21T15:03:31-05:00</updated>
+  <updated>2013-03-25T00:17:43-04:00</updated>
   <id>http://aerenchyma.github.com/</id>
   <author>
     <name><![CDATA[Jackie Cohen]]></name>
@@ -12,6 +12,41 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Bridging the mapping distance: a ruby script (part 1)]]></title>
+    <link href="http://aerenchyma.github.com/blog/2013/03/08/bridging-the-mapping-distance-a-ruby-script/"/>
+    <updated>2013-03-08T20:50:00-05:00</updated>
+    <id>http://aerenchyma.github.com/blog/2013/03/08/bridging-the-mapping-distance-a-ruby-script</id>
+    <content type="html"><![CDATA[<h4><em>In late 2012, I was at a bar with some friends...</em></h4>
+
+<hr />
+
+<p>...I'll spare you the story. The end result was that I began writing a script in order to put together a spreadsheet of locations, names, and phone numbers of certain types of sites within a certain radius. For example, places of worship (e.g. churches, mosques, temples...), within the tri-county area of Southeastern Michigan.</p>
+
+<p>Okay, so, a script to make that happen. To do what exactly? What's the input? What's the output? What are we searching for? What is the expected result? How many sites? What are the requirements of the files to be produced? What kind of things can we definitely process or not process? What sort of things do they need for input to ArcGIS (what they were using for mapping)?</p>
+
+<p>The simplest answer to the latter question was <em>.CSV files</em>. Excel workbooks would work, but .CSV files are more consistent, can be opened by more programs, and are therefore better. They're also commonly used and understood, and they look essentially like single-page Excel workbooks in Excel, which is a bonus if information will pass to people who consider themselves non-technical and work in Windows or Mac. So, cool. .CSV files of information (Name of site, St address, City, State, Zip...).</p>
+
+<p>Some investigation came next. Would the <a href="https://developers.google.com/places/documentation/">Google Places API</a> work? That was my first thought, due to recent experience using it. No, its results weren't nearly fine-grained enough. Was it worth a crawl through Google search results or Google maps search results to mimic what has been done by hand up to this point? After some tries, it didn't seem to be: results were unreliable and too often missing information pieces. It was possible to fix these problems, but the overhead to make sure the information was complete did not seem to be worth the output. Was there a service that could mimic the functionality they were looking for?</p>
+
+<p><a href="http://www.yellowpages.com">Yellowpages</a>, maybe. Its information was reliable enough to be useful and appeared to be complete enough to satisfy the granularity the organization was looking for, hoping to make maps of these sites' locations.</p>
+
+<p>In some cases for mapping sites of given types or categories, the data was readily available. The governent provides data files, including GIS shape files, with a lot of publicly available information; beyond things like that, there are available lists from many public sources; lists of public schools and locations, for example. But it's hard to find a list of all <em>places of worship</em> , say, because though this may be one category at a given level, on an organizational level these belong to many different categories: churches of a given denomination and Sikh Temples are usually not listed in the same public dataset, especially not throughout the tri-county area.</p>
+
+<p>Yellowpages can find them in the same search, though, so that's a bonus. Another problem: does Yellowpages offer a tool for download, in acceptable .csv (comma-separated values) or .tsv (tab-separated-values) format, of all the results of a certain search? At the time, the answer was no. (I'm not aware of one sponsored by Yellowpages. Feel free to correct me if I am wrong. It makes sense; there are few non-developer use cases where you'd want to download quite as many individual entries from Yellowpages as I now did.)</p>
+
+<p>Then -- and this is something I'm still training myself to do, even after years (more on this some other time, maybe) -- it was time to think like a developer: <em>is there an <a href="http://en.wikipedia.org/wiki/API">API</a>?</em> <a href="http://www.yellowapi.com/">Yes, there is</a>! Does it do what I want? ... Well, no. Not exactly.</p>
+
+<p>Yet this data does not fall under <a href="http://en.wikipedia.org/wiki/Copyright">copyright</a>; it's not creative works; it's also publicly available information.</p>
+
+<p>So okay, a scraper; it wouldn't be run too many times, as the maps to be created will have a deadline and the information should only need to be gathered once, though we'd need to do testing.</p>
+
+<p>And not just any scraper, but one that has clear documentation such that people who describe themselves as <em>non-technical</em> could use it with minimal training before a web application with an easy-to-press button could be developed.</p>
+
+<p>In Part II will be a runthrough of the script I wrote in Ruby. More later on the choice of the Ruby language and my thought process throughout the work. Soon to come!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Open.Michigan Analytics, the what]]></title>
