@@ -4,7 +4,7 @@
   <title><![CDATA[Category: open.michigan | everything's interesting]]></title>
   <link href="http://aerenchyma.github.com/blog/categories/open-michigan/atom.xml" rel="self"/>
   <link href="http://aerenchyma.github.com/"/>
-  <updated>2013-03-25T00:23:27-04:00</updated>
+  <updated>2013-03-25T00:25:43-04:00</updated>
   <id>http://aerenchyma.github.com/</id>
   <author>
     <name><![CDATA[Jackie Cohen]]></name>
@@ -24,7 +24,7 @@
 
 <p><small>(True to our goals and our message(s), all the code we produce is open source, free for use and adaptation with attribution. See licenses.)</small></p>
 
-<p>My first project is <strong>Open.Michigan Analytics</strong> -- accessing, displaying, and allowing access to analytics for the resources we publish. (Hereafter tagged as "<a href="http://aerenchyma.github.com/blog/categories/om-analytics/">om-analytics</a>.") With encouragement from my amazing supervisors, I am documenting the process, including decisions and missteps as well as step-by-steps of enacted processes. Below, I set out the original and revised planning stages, and goals for the project. Soon: the first decisions made, setup issues, and options I set out for proceeding.</p>
+<p>My first project is <strong>Open.Michigan Analytics</strong> -- accessing, displaying, and allowing access to analytics for the resources we publish. (Hereafter tagged as "<a href="http://aerenchyma.github.com/blog/categories/om-analytics/">om-analytics</a>.") With encouragement from my amazing supervisors, I am documenting the process, including decisions and missteps as well as step-by-steps of enacted processes. Below, I set out the original planning stages and goals for the project. Soon: the first decisions made, setup issues, and options I set out for proceeding.</p>
 
 <!-- more -->
 
@@ -124,52 +124,7 @@
 </ul>
 
 
-<hr />
-
-<h4>~02/01/2013:</h4>
-
-<h3>Revised plan, analytics project</h3>
-
-<p><em>Restructured plan, due to process exploration (explanation to come)</em></p>
-
-<p><strong>Overall Goal:</strong> To be certain I can access and manipulate the information we're interested in, and then figure out what is the best way (for us) to do so</p>
-
-<h3><em>Phase I</em></h3>
-
-<h4>(i) <strong>Access and publically display, on course/resource landing pages:</strong></h4>
-
-<ul>
-<li>Total course/resource views (from Google Analytics (G.A.) data)</li>
-<li>Total zip downloads of materials for a given course/resource (from G.A. data)</li>
-<li>Most individually downloaded material/file for a given course/resource (from G.A. data)</li>
-<li>(potentially) ratio of materials views : zip downloads</li>
-</ul>
-
-
-<h4>(ii) <strong>Access and publically display, similarly:</strong></h4>
-
-<ul>
-<li>Total YouTube views for videos belonging to given course/resource</li>
-<li>Total YouTube comments (number) for videos belonging to given course/resource</li>
-</ul>
-
-
-<h3><em>Phase II</em></h3>
-
-<ul>
-<li>Deepen access to analytics</li>
-<li>Consider chart/graph displays</li>
-<li>Make data available for download, pending TOS checks</li>
-<li>Design UI</li>
-</ul>
-
-
-<h3><em>Phase III</em></h3>
-
-<ul>
-<li>dependent upon previous phases</li>
-</ul>
-
+<p>This plan was soon substantially revised -- so exciting, right? More to come; drafts in progress. (Internal documentation + development does come first...)</p>
 ]]></content>
   </entry>
   
