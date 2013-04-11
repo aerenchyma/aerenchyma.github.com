@@ -4,7 +4,7 @@
   <title><![CDATA[Category: processes | everything's interesting]]></title>
   <link href="http://aerenchyma.github.com/blog/categories/processes/atom.xml" rel="self"/>
   <link href="http://aerenchyma.github.com/"/>
-  <updated>2013-04-11T04:19:05-04:00</updated>
+  <updated>2013-04-11T04:45:45-04:00</updated>
   <id>http://aerenchyma.github.com/</id>
   <author>
     <name><![CDATA[Jackie Cohen]]></name>
@@ -18,13 +18,13 @@
     <link href="http://aerenchyma.github.com/blog/2013/02/18/open-dot-michigan-analytics/"/>
     <updated>2013-02-18T17:05:00-05:00</updated>
     <id>http://aerenchyma.github.com/blog/2013/02/18/open-dot-michigan-analytics</id>
-    <content type="html"><![CDATA[<p>Starting in January 2013, I have been a part-time software developer at the <a href="http://open.umich.edu">Open.Michigan Initiative</a>, which is housed within the Enabling Technologies office of the University of Michigan Medical School Information Services department. (I also do other things within Enabling Technologies, but for the moment and this documentation, that's not relevant.)</p>
-
-<p>Open.Michigan (OM) promotes open licensing and open educational resources (OER), and we publish OER on our website, which is run on the <a href="https://github.com/openmichigan/OERbit">OERbit</a> framework, which in turn is based on <a href="http://drupal.org/">Drupal</a>.</p>
+    <content type="html"><![CDATA[<p>Starting in January 2013, I have been a software developer at the <a href="http://open.umich.edu">Open.Michigan Initiative</a>, which is housed within the University of Michigan Medical School. Open.Michigan (OM) promotes open licensing and open educational resources (OER), and we publish OER on our website, which is run on the <a href="https://github.com/openmichigan/OERbit">OERbit</a> framework, which in turn is based on <a href="http://drupal.org/">Drupal</a>.</p>
 
 <p><small>(True to our goals, all the code we produce is open source, free for use and adaptation with attribution. See licenses.)</small></p>
 
-<p>My first project is <strong>Open.Michigan Analytics</strong> -- accessing, displaying, and allowing access to analytics for the resources we publish. (Hereafter tagged as "<a href="http://aerenchyma.github.com/blog/categories/om-analytics/">om-analytics</a>.") With encouragement from my amazing supervisors, I am documenting the process, including decisions and missteps as well as step-by-steps of enacted processes. Below, I set out the original planning stages and goals for the project. Soon: the first decisions made, setup issues, and options I set out for proceeding.</p>
+<p>My first project is Open.Michigan Analytics -- accessing, displaying, and allowing access to analytics for the resources we publish. In twelve words or fewer. Hah. I am documenting the process, including decisions and missteps as well as step-by-steps of enacted processes, especially because this includes my progress learning Drupal (I am flexible with languages, but I have most experience developing in Python, and I had never worked even semi-professionally in PHP before this project), and adaptations and contributions to a fairly new open source project, examples of which are always useful to have around. Also, if anyone picks this up inside or outside our office, I'd like to have documentation of the development (and not just its use) around.</p>
+
+<p>Below, I set out the original planning stages and goals for the project. Soon: the first decisions made, setup issues, and options I set out for proceeding.</p>
 
 <!-- more -->
 
