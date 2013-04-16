@@ -4,7 +4,7 @@
   <title><![CDATA[Category: programming | everything's interesting]]></title>
   <link href="http://aerenchyma.github.com/blog/categories/programming/atom.xml" rel="self"/>
   <link href="http://aerenchyma.github.com/"/>
-  <updated>2013-04-16T13:10:15-04:00</updated>
+  <updated>2013-04-16T13:17:49-04:00</updated>
   <id>http://aerenchyma.github.com/</id>
   <author>
     <name><![CDATA[Jackie Cohen]]></name>
@@ -196,6 +196,34 @@ fname = today_string() + "-" + location.gsub!(",","").split(' ').map {|w| CGI.es
 <p>Let me also take this opportunity to encourage you to <a href="http://www.instapaper.com/subscription">support Instapaper</a> if you can and it's a service you like/use.</p>
 
 <p>In my imaginary free time, I have been trying to absorb all the <a href="http://pyvideo.org/category/33/pycon-us-2013">fantastic PyCon</a> <a href="https://speakerdeck.com/pyconslides">talks</a> (I have an active imagination).</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[highlight of the job]]></title>
+    <link href="http://aerenchyma.github.com/blog/2012/02/02/highlight-of-the-job/"/>
+    <updated>2012-02-02T14:15:00-05:00</updated>
+    <id>http://aerenchyma.github.com/blog/2012/02/02/highlight-of-the-job</id>
+    <content type="html"><![CDATA[<p>On May first, I reached the end of Michigan's 2012 Winter semester, and with it the end of one of the best jobs. A student called the deadline for the final projects the "end of an era" -- that's what it felt like to us (the staff), too. ("It feels like we're doing twenty projects!")</p>
+
+<p>Except that it's more thrilling to watch people work together and seriously, rapidly and usefully learn stuff, and help each other -- better to watch forty-some eureka moments than only have a few yourself.</p>
+
+<!-- more -->
+
+
+<p>I've been very lucky jobwise, this school year, overall. But the off-chance I got to IA for an intro programming class has lit up my life, in the worst, best, and cheesiest sense of the words. (I know, I make me feel ill, too.) Nothing, except living in a co-op, has taught me more about <i>people</i> and dealing with and reacting to others responsibly; in no job I've ever had, including 'being a full-time student', have I ever come home feeling like I did as many worthwhile things with my day (though certainly there are others where finishing weeks, or projects, has left me feeling as accomplished).</p>
+
+<p>But I've rarely been as amazed as I often was in that lecture hall. I feel like I got to know more than fifty people this past semester, and when they left the exam, I was glad for them all, and my co-IA (who was brilliant) and I were, if anything, underestimating when we told them how proud we were and how much luck we wished for them in the future. I've never seen students leave an exam with so much glee and pride, and I've never been so sorry to see quite that many people go. (I didn't get along with <i>that</i> many people in my high school class... that's been a while.)</p>
+
+<p>I've known for years that teaching someone else is one of the best ways to learn something thoroughly, but I didn't know the extent to which it would change how I thought about learning, and how I thought about myself. My students have taught me good lessons over and over again. Those who struggled with concepts and kept coming back, those who leaned over to help others without giving them the answers. "Let's break it down." Those who played music as office hours before the final crept later and later, and laughed when I danced (just a little). "Even the GSIs are getting into it!" Well, yeah -- we want to have fun too. (GSIs we weren't, but for all intents and purposes. It was a position I'm not used to being in, but I enjoyed it.)</p>
+
+<p>I felt heading into the job that in terms of programming, a strength of mine was explaining programming concepts, because I struggled at first and then crested the -- what? the hill of difficulty? and have loved programming and building things with code ever since, but in my upper-level classes, I recognized my students' struggle on a new level and I sympathized, and I think that helped. Time-depth-wise, I was closer to their level than the rest of the staff team, by quite a lot, and though that made me nervous at the get-go, it turned out to be really valuable. I'm endlessly glad I was not the only staff member, but I work well in a team anyway (and I had an <i>awesome</i> co-IA). It is difficult to remember what it's like <i>not</i> to know stuff (e.g. what it means to store a Python dictionary in a variable, what a for-loop does), but I found the reach backwards easier and easier as I went on. As I told the professor for whom I worked, I found myself using more than anything else things I'd learnt while playing around on my own, and things I'd learnt in the class itself, more than I used knowledge from subsequent classes.</p>
+
+<p>Every meaningful "thank you" was ridiculously valuable to me. Every moment of sudden understanding. The look on one girl's face as she got a web app working: "This is the best thing I've ever seen in my whole life; I'm so happy!" A guy's grin as he said "Oh! We're extracting information from the internet!" The genial frustration ("I'm back to make your life miserable, Jackie!" / "Never. What's up?"). The glee I came to expect as I whirled on a heel to say "YES! Exactly! So what type will this be?"</p>
+
+<p>I wanted to make a pun about dynamism and Python being dynamically typed here, but instead I'll say that students gave me and my co-IA thank you cards they signed, and nominated us for awards that we weren't quite eligible for (not being grad students), so the school we worked for invented a new award for us -- but the students' high-fives and compliments to each other because they understood what the others were doing with APIs and Oauth tokens were the best part. "Amazing work," they started saying to each other -- and to <i>us</i> -- and I couldn't agree more. It isn't that there were no painful or frustrating parts -- holy, were there ever -- but that all of them were worth it, and I learnt a lot about how I'd deal with them if that were on me. Maybe someday. I'm only sorry I can't IA this class again.</p>
+
+<p>Sappy as hell, OK. Who knows, that might've changed my career path. I guess I'll see.</p>
 ]]></content>
   </entry>
   
