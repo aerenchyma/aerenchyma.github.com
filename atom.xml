@@ -4,7 +4,7 @@
   <title><![CDATA[everything's interesting]]></title>
   <link href="http://aerenchyma.github.com/atom.xml" rel="self"/>
   <link href="http://aerenchyma.github.com/"/>
-  <updated>2013-04-16T13:19:49-04:00</updated>
+  <updated>2013-04-17T22:54:22-04:00</updated>
   <id>http://aerenchyma.github.com/</id>
   <author>
     <name><![CDATA[Jackie Cohen]]></name>
@@ -12,6 +12,31 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[the # sign]]></title>
+    <link href="http://aerenchyma.github.com/blog/2013/04/17/the-number-sign/"/>
+    <updated>2013-04-17T22:40:00-04:00</updated>
+    <id>http://aerenchyma.github.com/blog/2013/04/17/the-number-sign</id>
+    <content type="html"><![CDATA[<p>Today, I went back to my old high school to help a friend teach middle schoolers an introductory workshop on Python and Raspberry Pi. It was thoroughly awesome, but amidst the awesome &#8211; which I&#8217;m not going to talk about in detail yet &#8211; I noticed something interesting:</p>
+
+<p>Discussing comments in Python, someone in the room who graduated college several years before I did called &#8216;#&#8217;, without hesitation, <em>the pound sign.</em></p>
+
+<p>I debated (I was the one who introduced the comment syntax first), and settled on <em>hashtag</em> because I was honestly not sure if the kids would know what &#8220;pound&#8221; meant in this scenario. It is &#8220;pound&#8221; to me, but I <em>thought</em> to hesitate &#8211; it wasn&#8217;t a realization that came from looks of confusion. <em>Hashtag</em> seemed like the most accessible to 12-year-olds (n.b. in a very privileged place).</p>
+
+<p>I got teased about this. By my friend and fellow teacher, not by the kids. He asks, &#8220;When we say &#8216;hashtag&#8217;, is that how you&#8217;d refer to this symbol?&#8221; They nodded yes. He laughed, and I did too; he, and I, and these kids, aren&#8217;t even separated by a &#8220;generation&#8221; (I don&#8217;t believe in this as a static term, as several people have written about recently, but as a placeholder&#8230;). Although they are half my age or less for the most part, honestly.</p>
+
+<p>And entertainingly, none of us thought of calling it the <em>number</em> sign.</p>
+
+<p>I laughed about this again because when you type it as the title of a post in an Octopress <code>rake new_post</code> command, it&#8217;s automatically converted to <code>the-number-sign</code>, as you can see in this post URL.</p>
+
+<p>Vocabulary is interesting.</p>
+
+<p>(Other things that are interesting: e-textiles, libraries as makerspaces, and the exciting trends in grade school education! and open badging! and the work being done around me all the time!)</p>
+
+<p>Teaching kids how they can make stuff they want to make is <em>great.</em></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[A useful Ruby script (part I)]]></title>
