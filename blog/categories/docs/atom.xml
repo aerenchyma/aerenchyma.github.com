@@ -4,7 +4,7 @@
   <title><![CDATA[Category: docs | everything's interesting]]></title>
   <link href="http://aerenchyma.github.com/blog/categories/docs/atom.xml" rel="self"/>
   <link href="http://aerenchyma.github.com/"/>
-  <updated>2013-04-17T22:54:22-04:00</updated>
+  <updated>2013-04-20T14:03:13-04:00</updated>
   <id>http://aerenchyma.github.com/</id>
   <author>
     <name><![CDATA[Jackie Cohen]]></name>
@@ -22,15 +22,11 @@
 
 <p>in late 2012, I was at a bar with some friends, but the night ended with some excitement.</p>
 
-<p>Soon after I left, I began writing a script in order to put together .csv files of locations, names, and phone numbers of various types of sites within a certain radius! The exclamation point there is a little facetious, but I'm not kidding about the excitement. I love information retrieval and teaching programming for use to improve efficiency. I like scripting and any chance to share how cool it is; this was all of the above.</p>
+<p>Soon after I left, I began writing a script in order to put together .csv files of locations, names, and phone numbers of various types of sites within a certain radius! The exclamation point there is a little facetious, but I'm not kidding about the excitement. I love information retrieval and teaching programming for use to improve efficiency. I like scripting and any chance to share how cool it is; this was all of the above. I chose to write about this because I think its greatest value was in its original, unpolished, inefficient state: what's inefficient to a computer is not necessarily so to a human, and it's easy for a programmer to forget that.</p>
 
-<p>This is a project that's taken place in several parts, and due to various pending Terms-of-Service (TOS) agreements and new <a href="http://en.wikipedia.org/wiki/Api">API</a> developments, I won't be publishing the final version of the code online <em>yet.</em> But I'm outlining this process here anyhow because I think writing about code is good.</p>
+<p>This is a project that's taken place in a couple parts, and due to various pending Terms-of-Service (TOS) agreements and new <a href="http://en.wikipedia.org/wiki/Api">API</a> developments, I won't be publishing the final version of the code online <em>yet.</em></p>
 
-<p><a href="http://aerenchyma.github.io/blog/2013/04/15/a-useful-ruby-script-for-mapping-projects/">Part I</a> (this post) will address the basic technical architecture of writing a Ruby script to speed up data-gathering for a local non-profit organization, use of particular Ruby gems, etc (and the initial questions that led to the script writing).</p>
-
-<p><a href="">Part II</a> (to come) will address the whys -- specifically, why Ruby worked well for this project and what I found to be useful takeaways from it. I am especially interested in takeaways with respect to teaching programming, ways of looking at projects as a developer, and application of technical skills as a service.</p>
-
-<p><a href="">Part III</a> (to come) will address further technical possibilities -- what should work better, what tools are future possibilities, what questions this generated, and a clear outline of what I've learnt (from a programming perspective) by working on this.</p>
+<p><a href="http://aerenchyma.github.io/blog/2013/04/15/a-useful-ruby-script-for-mapping-projects/">Part I</a> (this post) will address the basic technical architecture of writing a Ruby script to speed up data-gathering for a local non-profit organization and the initial questions that led to the script writing. <a href="">Part II</a> (to come) will address the whys -- specifically, why Ruby worked well for this project and what I found to be useful takeaways from it. I am especially interested in takeaways with respect to teaching programming, ways of looking at projects as a developer, and application of technical skills as a service. <a href="">Part III</a> (to come) will address further technical possibilities -- what should work better, and what further questions this generated.</p>
 
 <!-- more -->
 
