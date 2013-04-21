@@ -4,7 +4,7 @@
   <title><![CDATA[Category: php | everything's interesting]]></title>
   <link href="http://aerenchyma.github.com/blog/categories/php/atom.xml" rel="self"/>
   <link href="http://aerenchyma.github.com/"/>
-  <updated>2013-04-21T12:01:24-04:00</updated>
+  <updated>2013-04-21T12:02:30-04:00</updated>
   <id>http://aerenchyma.github.com/</id>
   <author>
     <name><![CDATA[Jackie Cohen]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[remote lighting]]></title>
-    <link href="http://aerenchyma.github.com/blog/2013/04/19/remote-lighting/"/>
-    <updated>2013-04-19T23:18:00-04:00</updated>
-    <id>http://aerenchyma.github.com/blog/2013/04/19/remote-lighting</id>
+    <link href="http://aerenchyma.github.com/blog/2013/04/21/remote-lighting/"/>
+    <updated>2013-04-21T12:01:00-04:00</updated>
+    <id>http://aerenchyma.github.com/blog/2013/04/21/remote-lighting</id>
     <content type="html"><![CDATA[<p>This past Friday, I joined forces with a friend for a fun remote lighting project using a Raspberry Pi.</p>
 
 <p>Remote lighting? you say. You know the colored stage lights you see in theatres? If you ever did tech for a production in high school in a small theatre without super-intense equipment, those are the ones we used. They were hooked up via <a href="http://en.wikipedia.org/wiki/DMX_(lighting">DMX</a> ). (See <a href="http://www.opendmx.net/index.php/OLA_Python_API">here</a> for more information about the Python API, which we used.)</p>
