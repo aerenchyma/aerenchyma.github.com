@@ -1,0 +1,547 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>remote lighting - everything's interesting</title>
+  <meta name="author" content="Jackie Cohen">
+
+  
+  <meta name="description" content="This past Friday, I joined forces with a friend for a fun remote lighting project using a Raspberry Pi. Remote lighting? you say. You know the &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://aerenchyma.github.com/blog/2013/04/19/remote-lighting/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="everything's interesting" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+<script src="/javascripts/footnote.js" type="text/javascript"></script>
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">everything's interesting</a></h1>
+  
+    <h2>documentation of project proceedings lives here</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:aerenchyma.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">blog</a></li>
+  <li><a href="/blog/archives">archives</a></li>
+  <li><a href="/license">licensing</a></li>
+  <li><a href="/about">about</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">remote lighting</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-04-19T23:18:00-04:00" pubdate data-updated="true">Apr 19<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>This past Friday, I joined forces with a friend for a fun remote lighting project using a Raspberry Pi.</p>
+
+<p>Remote lighting? you say. You know the colored stage lights you see in theatres? If you ever did tech for a production in high school in a small theatre without super-intense equipment, those are the ones we used. They were hooked up via <a href="http://en.wikipedia.org/wiki/DMX_(lighting">DMX</a> ). (See <a href="http://www.opendmx.net/index.php/OLA_Python_API">here</a> for more information about the Python API, which we used.)</p>
+
+<p>Some of these lights were hooked up to a Pi, and the idea was that we would be able to pass a color (e.g. on a color wheel like you might see in Photoshop), and brightness, via a web interface, which would then set the lights on as specified.</p>
+
+<p>Below is the how and the what, and the code. All you need to make this happen is the appropriate lights and wiring (I didn&#8217;t do this part, so I can&#8217;t speak to it), a Raspberry Pi, set up with wireless, and a computer with monitor and keyboard input/a laptop that can also access the wireless network.</p>
+
+<!--more-->
+
+
+<h2>the setup</h2>
+
+<p>We had 4 &#8220;normal&#8221; lights, and 1 special case light. Each of the four normal lights had four input/output channels. The fifth &#8220;special case&#8221; light had five channels.</p>
+
+<p>All of them had channels <code>brightness</code>, <code>red</code>, <code>blue</code>, and <code>green</code>. The special case light (a light sort of but not exactly like <a href="http://www.alibaba.com/product-gs/693385417/DMX_18x10W_RGBW_4IN1_Multi_color.html">this</a>) had these four channels, plus a <code>rotation</code> channel.</p>
+
+<p>Each of these channels accepted an integer from 0 - 255 (8-bit encoding).</p>
+
+<p>In the case of each of the colors (red, blue, green), the integers <a href="http://en.wikipedia.org/wiki/RGB_color_model#Additive_primary_colors">represented the color amounts</a> &#8211; for example, <code>red, green, blue = 0, 0, 255</code> would make a light shine pure blue light. <code>red, green, blue = 100, 0, 155</code> would probably result in some shade of purple light.</p>
+
+<p>For the brightness parameter, the 0 - 255 scale was pretty intuitive: 0 meant off, 255 was the brightest the light would go.</p>
+
+<p>And for the special case, the 0 - 255 scale represented the speed of rotation, from off to the fastest it would rotate, about once per second or so (this light also has a flashing option as well as rotation of the beams, but we decided not to include that as an option because the flashing, like strobe lighting, is annoying if not dangerous-for-some).</p>
+
+<p>All five of these lights were hooked up to the Pi and all the appropriate information sent to them, via the Pi. (Of course, being allowed to turn on the rotate option does not make sense if the special case is turned off, but we decided to overlook that for two reasons: (a) the users were only those of us making it, and especially (b) turning rotate on and the special case off was senseless, but would not break anything.)</p>
+
+<h2>the how</h2>
+
+<p>We needed to create the server:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">import</span> <span class="nn">SocketServer</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">MyTCPHandler</span><span class="p">(</span><span class="n">SocketServer</span><span class="o">.</span><span class="n">StreamRequestHandler</span><span class="p">):</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">def</span> <span class="nf">handle</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span class='line'>        <span class="c"># self.rfile is a file-like object created by the handler</span>
+</span><span class='line'>        <span class="c"># we can now use e.g. readline() instead of raw recv() calls</span>
+</span><span class='line'>        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</span><span class='line'>        <span class="k">print</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="c"># see what&#39;s going on</span>
+</span><span class='line'>        <span class="n">list_vals</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&quot;,&quot;</span><span class="p">)]</span>
+</span><span class='line'>        <span class="n">lights_start</span><span class="p">(</span><span class="o">*</span><span class="n">list_vals</span><span class="p">)</span>
+</span><span class='line'>        <span class="c"># Likewise, self.wfile is a file-like object used to write back to the client</span>
+</span><span class='line'>        <span class="bp">self</span><span class="o">.</span><span class="n">wfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;YES&quot;</span><span class="p">)</span> <span class="c"># acknowledge something&#39;s happening</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The function in line 10 there, and the functionality from lines 7-9, I&#8217;ll address shortly.</p>
+
+<p>And at the bottom of the script,</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">HOST</span><span class="p">,</span> <span class="n">PORT</span> <span class="o">=</span> <span class="s">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">9999</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># Create the server, binding to localhost on port 9999</span>
+</span><span class='line'><span class="n">server</span> <span class="o">=</span> <span class="n">SocketServer</span><span class="o">.</span><span class="n">TCPServer</span><span class="p">((</span><span class="n">HOST</span><span class="p">,</span> <span class="n">PORT</span><span class="p">),</span> <span class="n">MyTCPHandler</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">server</span><span class="o">.</span><span class="n">serve_forever</span><span class="p">()</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>We also needed to use the <a href="http://www.opendmx.net/index.php/OLA_Python_API">OLA Python API</a> to deal with DMX, which was a simple matter of inspecting and copying over code.</p>
+
+<p>At the top of the file,</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">import</span> <span class="nn">array</span> <span class="c"># data must be transmitted to DMX in an array</span>
+</span><span class='line'><span class="kn">from</span> <span class="nn">ola.ClientWrapper</span> <span class="kn">import</span> <span class="n">ClientWrapper</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And then, to instantiate a ClientWrapper for OLA and defining a function to deal with it:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">wrapper</span> <span class="o">=</span> <span class="n">ClientWrapper</span><span class="p">()</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">def</span> <span class="nf">DmxSent</span><span class="p">(</span><span class="n">state</span><span class="p">):</span>
+</span><span class='line'>  <span class="n">wrapper</span><span class="o">.</span><span class="n">Stop</span><span class="p">()</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Next, a function to turn on the lights. We assumed we would always want the same color coming from each of the four (or five) lights.</p>
+
+<p>Per the DMX specifications, the data structure we needed to pass was an array (a real array, not a Python list) with values in order for each lights. So the first four integer values in the array corresponded to the values for one normal light: <em>brightness, red, green, blue</em> values. The second would be the same four values, for the second normal light, etc. The special case light came last, in the order <em>brightness, red, green, blue, rotation</em>.</p>
+
+<p>But just appending one after another was easy to lose track of and not pretty. Hence the function:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="k">def</span> <span class="nf">lights_do</span><span class="p">(</span><span class="n">bright</span><span class="p">,</span> <span class="n">red</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">blue</span><span class="p">,</span> <span class="n">rotate</span><span class="p">,</span> <span class="n">sp</span><span class="p">):</span> <span class="c"># the sp parameter is 0 or 1 and indicates whether the special case light goes on or not</span>
+</span><span class='line'>  <span class="n">universe</span> <span class="o">=</span> <span class="mi">1</span> <span class="c"># this is required by DMX -- the lights are essentially attributes of &#39;universe 1&#39;</span>
+</span><span class='line'>  <span class="n">data</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="s">&#39;B&#39;</span><span class="p">)</span> <span class="c"># also required; see the OLA Python API specs</span>
+</span><span class='line'>  <span class="n">light_data</span> <span class="o">=</span> <span class="p">[</span><span class="n">bright</span><span class="p">,</span> <span class="n">red</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">blue</span><span class="p">,</span> <span class="n">rotate</span><span class="p">]</span>
+</span><span class='line'>  <span class="n">normal_light</span> <span class="o">=</span> <span class="n">light_data</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c"># for extra clarity</span>
+</span><span class='line'>  <span class="n">tmp</span> <span class="o">=</span> <span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">normal_light</span><span class="o">*</span><span class="mi">4</span><span class="p">]</span>
+</span><span class='line'>  <span class="k">if</span> <span class="n">sp</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+</span><span class='line'>      <span class="n">tmp</span> <span class="o">=</span> <span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">light_data</span><span class="p">]</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">client</span> <span class="o">=</span> <span class="n">wrapper</span><span class="o">.</span><span class="n">Client</span><span class="p">()</span> <span class="c"># wrapper, above, is global in this script</span>
+</span><span class='line'>  <span class="n">client</span><span class="o">.</span><span class="n">SendDmx</span><span class="p">(</span><span class="n">universe</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">DmxSent</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">wrapper</span><span class="o">.</span><span class="n">Run</span><span class="p">()</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The use of previously assigned global variables is a little cringe-worthy, but it achieved our purpose, and while I&#8217;ll make arguments for good practices all the time, the goal of this project was nifty colored lights, to be perfectly honest. It can stand improvements on both the script and the wiring ends, which are to follow. (Treat this as a recipe for the original hooray.)</p>
+
+<p><code>tmp</code> here is obviously a throwaway variable. But the list comprehensions in lines 7 and 9 in that snippet earned me a &#8220;that syntax is <em>slick</em>, I admit&#8221; from my not-so-much-a-Python-programmer friend. List comprehensions, they are excellent.</p>
+
+<p>It&#8217;s extremely explicit code in many ways, allowing for Pythonic syntax like the list comprehensions, but I think there&#8217;s value in that kind of explicitness.</p>
+
+<p>Finally, we needed a wrapper function to handle whether or not the special case was on, so everything would go off or on as appropriate before passing new values to the lights to turn them on/change properties of the input channels (e.g. color, brightness).</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="k">def</span> <span class="nf">lights_start</span><span class="p">(</span><span class="n">bright</span><span class="p">,</span><span class="n">red</span><span class="p">,</span><span class="n">green</span><span class="p">,</span><span class="n">blue</span><span class="p">,</span><span class="n">rotate</span><span class="p">,</span><span class="n">sp</span><span class="p">):</span>
+</span><span class='line'>    <span class="n">lights_do</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">lights_do</span><span class="p">(</span><span class="n">bright</span><span class="p">,</span><span class="n">red</span><span class="p">,</span><span class="n">green</span><span class="p">,</span><span class="n">blue</span><span class="p">,</span><span class="n">rotate</span><span class="p">,</span><span class="n">sp</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>So, let&#8217;s go back to the <code>handle()</code> method of the <code>MyTCPHandler</code> class:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="k">def</span> <span class="nf">handle</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span class='line'>  <span class="c"># self.rfile is a file-like object created by the handler</span>
+</span><span class='line'>  <span class="c"># we can now use e.g. readline() instead of raw recv() calls</span>
+</span><span class='line'>  <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</span><span class='line'>  <span class="k">print</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="c"># see what&#39;s going on</span>
+</span><span class='line'>  <span class="n">list_vals</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&quot;,&quot;</span><span class="p">)]</span>
+</span><span class='line'>  <span class="n">lights_start</span><span class="p">(</span><span class="o">*</span><span class="n">list_vals</span><span class="p">)</span>
+</span><span class='line'>  <span class="c"># Likewise, self.wfile is a file-like object used to write back to the client</span>
+</span><span class='line'>  <span class="bp">self</span><span class="o">.</span><span class="n">wfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;YES&quot;</span><span class="p">)</span> <span class="c"># acknowledge something&#39;s happening</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>When this script is served on the Raspberry Pi, wired to the lights in question, it can accept input from a client.</p>
+
+<p>So this <code>handle()</code> method gets data: <code>self.data</code> .</p>
+
+<p>We expect this to be a comma-separated string of six integer values: <code>bright, red, green, blue, rotate, sp</code> , as seen in <code>lights_start()</code> and <code>lights_do()</code> (above).</p>
+
+<p>In line 4 in the snippet just above, <code>self.data = self.rfile.readline().strip()</code>, we take the arguments from the client and make them into a string stripped of whitespace on either end.</p>
+
+<p>In line 6, <code>list_vals = [int(x) for x in self.data.split(",")]</code>, we split the string at the commas, into a list, making a list e.g. <code>['255','0','255','0','0','1']</code>. But each element of this list is of type <code>String</code>, so we use list comprehension syntax to make <code>list_vals</code> a list of integers (DMX expects integer values).</p>
+
+<p>And in line 7, we call the function <code>lights_start()</code>, the wrapper function seen further above, which prepares to call <code>lights_do()</code> with any appropriate new values. We call it with the values passed to the server from the client: <code>*list_vals</code> is Python syntax to &#8220;unpack&#8221; an iterable like a list.</p>
+
+<h2>the interface</h2>
+
+<p>Wanting to make a quick web interface for sending the colors to the Pi server, we looked for a color picker wheel in JavaScript. Soon, the internet informed us that <code>color</code> is a built-in input value in HTML5.</p>
+
+<p>&#8220;SWEET,&#8221; I said. So, a hasty HTML form (we weren&#8217;t playing designers here):</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;head&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;title&gt;</span>Pick a color<span class="nt">&lt;/title&gt;</span>
+</span><span class='line'><span class="nt">&lt;/head&gt;</span>
+</span><span class='line'><span class="nt">&lt;body&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">&quot;light.php&quot;</span> <span class="na">method=</span><span class="s">&quot;post&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>      Choose Color:<span class="nt">&lt;br&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;color&quot;</span> <span class="na">name=</span><span class="s">&quot;color&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;br&gt;</span>
+</span><span class='line'>      Brightness:
+</span><span class='line'>      <span class="nt">&lt;br&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">name=</span><span class="s">&quot;bright&quot;</span> <span class="na">value=</span><span class="s">&quot;255&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;br&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;submit&quot;</span> <span class="na">value=</span><span class="s">&quot;submit&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/form&gt;</span>
+</span><span class='line'><span class="nt">&lt;/body&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>In the browser, this looks like:</p>
+
+<p><img src="octopress/source/images/colorform_remotelighting.png"></p>
+
+<p>We chose 255 as a default brightness, because that seemed overall most likely, and 0 &#8211; black, or off, as a &#8216;default&#8217; for all the color inputs.</p>
+
+<p>(The special case options are not yet dealt with well in the interface, but that&#8217;s easy enough to add, as would be a dropdown menu or slider for the brightness value, which here is just a text entry.)</p>
+
+<p>That would get us a hex color value. We would need to convert that value to RGB. (The 0-255 integer values determining the colors &#8211; of course, the input values for <code>red, green, blue</code> must always add up to 255 in total.) We decided to use PHP (mainly because my expertise, with regards to languages we used, was in Python, and my friend&#8217;s, in PHP):</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="k">function</span> <span class="nf">hex2rgb</span><span class="p">(</span><span class="nv">$hex</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>   <span class="nv">$hex</span> <span class="o">=</span> <span class="nb">str_replace</span><span class="p">(</span><span class="s2">&quot;#&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="nv">$hex</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>   <span class="k">if</span><span class="p">(</span><span class="nb">strlen</span><span class="p">(</span><span class="nv">$hex</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>      <span class="nv">$r</span> <span class="o">=</span> <span class="nx">hexdec</span><span class="p">(</span><span class="nx">substr</span><span class="p">(</span><span class="nv">$hex</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="nx">substr</span><span class="p">(</span><span class="nv">$hex</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">));</span>
+</span><span class='line'>      <span class="nv">$g</span> <span class="o">=</span> <span class="nx">hexdec</span><span class="p">(</span><span class="nx">substr</span><span class="p">(</span><span class="nv">$hex</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="nx">substr</span><span class="p">(</span><span class="nv">$hex</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">));</span>
+</span><span class='line'>      <span class="nv">$b</span> <span class="o">=</span> <span class="nx">hexdec</span><span class="p">(</span><span class="nx">substr</span><span class="p">(</span><span class="nv">$hex</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="nx">substr</span><span class="p">(</span><span class="nv">$hex</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">));</span>
+</span><span class='line'>   <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>      <span class="nv">$r</span> <span class="o">=</span> <span class="nx">hexdec</span><span class="p">(</span><span class="nx">substr</span><span class="p">(</span><span class="nv">$hex</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">));</span>
+</span><span class='line'>      <span class="nv">$g</span> <span class="o">=</span> <span class="nx">hexdec</span><span class="p">(</span><span class="nx">substr</span><span class="p">(</span><span class="nv">$hex</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">));</span>
+</span><span class='line'>      <span class="nv">$b</span> <span class="o">=</span> <span class="nx">hexdec</span><span class="p">(</span><span class="nx">substr</span><span class="p">(</span><span class="nv">$hex</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">));</span>
+</span><span class='line'>   <span class="p">}</span>
+</span><span class='line'>   <span class="nv">$rgb</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="nv">$r</span><span class="p">,</span> <span class="nv">$g</span><span class="p">,</span> <span class="nv">$b</span><span class="p">);</span>
+</span><span class='line'>   <span class="c1">//return implode(&quot;,&quot;, $rgb); // returns the rgb values separated by commas</span>
+</span><span class='line'>   <span class="k">return</span> <span class="nv">$rgb</span><span class="p">;</span> <span class="c1">// returns an array with the rgb values</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>So if a color was chosen on the interface, then we wanted to POST that RGB information, and whatever brightness was selected, to the server:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="k">if</span> <span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">])</span> <span class="p">{</span> <span class="c1">// if-statement begins</span>
+</span><span class='line'>  <span class="nv">$color</span> <span class="o">=</span> <span class="nx">hex2rgb</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">]);</span>
+</span><span class='line'>  <span class="nv">$bright</span> <span class="o">=</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;bright&#39;</span><span class="p">];</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>and, still in this if-statement, turn the returned array from <code>hex2rgb()</code> to a string separated by commas. The quick-n-dirty way:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'>  <span class="nv">$out</span> <span class="o">=</span> <span class="nv">$bright</span> <span class="o">.</span> <span class="s1">&#39;,&#39;</span> <span class="o">.</span> <span class="nv">$color</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">.</span> <span class="s1">&#39;,&#39;</span> <span class="o">.</span> <span class="nv">$color</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">.</span> <span class="s1">&#39;,&#39;</span> <span class="o">.</span> <span class="nv">$color</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">.</span> <span class="s1">&#39;,255,0&#39;</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Then we create a file pointer to the open socket, and pass it the IP address of the Raspberry Pi and the appropriate port (which in our case, as you can see earlier in the post, was port 9999):</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'>  <span class="nv">$fp</span> <span class="o">=</span> <span class="nb">fsockopen</span><span class="p">(</span><span class="s1">&#39;xxx.xxx.xx.xx&#39;</span><span class="p">,</span><span class="s1">&#39;9999&#39;</span><span class="p">);</span> <span class="c1">// x-es represent the pi IP</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And write it to the server:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'>  <span class="nb">fwrite</span><span class="p">(</span><span class="nv">$fp</span><span class="p">,</span> <span class="nv">$out</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span> <span class="c1">// if-statement ends here</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Hooray! I don&#8217;t have pictures, but it was pretty great.</p>
+
+<p>We had a lot of fun with this project, and I think it&#8217;s only made better by the facts that (a) we said &#8216;hey, let&#8217;s do this&#8217; and went and made it happen, and (b) this kind of reasonably simple affecting one&#8217;s physical environment in fun ways using capabilities of a <a href="http://www.raspberrypi.org/faqs">Raspberry Pi</a> is, like the workshop with LEDs and photo sensors I briefly referred to the other day, a great way to show kids the possibilities that are available by learning a little bit about electronics and programming. Which are also GREAT, oh man.</p>
+
+<p>Here&#8217;s where the value I mentioned in explicit code comes in: it&#8217;s great that it&#8217;s easy to read what&#8217;s happening without shoving too much information into one line, but it&#8217;s even better that this makes it easy to explain, and thus easier to teach.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Jackie Cohen</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-04-19T23:18:00-04:00" pubdate data-updated="true">Apr 19<span>th</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/hardware/'>hardware</a>, <a class='category' href='/blog/categories/php/'>php</a>, <a class='category' href='/blog/categories/programming/'>programming</a>, <a class='category' href='/blog/categories/python/'>python</a>, <a class='category' href='/blog/categories/raspberrypi/'>raspberrypi</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://aerenchyma.github.com/blog/2013/04/19/remote-lighting/" data-via="jczetta" data-counturl="http://aerenchyma.github.com/blog/2013/04/19/remote-lighting/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/04/17/the-number-sign/" title="Previous Post: the # sign">&laquo; the # sign</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/04/19/remote-lighting/">remote lighting</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/04/17/the-number-sign/">the # sign</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/04/15/a-useful-ruby-script-for-mapping-projects/">A useful Ruby script (part I)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/04/10/10-things-i-learned-as-default-tech-support/">10 things I learnt as default tech support</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/03/25/instabitly/">instabitly</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("jczetta", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/jczetta" class="twitter-follow-button" data-show-count="false">Follow @jczetta</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Jackie Cohen -  <span class="license">All content, unless otherwise noted, is <a href="http://creativecommons.org/licenses/by-sa/3.0/us/" target=_blank>CC-BY-SA</a> licensed.</span> -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
