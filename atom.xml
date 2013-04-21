@@ -4,7 +4,7 @@
   <title><![CDATA[everything's interesting]]></title>
   <link href="http://aerenchyma.github.com/atom.xml" rel="self"/>
   <link href="http://aerenchyma.github.com/"/>
-  <updated>2013-04-21T12:03:53-04:00</updated>
+  <updated>2013-04-21T12:06:28-04:00</updated>
   <id>http://aerenchyma.github.com/</id>
   <author>
     <name><![CDATA[Jackie Cohen]]></name>
@@ -247,7 +247,7 @@
 
 <p>In the browser, this looks like:</p>
 
-<p><img src="http://aerenchyma.github.com/images/colorform_remotelighting.png"></p>
+<p><img src="http://jaclynzetta.files.wordpress.com/2013/04/colorform_remotelighting.png"></p>
 
 <p>We chose 255 as a default brightness, because that seemed overall most likely, and 0 &#8211; black, or off, as a &#8216;default&#8217; for all the color inputs.</p>
 
