@@ -4,7 +4,7 @@
   <title><![CDATA[everything's interesting]]></title>
   <link href="http://aerenchyma.github.com/atom.xml" rel="self"/>
   <link href="http://aerenchyma.github.com/"/>
-  <updated>2013-04-21T17:07:52-04:00</updated>
+  <updated>2013-04-22T16:07:13-04:00</updated>
   <id>http://aerenchyma.github.com/</id>
   <author>
     <name><![CDATA[Jackie Cohen]]></name>
@@ -154,7 +154,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>The use of previously assigned global variables is a little cringe-worthy, but it achieved our purpose, and while I&#8217;ll make arguments for good practices all the time, the goal of this project was nifty colored lights, to be perfectly honest. It can stand improvements on both the script and the wiring ends, which are to follow. (Treat this as a recipe for the original hooray.)</p>
+<p>The use of previously assigned global variables is a little cringe-worthy, but it achieved our purpose, and while I&#8217;ll make arguments for good practices all the time, the goal of this project was nifty colored lights, to be perfectly honest. Now that we know it works, we&#8217;ll do some brief polishing (both on the script and the wiring ends, but especially on the interface &#8211; these are in progress).</p>
 
 <p><code>tmp</code> here is obviously a throwaway variable. But the list comprehensions in lines 7 and 9 in that snippet earned me a &#8220;that syntax is <em>slick</em>, I admit&#8221; from my not-so-much-a-Python-programmer friend. List comprehensions, they are excellent.</p>
 
