@@ -4,7 +4,7 @@
   <title><![CDATA[Category: misc | everything's interesting]]></title>
   <link href="http://aerenchyma.github.com/blog/categories/misc/atom.xml" rel="self"/>
   <link href="http://aerenchyma.github.com/"/>
-  <updated>2013-04-22T16:07:13-04:00</updated>
+  <updated>2013-04-30T00:18:10-04:00</updated>
   <id>http://aerenchyma.github.com/</id>
   <author>
     <name><![CDATA[Jackie Cohen]]></name>
@@ -12,6 +12,40 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Things worthwhile]]></title>
+    <link href="http://aerenchyma.github.com/blog/2013/04/29/things-worthwhile/"/>
+    <updated>2013-04-29T23:55:00-04:00</updated>
+    <id>http://aerenchyma.github.com/blog/2013/04/29/things-worthwhile</id>
+    <content type="html"><![CDATA[<p>In between projects, or at least time for documentation of them here (my very own Raspberry Pi arrived the other day! But I must acquire other hardware to do the project(s) I want first. I've been shoving new front-end-dev-y information into my head rapidly for a work project over the past week or so!) --</p>
+
+<p><a href="http://geekfeminism.org/author/brainwane/">Sumana Harihareswara</a> posted <a href="http://geekfeminism.org/?p=7554">this</a>, "From 'Sit Still' to 'Scratch your own itch'" on <a href="http://geekfeminism.org">GeekFeminism.org</a> recently, and I wish to share it all over because I think it's wonderful.</p>
+
+<p>I commented, but I'm echoing a slightly edited version of that comment here, with context included.</p>
+
+<!-- more -->
+
+
+<p>She lists some ideas and things to remember about "alternative pathways" to learning, and to getting into open stuff. There's an unspoken (and sometimes spoken) belief in large swathes of the open source world -- well-meaning, almost always! -- that not only is a good way of getting into programming (or really learning anything, especially anything that involves <em>making</em> ) to "scratch your own itch," but that this is the ideal way, the real way, the way that makes you legit, whatever that means.</p>
+
+<p>Well, no.</p>
+
+<p>I think this is a massively useful reminder. It's something I struggle with: 'but I want to make something <em>new.</em>'</p>
+
+<p>I also think there are increasingly large sections of the internet and the world replete with great resources for new programmers or people who want to learn to program, or learn about programming, or learn about building stuff with circuits, or learn about automating putting a butterfly on every piece of clothing they own (a real, and seriously cool example, but that's another story). But there's a piece brought up in her piece I've linked that is often forgotten: all the practicing has value, and making something is <em>cool.</em></p>
+
+<p>Sumana writes, <em>It is fine to simply piggyback on existing projects and drift around a bit learning lots of little things that way</em> -- more people should hear this. She writes, <em>Embrace boringness</em>  and explains that <em>If an idea appeals to you but there’s an inner censor saying “that’s too boring” or “what’s the use,” you can tell that inner voice that Sumana says “shut up.”</em></p>
+
+<p>I deeply appreciate this, especially in the context of the popular Django tutorials, to be honest. I get frustrated making things I know have been made before if I don't have an idea to improve it, to make it mine. I tell other people, but seem to have a hypocritically difficult time learning myself, that sometimes doing one version without variation is a valuable way to learn and make an altered version better, let alone make me a better programmer. Yes, there are lots of blogging systems out there, and if you make a blog where you can post things, or edit things, or delete things or none or some of the above, even if you don't want to use it, it is an <em>unqualified awesome</em> that you made it. It's valuable time spent if you wanted to learn stuff, to make something, and it can make you better at more than just building a blog later if you want it to but these aren't the reasons to do it for me. <em>You made that</em> and learned stuff and it was neat, that's enough.</p>
+
+<p>That's not a condescending head-pat sort of comment. When I say "that's COOL" I mean it, but I don't believe it for myself and that's ridiculous. I never think musicians or visual artists are wasting their time by doing what they do, nor by practicing. Time on the ground is valuable -- probably the most valuable thing if <em>being a great programmer</em> is a goal.</p>
+
+<p>(I learn things from Hacker School even almost a year after I flew to New York for it.)</p>
+
+<p>Anyway, I recommend it.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[the # sign]]></title>
