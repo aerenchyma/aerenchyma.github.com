@@ -4,7 +4,7 @@
   <title><![CDATA[Category: misc | everything's interesting]]></title>
   <link href="http://aerenchyma.github.com/blog/categories/misc/atom.xml" rel="self"/>
   <link href="http://aerenchyma.github.com/"/>
-  <updated>2013-05-27T00:47:33-04:00</updated>
+  <updated>2013-05-27T00:50:10-04:00</updated>
   <id>http://aerenchyma.github.com/</id>
   <author>
     <name><![CDATA[Jackie Cohen]]></name>
@@ -31,7 +31,7 @@
 
 <p>Right now, that's the most thrilling thing for me about <em>being a programmer</em>, and also the most frustrating. There is so much knowledge I learnt over years that I wish I could convey in a matter of minutes. But my ability to make something that I <em>know</em> makes someone's life easier, watch them use it, and make it better for their use, never gets old.</p>
 
-<p>Still: I don't know others' jobs better than they do. Maybe <em>I</em> think a command-line script will solve a lot of problems but it won't help if the users-to-be are confused by "the command line." And maybe I'm <em>wrong.</em> <a href="https://medium.com/close-to-the-machine/8c2d491886fa">Diana Kimball wrote about arrogance and obsession</a>, and how arrogance can be a tool. This resonates with me. But the same kind of obsession that makes me happy also scares me. I've walked away from conversations about problem-solving feeling like an ass. <em>I talked, asked questions, but I saw I was operating at a different speed from the people at the table,</em> Ullman writes.<sup id='fnref:2'><a href='#fn:2' rel='footnote'>2</a></sup> That's familiar. Sometimes I'm focusing on a detail that is important for the <em>database</em> but not the users. Sometimes I'm rushing ahead -- this platform, that language, yes yes yes... What?</p>
+<p>Still: I don't know others' jobs better than they do. Maybe <em>I</em> think a command-line script will solve a lot of problems but it won't help if the users-to-be are confused by "the command line." And maybe I'm <em>wrong.</em> <a href="https://medium.com/close-to-the-machine/8c2d491886fa">Diana Kimball wrote about arrogance and obsession</a>, and how arrogance can be a tool. This resonates with me. (Sometimes, I'm right.) But the same kind of obsession that makes me happy also scares me. I've walked away from conversations about problem-solving feeling like an ass. <em>I talked, asked questions, but I saw I was operating at a different speed from the people at the table,</em> Ullman writes.<sup id='fnref:2'><a href='#fn:2' rel='footnote'>2</a></sup> That's familiar. Sometimes I'm focusing on a detail that is important for the <em>database</em> but not the users. Sometimes I'm rushing ahead -- this platform, that language, yes yes yes... What?</p>
 
 <p>Many of these tools to switch on are incredibly useful in programming but the opposite when explaining, and so walking the line between the technical and the non-technical (these are terms I hesitate to use) -- say, teaching programming, or working on tech systems for a multi-disciplinary organization -- means careful attention is important. What are my assumptions (today)?</p>
 
