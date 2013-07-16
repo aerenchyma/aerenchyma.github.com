@@ -4,7 +4,7 @@
   <title><![CDATA[everything's interesting]]></title>
   <link href="http://aerenchyma.github.com/atom.xml" rel="self"/>
   <link href="http://aerenchyma.github.com/"/>
-  <updated>2013-07-15T22:13:46-04:00</updated>
+  <updated>2013-07-15T22:17:03-04:00</updated>
   <id>http://aerenchyma.github.com/</id>
   <author>
     <name><![CDATA[Jackie Cohen]]></name>
@@ -118,7 +118,7 @@
 <li><p>Tiny human problems are often fun ones: I can&#8217;t honestly say that I&#8217;ve used this often in the weeks since it&#8217;s existed on my hard drive, but I&#8217;ve used it more than once &#8211; and I&#8217;ve certainly thought about it.</p></li>
 <li><p>Language is amazing. NLP, and issues I&#8217;ve thought about and written about as both a linguist and a programmer repeatedly arise, even when I don&#8217;t come at a problem thinking it&#8217;s a <em>language parsing problem</em>. A <em>lot</em> of things are language parsing problems, I am finding. Recipes rely so much on human knowledge! Every day I come up with a new angle on my senior thesis from years ago (that&#8217;s another story entirely).</p></li>
 <li><p>Evaluation is a hard problem. When I told people about this and they proposed a different solution, I spent a couple minutes thinking <em>oh, duh</em> &#8211; and realized it wasn&#8217;t obvious at all. Maybe their solutions result in problems that generate less confusion, or less amusement (that&#8217;s an inclusive OR). Certainly there are more elegant ways to write this, in fewer lines of code, such that it will run faster, relying on different architecture. But none of them solve everything, insofar as I can tell, without more time. It&#8217;s not a snap-your-fingers-problem.</p></li>
-<li><p>And I&#8217;ve learned a lot. I couldn&#8217;t do this in any kind of hasty side-project kinda way four years ago: I wasn&#8217;t comfortable enough just <em>playing.</em> It seemed so serious, like so much to hold in your head. It may not be a simple problem exactly but it isn&#8217;t overwhelming anymore. More and more what-ifs, and I&#8217;ve had a lot of fun discussions about this; the best part, probably, was comparing solutions, because it was possible to hold them in my head and compare them piece-by-piece. It&#8217;s a, if not <em>the</em>, way I think project-based-learning should go.</p></li>
+<li><p>And I&#8217;ve learned a lot. I couldn&#8217;t do this in any kind of hasty side-project kinda way four years ago: I wasn&#8217;t comfortable enough just <em>playing.</em> It seemed so serious, like so much to hold in your head. It may not be a simple problem exactly but it isn&#8217;t overwhelming anymore. I&#8217;ve had a lot of fun discussions about this; the best part, probably, was comparing solutions, because it was possible to hold them in my head and compare them piece-by-piece. It&#8217;s a, if not <em>the</em>, way I think project-based-learning should go.</p></li>
 </ul>
 
 
