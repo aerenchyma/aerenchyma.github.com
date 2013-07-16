@@ -4,7 +4,7 @@
   <title><![CDATA[everything's interesting]]></title>
   <link href="http://aerenchyma.github.com/atom.xml" rel="self"/>
   <link href="http://aerenchyma.github.com/"/>
-  <updated>2013-07-15T19:54:25-04:00</updated>
+  <updated>2013-07-15T22:13:46-04:00</updated>
   <id>http://aerenchyma.github.com/</id>
   <author>
     <name><![CDATA[Jackie Cohen]]></name>
@@ -12,6 +12,132 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Recipe formatting]]></title>
+    <link href="http://aerenchyma.github.com/blog/2013/07/15/recipe-formatting/"/>
+    <updated>2013-07-15T18:21:00-04:00</updated>
+    <id>http://aerenchyma.github.com/blog/2013/07/15/recipe-formatting</id>
+    <content type="html"><![CDATA[<h2>the what</h2>
+
+<p>Almost four years ago, I was having a discussion with a friend about recipes: we determined that ideally, ingredient amounts should be integrated into recipe directions as well as in a list at the beginning of the recipe for shopping/gathering/whatever. Rather than looking at &#8220;Now, add rice vinegar&#8221; and flipping gaze back to the beginning to see just how much, it should say &#8220;add 1/4 cup rice vinegar&#8221; right in the instructions.</p>
+
+<p>We talked about compiling recipes this way, about indexing them in useful ways; by ingredient, dietary preference alignment, allergy compliance, and how you should scale them for a thirty-person cooperative. I thought about doing it programmatically; I&#8217;d begun to learn Python a few months before. I shook my head, at the time: it sounded so difficult, and I thought maybe later.</p>
+
+<p>A few weeks ago, it seemed a lot more doable. The overhead on web scraping feels lighter now: I&#8217;ve done it a whole lot more. My attitude toward solving problems is neither less nor more enthusiastic four years later (freaking love &#8216;em then and now) but it is significantly more confident. I felt that the problem would be less overwhelming now.</p>
+
+<p>Less overwhelming, perhaps. It still turns out to be hard.</p>
+
+<!-- more -->
+
+
+<p>But it&#8217;s a fun problem, and an interesting one, because challenging pieces continue to rise to the surface &#8211; not as sudden &#8220;oh, crap!&#8221; surprises, but slowly looming challenges of various size.</p>
+
+<p>I decided to attempt only parsing recipes from the site <a href="http://www.allrecipes.com">AllRecipes</a>, in order to be able to scrape reliably and not turn it into as much of a Machine Learning problem (what&#8217;s an ingredient, etc) or add another layer of a parsing problem to the challenge. Even with this limit, it&#8217;s not <em>easy</em>. (A few issues remain unsolved with the method I used.)</p>
+
+<h2>the how</h2>
+
+<p>I wrote my current attempt in Python, doing the scraping with <a href="https://beautiful-soup-4.readthedocs.org/en/latest/">BeautifulSoup</a>.</p>
+
+<p>Most of it is currently being done via a procedural script. I use one helper function that I call <code>word_sans_comma(w)</code> in order to strip words of punctuation non-destructively, needing a function because strings are, of course, immutable in Python.</p>
+
+<p>To test, I save the brief version of an AllRecipes URL in a <code>test_recipe</code> variable to save me typing or entering otherwise. I tested several recipes, with different ingredients, to try and catch bugs, which I&#8217;ll address shortly. For one example, there&#8217;s <code>http://allrecipes.com/Recipe/Chicken-Pot-Pie-IX/</code>.</p>
+
+<p>I also have pre-compiled lists of words, which need to be gathered in more responsible ways: stopwords (things like &#8220;in&#8221;, &#8220;on&#8221;, &#8220;and&#8221;; words that don&#8217;t add much to meaning individually and don&#8217;t help in searches), meat words (e.g. &#8220;chicken&#8221; or &#8220;beef&#8221;, words that indicate there are meat products in the recipe), dairy words (I assume we get the picture), and other non-vegan words which don&#8217;t fall into any of the former categories (right now only including &#8220;egg&#8221; &#8211; I welcome other suggestions).</p>
+
+<p>I open the recipe page and create a <code>soup</code> instance with BeautifulSoup, pull out the title and the number of servings. I find the part of the page that lists ingredients with <code>test_ingr = rec_doc.findAll("p", {"class" : "fl-ing"})</code>. (See <a href="https://github.com/aerenchyma/allrecipe_parsing">the code</a>.) Or in English, <em>find all the occurrences of <code>&lt;p class="fl-ing"&gt;&lt;/p&gt;</code> tags on the page.</em></p>
+
+<p>I iterate through the list I get in <code>test_ingr</code>, and if it includes a name and a discrete amount (1/2 cup, 1 pinch, whatever &#8211; they&#8217;re all labeled with the HTML id <code>lblIngAmount</code>, while the ingredient names all are wrapped within a tag id&#8217;d <code>lblIngName</code>), I add these things to a Python dictionary of ingredients where the Key:Value pairs are Ingredient-Name:Ingredient-Amount.</p>
+
+<p>Using <code>.findAll()</code> means I will get a return value of a Python list, so right there I have what I need: each of the ingredients, with their respective amounts.</p>
+
+<p>The ingredient directions on AllRecipes recipes are wrapped in their own <code>div</code>. I split up the directions into words with Python&#8217;s <code>.split()</code>, and iterate through the non-stopwords in the resulting list. I am concerned with a few things during this iteration:</p>
+
+<ol>
+<li><p>I avoid all simple past verbs (many things can be &#8220;chopped&#8221; or &#8220;sliced&#8221; so it worked best not to consider these when looking for places in the directions where amounts or fuller ingredient descriptions needed to be inserted).</p></li>
+<li><p>Whether my boolean variables <code>vegan</code> and <code>non-dairy</code> should be turned False: are any of these words in my meat words or dairy words lists? (Common allergies are another set of categories I&#8217;m likely to add in the future.)</p></li>
+<li><p>In a show of relatively poor performance (only speedwise &#8211; it detracts from the speed of a run, but not noticeably for these purposes<sup id='fnref:1'><a href='#fn:1' rel='footnote'>1</a></sup>), I loop through the ingredients in the dictionary of ingredients I created earlier, in a nested loop.</p></li>
+</ol>
+
+
+<p>I split each ingredient name into a Python list of individual words and compare these words, without punctuation (using my <code>word_sans_comma(w)</code> function), to each relevant word in the ingredient directions. If it&#8217;s a match, I replace that word in the directions with the string composed of [INGREDIENT AMOUNT] + [INGREDIENT NAME (as listed in the original ingredients dictionary)], correct for punctuation as needed, and fix punctuation issues. For example, if the directions state</p>
+
+<p><code>stir in the pasta, then add the lemon</code></p>
+
+<p>you&#8217;d want that comma, e.g. <code>stir in the 1/2 lb of whole wheat pasta, then ...</code> is better than <code>stir in the 1/2 lb of whole wheat pasta then add the lemon</code>. The former reads more clearly (to me, anyway).</p>
+
+<p>I need that <code>word_sans_comma</code> function in order to compare words without attached punctuation to other similarly unencumbered words, but retain the original, punctuation-ful strings for the final result. It&#8217;d be pretty ugly to take out all the commas and periods from a recipe in order to insert ingredient amounts in the directions. The varying ways in which punctuation is used contributes to a lot of hard and interesting linguistics problems (not only computational), and it certainly contributes here. Among others, <a href="http://books.google.com/books/about/The_Linguistics_of_Punctuation.html?id=Sh-sruuKjJwC">Geoffrey Nunberg wrote about this</a>.</p>
+
+<p>Finally, if any words remain doubled, I remove one of the occurrences of the word. For example, if the directions read <code>take the chicken, chopped ...</code> then replacing that to result in <code>take the 2 chicken breasts, chopped chopped</code> is unfortunate.</p>
+
+<p>I separate the sentences in the directions into lines, and write the recipe title, dietary preference categories, serving number, and enhanced line-by-line directions to a file.</p>
+
+<p>(I&#8217;m still deciding on what I want my LaTeX template for these purposes to look like, so at the moment it&#8217;s a text file, but a much clearer text file than the print version of most of these recipes.)</p>
+
+<p>Upcoming: pretty TeX, better indexing, allergy categorization, hosting, removal of awkwardness (e.g. replacing the phrase &#8220;parsley&#8221; with &#8220;1/2 cup freshly chopped, bright green parsley&#8221; six times in a row &#8211; it&#8217;s not <em>necessarily</em> inaccurate, but it&#8217;s certainly annoying), and an issues list on GitHub to keep track of these things outside my personal issue tracker.</p>
+
+<p>You can see the code <a href="https://github.com/aerenchyma/allrecipe_parsing">here</a>.</p>
+
+<h2>the issues</h2>
+
+<p>In discussions with variously similarly-minded people, most of the solutions proposed for this problem of re-laying-out AllRecipes&#8217; recipes are either much like mine, involve using a full parser, or involve employing a variety of minimum edit distance in combination with part of my solution. Each of these ideas for solutions offer their own advantages and their own problems. Most notably, I think, none makes it easy, and none seems to make the problems invisible.</p>
+
+<p>The most significant issues remaining in mine are three (or four, depending upon how you separate them).</p>
+
+<ul>
+<li><strong>Clarity.</strong></li>
+</ul>
+
+
+<p>The example I gave earlier about chopped chicken and accidental word-reduplication is sometimes particularly problematic. What if the original recipe states <code>put the chopped chicken in the pan</code> and the ingredient list includes <code>2 chicken breasts, chopped</code>? The current algorithm may result in <code>put the chopped 2 chicken breasts, chopped</code>. Bad.</p>
+
+<p>With the current algorithm, replacing also occurs in places it ought not, creating some problematic sentences (this problem often overlaps with the awkwardness of multiple insertions of a long ingredient phrase that I refer to above). My favorite resulting gem: <em>Continue baking until cheese is melted and 4 skinless, boneless chicken breast halves juices run clear</em>.</p>
+
+<p>Yay, evaluation.</p>
+
+<ul>
+<li><strong>Amount separation.</strong></li>
+</ul>
+
+
+<p>This algorithm does not account at all for occurrences of splitting up an amount of a single type of ingredient. For example, if a recipe calls for 2 cups of sugar but has you <em>stir in 1.5 cups of sugar</em> at the beginning of the process, then <em>sprinkle 1/2 cup of sugar</em> on top at the end of the preparations, this will turn your recipe pretty confusing.</p>
+
+<ul>
+<li><strong>Overlapping names.</strong></li>
+</ul>
+
+
+<p>Celery and celery seed are two different ingredients. Until common bigrams (or better parsing mechanisms?) are implemented, this code will treat both occurrences of the word &#8220;celery&#8221; the same, though. You&#8217;ll see this, if you try the chicken pot pie recipe. I tilted my head at it for a moment and then laughed, adding to the list.</p>
+
+<p>This happens only when the shared token (&#8220;celery&#8221;, in this case) comes first in a phrase: for instance, it&#8217;s fine if a recipe includes both <em>shredded mozzarella</em> and <em>smoked mozzarella</em><sup id='fnref:2'><a href='#fn:2' rel='footnote'>2</a></sup>, because replacing happens on first occurrence. This is a Big Bad Problem, but I found it interesting that it came up as late as it did; it&#8217;s not a terribly unusual case.</p>
+
+<h2>takeaways</h2>
+
+<ul>
+<li><p>Even if you&#8217;re really familiar with a language, its gotchas may still get you. (I spent more than a second wondering why Python&#8217;s <code>.replace()</code> was working the way it was, though I&#8217;ve probably used it thousands of times.)</p></li>
+<li><p>Tiny human problems are often fun ones: I can&#8217;t honestly say that I&#8217;ve used this often in the weeks since it&#8217;s existed on my hard drive, but I&#8217;ve used it more than once &#8211; and I&#8217;ve certainly thought about it.</p></li>
+<li><p>Language is amazing. NLP, and issues I&#8217;ve thought about and written about as both a linguist and a programmer repeatedly arise, even when I don&#8217;t come at a problem thinking it&#8217;s a <em>language parsing problem</em>. A <em>lot</em> of things are language parsing problems, I am finding. Recipes rely so much on human knowledge! Every day I come up with a new angle on my senior thesis from years ago (that&#8217;s another story entirely).</p></li>
+<li><p>Evaluation is a hard problem. When I told people about this and they proposed a different solution, I spent a couple minutes thinking <em>oh, duh</em> &#8211; and realized it wasn&#8217;t obvious at all. Maybe their solutions result in problems that generate less confusion, or less amusement (that&#8217;s an inclusive OR). Certainly there are more elegant ways to write this, in fewer lines of code, such that it will run faster, relying on different architecture. But none of them solve everything, insofar as I can tell, without more time. It&#8217;s not a snap-your-fingers-problem.</p></li>
+<li><p>And I&#8217;ve learned a lot. I couldn&#8217;t do this in any kind of hasty side-project kinda way four years ago: I wasn&#8217;t comfortable enough just <em>playing.</em> It seemed so serious, like so much to hold in your head. It may not be a simple problem exactly but it isn&#8217;t overwhelming anymore. More and more what-ifs, and I&#8217;ve had a lot of fun discussions about this; the best part, probably, was comparing solutions, because it was possible to hold them in my head and compare them piece-by-piece. It&#8217;s a, if not <em>the</em>, way I think project-based-learning should go.</p></li>
+</ul>
+
+
+<hr />
+
+<div class="footnotes">
+    <ol>
+        <li id='fn:1'><p> But it&#8217;s important to be aware I&#8217;m doing more looping than necessary &#8211; it&#8217;s a TODO. I think it&#8217;s sometimes fun to make things work without immediate concern about performance, but I hesitate to phrase it that way, because it falsely implies that optimizing code isn&#8217;t fun. Let&#8217;s just say I&#8217;m gettin&#8217; there.
+<a href='#fnref:1' rev='footnote'>↩</a></p>
+</li><li id='fn:2'><p> Assuming, for the sake of this example, that each of these mozzerellas is intended for a different end within the relevant concoction.
+<a href='#fnref:2' rev='footnote'>↩</a></p>
+</li>
+    </ol>
+</div>
+
+
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Here at the edge]]></title>
