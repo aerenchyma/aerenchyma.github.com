@@ -1,8 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
+        <loc>http://aerenchyma.github.com/blog/2011/11/07/what-would-you-say/</loc>
+        <lastmod>2013-07-21T16:11:38-04:00</lastmod>
+    </url>
+    <url>
         <loc>http://aerenchyma.github.com/blog/2012/03/06/and-some-killer-awesome-students/</loc>
-        <lastmod>2013-07-21T16:06:53-04:00</lastmod>
+        <lastmod>2013-07-21T16:10:33-04:00</lastmod>
     </url>
     <url>
         <loc>http://aerenchyma.github.com/blog/2012/05/02/highlight-of-the-job/</loc>
@@ -62,7 +66,7 @@
     </url>
     <url>
         <loc>http://aerenchyma.github.com/blog/archives/</loc>
-        <lastmod>2013-07-21T16:06:53-04:00</lastmod>
+        <lastmod>2013-07-21T16:11:38-04:00</lastmod>
     </url>
     <url>
         <loc>http://aerenchyma.github.com/feed/</loc>
@@ -70,7 +74,7 @@
     </url>
     <url>
         <loc>http://aerenchyma.github.com/</loc>
-        <lastmod>2013-07-21T16:06:53-04:00</lastmod>
+        <lastmod>2013-07-21T16:11:38-04:00</lastmod>
     </url>
     <url>
         <loc>http://aerenchyma.github.com/license/</loc>
