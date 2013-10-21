@@ -1,3 +1,3 @@
-##Here will the information about the REST API.
+##Here will be the information about the REST API.
 
 Coming soon.
