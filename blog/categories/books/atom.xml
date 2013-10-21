@@ -4,7 +4,7 @@
   <title><![CDATA[Category: books | everything's interesting]]></title>
   <link href="http://aerenchyma.github.com/blog/categories/books/atom.xml" rel="self"/>
   <link href="http://aerenchyma.github.com/"/>
-  <updated>2013-10-20T15:20:15-04:00</updated>
+  <updated>2013-10-21T15:26:52-04:00</updated>
   <id>http://aerenchyma.github.com/</id>
   <author>
     <name><![CDATA[Jackie Cohen]]></name>
@@ -27,52 +27,41 @@
 
 <p>The second line of that op-ed reads <em>I wrote code that ran at the levels between flashy human interfaces and the deep cores of operating systems, like the role of altos in a chorus, who provide the structure without your taking much notice of their melodic lines</em>, and I was instantly fascinated. I am interested in all the things she mentions in that sentence, but altos-in-a-chorus-y scripts I recognize as the kind of programming that, so far at least, brings me the most joy. (It's a tough choice.)</p>
 
-<p>This is for reasons Ullman talks about. Describing sitting at a table with clients for a "city-wide database for AIDS service providers," she writes about the disconnect between she herself, a senior programmer tasked with building this system, and the other people around the table: runners of clinics, doctors, dentists, hospice directors. <em>I was there at the edge,</em> she writes, <em>the interface of the system, in all its existence, to the people, in all their existence.</em><sup id='fnref:1'><a href='#fn:1' rel='footnote'>1</a></sup></p>
+<p>This is for reasons Ullman talks about. Describing sitting at a table with clients for a "city-wide database for AIDS service providers," she writes about the disconnect between she herself, a senior programmer tasked with building this system, and the other people around the table: runners of clinics, doctors, dentists, hospice directors. <em>I was there at the edge,</em> she writes, <em>the interface of the system, in all its existence, to the people, in all their existence.</em>{% fn_ref 1 %}</p>
 
 <p>Right now, that's the most thrilling thing for me about <em>being a programmer</em>, and also the most frustrating. There is so much knowledge I learnt over years that I wish I could convey in a matter of minutes. But my ability to make something that I <em>know</em> makes someone's life easier, watch them use it, and make it better for their use, never gets old.</p>
 
-<p>Still: I don't know others' jobs better than they do. Maybe <em>I</em> think a command-line script will solve a lot of problems but it won't help if the users-to-be are confused by "the command line." And maybe I'm <em>wrong.</em> <a href="https://medium.com/close-to-the-machine/8c2d491886fa">Diana Kimball wrote about arrogance and obsession</a>, and how arrogance can be a tool. This resonates with me. (Sometimes, I'm right.) But the same kind of obsession that makes me happy also scares me. I've walked away from conversations about problem-solving feeling like an ass. <em>I talked, asked questions, but I saw I was operating at a different speed from the people at the table,</em> Ullman writes.<sup id='fnref:2'><a href='#fn:2' rel='footnote'>2</a></sup> That's familiar. Sometimes I'm focusing on a detail that is important for the <em>database</em> but not the users. Sometimes I'm rushing ahead -- this platform, that language, yes yes yes... What?</p>
+<p>Still: I don't know others' jobs better than they do. Maybe <em>I</em> think a command-line script will solve a lot of problems but it won't help if the users-to-be are confused by "the command line." And maybe I'm <em>wrong.</em> <a href="https://medium.com/close-to-the-machine/8c2d491886fa">Diana Kimball wrote about arrogance and obsession</a>, and how arrogance can be a tool. This resonates with me. (Sometimes, I'm right.) But the same kind of obsession that makes me happy also scares me. I've walked away from conversations about problem-solving feeling like an ass. <em>I talked, asked questions, but I saw I was operating at a different speed from the people at the table,</em> Ullman writes.{% fn_ref 2 %} That's familiar. Sometimes I'm focusing on a detail that is important for the <em>database</em> but not the users. Sometimes I'm rushing ahead -- this platform, that language, yes yes yes... What?</p>
 
 <p>Many of these tools to switch on are incredibly useful in programming but the opposite when explaining, and so walking the line between the technical and the non-technical (these are terms I hesitate to use) -- say, teaching programming, or working on tech systems for a multi-disciplinary organization -- means careful attention is important. What are my assumptions (today)?</p>
 
-<p>Ellen Ullman gives voice to a lot of the things that scare me, and a lot of the things that I find incredibly exciting. <em>In . . . software engineering, there is something almost shameful in this helpful, social-services system we're building. The whole project smacks of . . . people who just want to use the stuff we write and don't care how we did it.</em><sup id='fnref:3'><a href='#fn:3' rel='footnote'>3</a></sup> I think that I understand what this says, but I don't feel good about understanding it. Yet also, I love that I kind of get it. <em>We had started with some scratchings on a white-board and built this: this operational program, this functional thing.</em><sup id='fnref:4'><a href='#fn:4' rel='footnote'>4</a></sup> That realization, that's <em>amazing.</em> Every time.</p>
+<p>Ellen Ullman gives voice to a lot of the things that scare me, and a lot of the things that I find incredibly exciting. <em>In . . . software engineering, there is something almost shameful in this helpful, social-services system we're building. The whole project smacks of . . . people who just want to use the stuff we write and don't care how we did it.</em>{% fn_ref 3 %} I think that I understand what this says, but I don't feel good about understanding it. Yet also, I love that I kind of get it. <em>We had started with some scratchings on a white-board and built this: this operational program, this functional thing.</em>{% fn_ref 4 %} That realization, that's <em>amazing.</em> Every time.</p>
 
 <p>I finished <em>Close to the Machine</em> a couple days ago -- a quick read, and one I enjoyed -- and I'm still thinking about it because of precisely this problem. Computer Science often revolves around complexity, but complexity is definitely not unique to it. I talk to my friend, a manager at a non-profit organization, about how a script could speed up tasks. Together, we write something that brings one process from months to days long, but just because programming can speed things up does not mean there isn't always more.</p>
 
 <p>Programming is an <em>awesome</em> tool and also an awesome, awesome practice. But while I believe there is an huge amount of value in all stripes of Computer Science and programming as disciplines -- and do I ever, especially when it's approached the way <a href="http://bit.ly/ZlCrEw">it is at Hacker School</a> -- I also think programming's value depends a great deal on domain expertise. Its use as an awesome tool depends often on the experiences of hospice directors and doctors and runners of clinics. The knowledge of economists, and leaders of campaigns against hunger, and linguists doing fieldwork. Its value is, in my opinion, multiplied exponentially by experience -- not just experience programming, but experience of how an medical clinic worker goes about their day, for instance.</p>
 
-<p>The value of programming depends on willingness to listen. Listening to other programmers is important, but also keeping one foot out of <em>the universe where two human beings can simultaneously understand the statement 'if space is numeric!'</em> matters, sometimes.<sup id='fnref:5'><a href='#fn:5' rel='footnote'>5</a></sup> And yet often the best work is done when absorbed in that universe. These facts coexist, and Ullman's work is one of the first (non-tweet) things I've read that acknowledges this.<sup id='fnref:6'><a href='#fn:6' rel='footnote'>6</a></sup></p>
+<p>The value of programming depends on willingness to listen. Listening to other programmers is important, but also keeping one foot out of <em>the universe where two human beings can simultaneously understand the statement 'if space is numeric!'</em> matters, sometimes.{% fn_ref 5 %} And yet often the best work is done when absorbed in that universe. These facts coexist, and Ullman's work is one of the first (non-tweet) things I've read that acknowledges this.{% fn_ref 6 %}</p>
 
 <p>I liked spending hours in a beige classroom scribbling logic on a chalkboard with other people -- as Ullman puts it, <em>other weird logic-dreamers like myself.</em> It's something I love about programming, and something I loved about <a href="http://www.hackerschool.com/about">Hacker School</a>: there's always more. There's certainly happiness in belonging to a group of people who love something, but there's a danger in homogenizing that love in your head. Because it makes it very easy, then, to keep people <em>out</em> instead of bringing people in. There are infinite kinds of experience, and equally many ways to love something.</p>
 
 <p>If everyone were "a programmer" first, little to nothing would ever get done outside that numeric space universe.</p>
 
-<p>But if more people were "a programmer" by varied definitions, or offered the opportunity to be if they want -- the opportunity to truthfully say 'I've read a line or more of code'? 'I've written a short program'? 'I understand possibilities this tool could offer me'? 'I am committed to making sure a new system works for the people who will need to <em>use</em> it'? 'I will talk to people in technological domains about the complexity <em>I</em> am faced with and hope we can reach common ground', or something else -- then, I think more <em>would</em>. I've seen firsthand that it's useful and interesting to hear about types of complexity I'm unfamiliar with. It isn't because I am a programmer. And this: <em>We build the system, we live in its midst, and we are changed.</em><sup id='fnref:7'><a href='#fn:7' rel='footnote'>7</a></sup> That's certainly not unique to programmers, but I think it's <em>common</em> to them.</p>
+<p>But if more people were "a programmer" by varied definitions, or offered the opportunity to be if they want -- the opportunity to truthfully say 'I've read a line or more of code'? 'I've written a short program'? 'I understand possibilities this tool could offer me'? 'I am committed to making sure a new system works for the people who will need to <em>use</em> it'? 'I will talk to people in technological domains about the complexity <em>I</em> am faced with and hope we can reach common ground', or something else -- then, I think more <em>would</em>. I've seen firsthand that it's useful and interesting to hear about types of complexity I'm unfamiliar with. It isn't because I am a programmer. And this: <em>We build the system, we live in its midst, and we are changed.</em>{% fn_ref 7 %} That's certainly not unique to programmers, but I think it's <em>common</em> to them.</p>
 
 <p>That's pretty cool.</p>
 
 <hr />
 
-<p><div class="footnotes">
-	<ol>
-		<li id='fn:1'><p> Ullman, Ellen. <u>Close to the Machine</u>. Picador: USA. 1997; 2012 reprint. p 12.
-<a href='#fnref:1' rev='footnote'>↩</a></p>
-</li><li id='fn:2'><p> <em>Ibid.</em>
-<a href='#fnref:2' rev='footnote'>↩</a></p>
-</li><li id='fn:3'><p> <em>Ibid,</em> p 9.
-<a href='#fnref:3' rev='footnote'>↩</a></p>
-</li><li id='fn:4'><p> <em>Ibid,</em> p 173.
-<a href='#fnref:4' rev='footnote'>↩</a></p>
-</li><li id='fn:5'><p> <em>Ibid,</em> p 2.
-<a href='#fnref:5' rev='footnote'>↩</a></p>
-</li><li id='fn:6'><p> I'm sure there are others/similar and welcome recommendations
-<a href='#fnref:6' rev='footnote'>↩</a></p>
-</li><li id='fn:7'><p> <em>Ibid,</em> p 30.
-<a href='#fnref:7' rev='footnote'>↩</a></p>
-</li>
-	</ol>
-</div>
-</p>
+<p>{% footnotes %}
+{% fn %} Ullman, Ellen. <u>Close to the Machine</u>. Picador: USA. 1997; 2012 reprint. p 12.
+{% fn %} <em>Ibid.</em>
+{% fn %} <em>Ibid,</em> p 9.
+{% fn %} <em>Ibid,</em> p 173.
+{% fn %} <em>Ibid,</em> p 2.
+{% fn %} I'm sure there are others/similar and welcome recommendations
+{% fn %} <em>Ibid,</em> p 30.
+{% endfootnotes %}</p>
 ]]></content>
   </entry>
   
