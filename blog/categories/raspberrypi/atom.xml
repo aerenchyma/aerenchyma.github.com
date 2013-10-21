@@ -4,7 +4,7 @@
   <title><![CDATA[Category: raspberrypi | everything's interesting]]></title>
   <link href="http://aerenchyma.github.com/blog/categories/raspberrypi/atom.xml" rel="self"/>
   <link href="http://aerenchyma.github.com/"/>
-  <updated>2013-10-21T15:28:07-04:00</updated>
+  <updated>2013-10-21T15:45:31-04:00</updated>
   <id>http://aerenchyma.github.com/</id>
   <author>
     <name><![CDATA[Jackie Cohen]]></name>
@@ -49,58 +49,89 @@
 
 <p>We needed to create the server:</p>
 
-<p>{% codeblock lang:python %}
-import SocketServer</p>
-
-<p>class MyTCPHandler(SocketServer.StreamRequestHandler):</p>
-
-<pre><code>def handle(self):
-    # self.rfile is a file-like object created by the handler
-    # we can now use e.g. readline() instead of raw recv() calls
-    self.data = self.rfile.readline().strip()
-    print self.data # see what's going on
-    list_vals = [int(x) for x in self.data.split(",")]
-    lights_start(*list_vals)
-    # Likewise, self.wfile is a file-like object used to write back to the client
-    self.wfile.write("YES") # acknowledge something's happening
-</code></pre>
-
-<p>{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">import</span> <span class="nn">SocketServer</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="k">class</span> <span class="nc">MyTCPHandler</span><span class="p">(</span><span class="n">SocketServer</span><span class="o">.</span><span class="n">StreamRequestHandler</span><span class="p">):</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="k">def</span> <span class="nf">handle</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span class='line'>    <span class="c"># self.rfile is a file-like object created by the handler</span>
+</span><span class='line'>    <span class="c"># we can now use e.g. readline() instead of raw recv() calls</span>
+</span><span class='line'>    <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</span><span class='line'>    <span class="k">print</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="c"># see what&#39;s going on</span>
+</span><span class='line'>    <span class="n">list_vals</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&quot;,&quot;</span><span class="p">)]</span>
+</span><span class='line'>    <span class="n">lights_start</span><span class="p">(</span><span class="o">*</span><span class="n">list_vals</span><span class="p">)</span>
+</span><span class='line'>    <span class="c"># Likewise, self.wfile is a file-like object used to write back to the client</span>
+</span><span class='line'>    <span class="bp">self</span><span class="o">.</span><span class="n">wfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;YES&quot;</span><span class="p">)</span> <span class="c"># acknowledge something&#39;s happening</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>The function in line 10 there, and the functionality from lines 7-9, I'll address shortly.</p>
 
 <p>And at the bottom of the script,</p>
 
-<p>{% codeblock lang:python %}
-HOST, PORT = "0.0.0.0", 9999</p>
-
-<h1>Create the server, binding to localhost on port 9999</h1>
-
-<p>server = SocketServer.TCPServer((HOST, PORT), MyTCPHandler)</p>
-
-<p>server.serve_forever()
-{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">HOST</span><span class="p">,</span> <span class="n">PORT</span> <span class="o">=</span> <span class="s">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">9999</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">Create</span> <span class="n">the</span> <span class="n">server</span><span class="p">,</span> <span class="n">binding</span> <span class="n">to</span> <span class="n">localhost</span> <span class="n">on</span> <span class="n">port</span> <span class="mi">9999</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">server</span> <span class="o">=</span> <span class="n">SocketServer</span><span class="o">.</span><span class="n">TCPServer</span><span class="p">((</span><span class="n">HOST</span><span class="p">,</span> <span class="n">PORT</span><span class="p">),</span> <span class="n">MyTCPHandler</span><span class="p">)</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">server</span><span class="o">.</span><span class="n">serve_forever</span><span class="p">()</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>We also needed to use the <a href="http://www.opendmx.net/index.php/OLA_Python_API">OLA Python API</a> to deal with DMX, which was a simple matter of inspecting and copying over code.</p>
 
 <p>At the top of the file,</p>
 
-<p>{% codeblock lang:python %}
-import array # data must be transmitted to DMX in an array
-from ola.ClientWrapper import ClientWrapper
-{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">import</span> <span class="nn">array</span> <span class="c"># data must be transmitted to DMX in an array</span>
+</span><span class='line'><span class="kn">from</span> <span class="nn">ola.ClientWrapper</span> <span class="kn">import</span> <span class="n">ClientWrapper</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>And then, to instantiate a ClientWrapper for OLA and defining a function to deal with it:</p>
 
-<p>{% codeblock lang:python %}
-wrapper = ClientWrapper()</p>
-
-<p>def DmxSent(state):</p>
-
-<pre><code>wrapper.Stop()
-</code></pre>
-
-<p>{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">wrapper</span> <span class="o">=</span> <span class="n">ClientWrapper</span><span class="p">()</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="k">def</span> <span class="nf">DmxSent</span><span class="p">(</span><span class="n">state</span><span class="p">):</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="n">wrapper</span><span class="o">.</span><span class="n">Stop</span><span class="p">()</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>Next, a function to turn on the lights. We assumed we would always want the same color coming from each of the four (or five) lights.</p>
 
@@ -108,23 +139,39 @@ wrapper = ClientWrapper()</p>
 
 <p>But just appending one after another was easy to lose track of and not pretty. Hence the function:</p>
 
-<p>{% codeblock lang:python %}
-def lights_do(bright, red, green, blue, rotate, sp): # the sp parameter is 0 or 1 and indicates whether the special case light goes on or not</p>
-
-<pre><code>universe = 1 # this is required by DMX -- the lights are essentially attributes of 'universe 1'
-data = array.array('B') # also required; see the OLA Python API specs
-light_data = [bright, red, green, blue, rotate]
-normal_light = light_data[:-1] # for extra clarity
-tmp = [data.append(x) for x in normal_light*4]
-if sp == 1:
-    tmp = [data.append(x) for x in light_data]
-
-client = wrapper.Client() # wrapper, above, is global in this script
-client.SendDmx(universe, data, DmxSent)
-wrapper.Run()
-</code></pre>
-
-<p>{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="k">def</span> <span class="nf">lights_do</span><span class="p">(</span><span class="n">bright</span><span class="p">,</span> <span class="n">red</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">blue</span><span class="p">,</span> <span class="n">rotate</span><span class="p">,</span> <span class="n">sp</span><span class="p">):</span> <span class="c"># the sp parameter is 0 or 1 and indicates whether the special case light goes on or not&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="n">universe</span> <span class="o">=</span> <span class="mi">1</span> <span class="c"># this is required by DMX -- the lights are essentially attributes of &#39;universe 1&#39;</span>
+</span><span class='line'><span class="n">data</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="s">&#39;B&#39;</span><span class="p">)</span> <span class="c"># also required; see the OLA Python API specs</span>
+</span><span class='line'><span class="n">light_data</span> <span class="o">=</span> <span class="p">[</span><span class="n">bright</span><span class="p">,</span> <span class="n">red</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">blue</span><span class="p">,</span> <span class="n">rotate</span><span class="p">]</span>
+</span><span class='line'><span class="n">normal_light</span> <span class="o">=</span> <span class="n">light_data</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c"># for extra clarity</span>
+</span><span class='line'><span class="n">tmp</span> <span class="o">=</span> <span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">normal_light</span><span class="o">*</span><span class="mi">4</span><span class="p">]</span>
+</span><span class='line'><span class="k">if</span> <span class="n">sp</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+</span><span class='line'>    <span class="n">tmp</span> <span class="o">=</span> <span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">light_data</span><span class="p">]</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">client</span> <span class="o">=</span> <span class="n">wrapper</span><span class="o">.</span><span class="n">Client</span><span class="p">()</span> <span class="c"># wrapper, above, is global in this script</span>
+</span><span class='line'><span class="n">client</span><span class="o">.</span><span class="n">SendDmx</span><span class="p">(</span><span class="n">universe</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">DmxSent</span><span class="p">)</span>
+</span><span class='line'><span class="n">wrapper</span><span class="o">.</span><span class="n">Run</span><span class="p">()</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>The use of previously assigned global variables is a little cringe-worthy, but it achieved our purpose, and while I'll make arguments for good practices all the time, the goal of this project was nifty colored lights, to be perfectly honest. Now that we know it works, we'll do some brief polishing (both on the script and the wiring ends, but especially on the interface -- these are in progress).</p>
 
@@ -134,32 +181,55 @@ wrapper.Run()
 
 <p>Finally, we needed a wrapper function to handle whether or not the special case was on, so everything would go off or on as appropriate before passing new values to the lights to turn them on/change properties of the input channels (e.g. color, brightness).</p>
 
-<p>{% codeblock lang:python %}</p>
-
-<p>def lights_start(bright,red,green,blue,rotate,sp):</p>
-
-<pre><code>lights_do(0,0,0,0,0,1)
-lights_do(bright,red,green,blue,rotate,sp)
-</code></pre>
-
-<p>{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="k">def</span> <span class="nf">lights_start</span><span class="p">(</span><span class="n">bright</span><span class="p">,</span><span class="n">red</span><span class="p">,</span><span class="n">green</span><span class="p">,</span><span class="n">blue</span><span class="p">,</span><span class="n">rotate</span><span class="p">,</span><span class="n">sp</span><span class="p">):</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="n">lights_do</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+</span><span class='line'><span class="n">lights_do</span><span class="p">(</span><span class="n">bright</span><span class="p">,</span><span class="n">red</span><span class="p">,</span><span class="n">green</span><span class="p">,</span><span class="n">blue</span><span class="p">,</span><span class="n">rotate</span><span class="p">,</span><span class="n">sp</span><span class="p">)</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>So, let's go back to the <code>handle()</code> method of the <code>MyTCPHandler</code> class:</p>
 
-<p>{% codeblock lang:python %}
-def handle(self):</p>
-
-<pre><code># self.rfile is a file-like object created by the handler
-# we can now use e.g. readline() instead of raw recv() calls
-self.data = self.rfile.readline().strip()
-print self.data # see what's going on
-list_vals = [int(x) for x in self.data.split(",")]
-lights_start(*list_vals)
-# Likewise, self.wfile is a file-like object used to write back to the client
-self.wfile.write("YES") # acknowledge something's happening
-</code></pre>
-
-<p>{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="k">def</span> <span class="nf">handle</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="c"># self.rfile is a file-like object created by the handler</span>
+</span><span class='line'><span class="c"># we can now use e.g. readline() instead of raw recv() calls</span>
+</span><span class='line'><span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</span><span class='line'><span class="k">print</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="c"># see what&#39;s going on</span>
+</span><span class='line'><span class="n">list_vals</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&quot;,&quot;</span><span class="p">)]</span>
+</span><span class='line'><span class="n">lights_start</span><span class="p">(</span><span class="o">*</span><span class="n">list_vals</span><span class="p">)</span>
+</span><span class='line'><span class="c"># Likewise, self.wfile is a file-like object used to write back to the client</span>
+</span><span class='line'><span class="bp">self</span><span class="o">.</span><span class="n">wfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;YES&quot;</span><span class="p">)</span> <span class="c"># acknowledge something&#39;s happening</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>When this script is served on the Raspberry Pi, wired to the lights in question, it can accept input from a client.</p>
 
@@ -179,33 +249,53 @@ self.wfile.write("YES") # acknowledge something's happening
 
 <p>"SWEET," I said. So, a hasty HTML form (we weren't playing designers here):</p>
 
-<p>{% codeblock lang:html %}
-<head></p>
-
-<pre><code>&lt;title&gt;Pick a color&lt;/title&gt;
-</code></pre>
-
-<p></head>
-<body></p>
-
-<pre><code>&lt;form action="light.php" method="post"&gt;
-    Choose Color:&lt;br&gt;
-    &lt;input type="color" name="color"&gt;
-    &lt;br&gt;
-    Brightness:
-    &lt;br&gt;
-    &lt;input type="text" name="bright" value="255"&gt;
-    &lt;br&gt;
-    &lt;input type="submit" value="submit"&gt;
-&lt;/form&gt;
-</code></pre>
-
-<p></body>
-{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;head&gt;&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;pre&gt;&lt;code&gt;</span><span class="ni">&amp;lt;</span>title<span class="ni">&amp;gt;</span>Pick a color<span class="ni">&amp;lt;</span>/title<span class="ni">&amp;gt;</span>
+</span><span class='line'><span class="nt">&lt;/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;p&gt;&lt;/head&gt;</span>
+</span><span class='line'><span class="nt">&lt;body&gt;&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;pre&gt;&lt;code&gt;</span><span class="ni">&amp;lt;</span>form action=&quot;light.php&quot; method=&quot;post&quot;<span class="ni">&amp;gt;</span>
+</span><span class='line'>    Choose Color:<span class="ni">&amp;lt;</span>br<span class="ni">&amp;gt;</span>
+</span><span class='line'>    <span class="ni">&amp;lt;</span>input type=&quot;color&quot; name=&quot;color&quot;<span class="ni">&amp;gt;</span>
+</span><span class='line'>    <span class="ni">&amp;lt;</span>br<span class="ni">&amp;gt;</span>
+</span><span class='line'>    Brightness:
+</span><span class='line'>    <span class="ni">&amp;lt;</span>br<span class="ni">&amp;gt;</span>
+</span><span class='line'>    <span class="ni">&amp;lt;</span>input type=&quot;text&quot; name=&quot;bright&quot; value=&quot;255&quot;<span class="ni">&amp;gt;</span>
+</span><span class='line'>    <span class="ni">&amp;lt;</span>br<span class="ni">&amp;gt;</span>
+</span><span class='line'>    <span class="ni">&amp;lt;</span>input type=&quot;submit&quot; value=&quot;submit&quot;<span class="ni">&amp;gt;</span>
+</span><span class='line'><span class="ni">&amp;lt;</span>/form<span class="ni">&amp;gt;</span>
+</span><span class='line'><span class="nt">&lt;/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;p&gt;&lt;/body&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>In the browser, this looks like:</p>
 
-<p>{% img http://jaclynzetta.files.wordpress.com/2013/04/colorform_remotelighting.png %}</p>
+<p><img src="http://jaclynzetta.files.wordpress.com/2013/04/colorform_remotelighting.png"></p>
 
 <p>We chose 255 as a default brightness, because that seemed overall most likely, and 0 -- black, or off, as a 'default' for all the color inputs.</p>
 
@@ -213,69 +303,117 @@ self.wfile.write("YES") # acknowledge something's happening
 
 <p>That would get us a hex color value. We would need to convert that value to RGB. (The 0-255 integer values determining the colors -- of course, the input values for <code>red, green, blue</code> must always add up to 255 in total.) We decided to use PHP (mainly because my expertise, with regards to languages we used, was in Python, and my friend's, in PHP):</p>
 
-<p>{% codeblock lang:php %}
-function hex2rgb($hex) {
-   $hex = str_replace("#", "", $hex);</p>
-
-<p>   if(strlen($hex) == 3) {</p>
-
-<pre><code>  $r = hexdec(substr($hex,0,1).substr($hex,0,1));
-  $g = hexdec(substr($hex,1,1).substr($hex,1,1));
-  $b = hexdec(substr($hex,2,1).substr($hex,2,1));
-</code></pre>
-
-<p>   } else {</p>
-
-<pre><code>  $r = hexdec(substr($hex,0,2));
-  $g = hexdec(substr($hex,2,2));
-  $b = hexdec(substr($hex,4,2));
-</code></pre>
-
-<p>   }
-   $rgb = array($r, $g, $b);
-   //return implode(",", $rgb); // returns the rgb values separated by commas
-   return $rgb; // returns an array with the rgb values
-}
-{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="k">function</span> <span class="nf">hex2rgb</span><span class="p">(</span><span class="nv">$hex</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>   <span class="nv">$hex</span> <span class="o">=</span> <span class="nb">str_replace</span><span class="p">(</span><span class="s2">&quot;#&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="nv">$hex</span><span class="p">);</span><span class="o">&lt;/</span><span class="nx">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>   <span class="k">if</span><span class="p">(</span><span class="nb">strlen</span><span class="p">(</span><span class="nv">$hex</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span> <span class="p">{</span><span class="o">&lt;/</span><span class="nx">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span>  <span class="nv">$r</span> <span class="o">=</span> <span class="nx">hexdec</span><span class="p">(</span><span class="nx">substr</span><span class="p">(</span><span class="nv">$hex</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="nx">substr</span><span class="p">(</span><span class="nv">$hex</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">));</span>
+</span><span class='line'>  <span class="nv">$g</span> <span class="o">=</span> <span class="nx">hexdec</span><span class="p">(</span><span class="nx">substr</span><span class="p">(</span><span class="nv">$hex</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="nx">substr</span><span class="p">(</span><span class="nv">$hex</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">));</span>
+</span><span class='line'>  <span class="nv">$b</span> <span class="o">=</span> <span class="nx">hexdec</span><span class="p">(</span><span class="nx">substr</span><span class="p">(</span><span class="nv">$hex</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="nx">substr</span><span class="p">(</span><span class="nv">$hex</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">));</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="nx">code</span><span class="o">&gt;&lt;/</span><span class="nx">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>   <span class="p">}</span> <span class="k">else</span> <span class="p">{</span><span class="o">&lt;/</span><span class="nx">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span>  <span class="nv">$r</span> <span class="o">=</span> <span class="nx">hexdec</span><span class="p">(</span><span class="nx">substr</span><span class="p">(</span><span class="nv">$hex</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">));</span>
+</span><span class='line'>  <span class="nv">$g</span> <span class="o">=</span> <span class="nx">hexdec</span><span class="p">(</span><span class="nx">substr</span><span class="p">(</span><span class="nv">$hex</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">));</span>
+</span><span class='line'>  <span class="nv">$b</span> <span class="o">=</span> <span class="nx">hexdec</span><span class="p">(</span><span class="nx">substr</span><span class="p">(</span><span class="nv">$hex</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">));</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="nx">code</span><span class="o">&gt;&lt;/</span><span class="nx">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>   <span class="p">}</span>
+</span><span class='line'>   <span class="nv">$rgb</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="nv">$r</span><span class="p">,</span> <span class="nv">$g</span><span class="p">,</span> <span class="nv">$b</span><span class="p">);</span>
+</span><span class='line'>   <span class="c1">//return implode(&quot;,&quot;, $rgb); // returns the rgb values separated by commas</span>
+</span><span class='line'>   <span class="k">return</span> <span class="nv">$rgb</span><span class="p">;</span> <span class="c1">// returns an array with the rgb values</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>So if a color was chosen on the interface, then we wanted to POST that RGB information, and whatever brightness was selected, to the server:</p>
 
-<p>{% codeblock lang:php %}
-if ($_POST['color']) { // if-statement begins</p>
-
-<pre><code>$color = hex2rgb($_POST['color']);
-$bright = $_POST['bright'];
-</code></pre>
-
-<p>{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="k">if</span> <span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">])</span> <span class="p">{</span> <span class="c1">// if-statement begins&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="nv">$color</span> <span class="o">=</span> <span class="nx">hex2rgb</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">]);</span>
+</span><span class='line'><span class="nv">$bright</span> <span class="o">=</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;bright&#39;</span><span class="p">];</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="nx">code</span><span class="o">&gt;&lt;/</span><span class="nx">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>and, still in this if-statement, turn the returned array from <code>hex2rgb()</code> to a string separated by commas. The quick-n-dirty way:</p>
 
-<p>{% codeblock lang:php %}</p>
-
-<pre><code>$out = $bright . ',' . $color[0] . ',' . $color[1] . ',' . $color[2] . ',255,0';
-</code></pre>
-
-<p>{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;/</span><span class="nx">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="nv">$out</span> <span class="o">=</span> <span class="nv">$bright</span> <span class="o">.</span> <span class="s1">&#39;,&#39;</span> <span class="o">.</span> <span class="nv">$color</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">.</span> <span class="s1">&#39;,&#39;</span> <span class="o">.</span> <span class="nv">$color</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">.</span> <span class="s1">&#39;,&#39;</span> <span class="o">.</span> <span class="nv">$color</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">.</span> <span class="s1">&#39;,255,0&#39;</span><span class="p">;</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="nx">code</span><span class="o">&gt;&lt;/</span><span class="nx">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>Then we create a file pointer to the open socket, and pass it the IP address of the Raspberry Pi and the appropriate port (which in our case, as you can see earlier in the post, was port 9999):</p>
 
-<p>{% codeblock lang:php %}</p>
-
-<pre><code>$fp = fsockopen('xxx.xxx.xx.xx','9999'); // x-es represent the pi IP
-</code></pre>
-
-<p>{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;/</span><span class="nx">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="nv">$fp</span> <span class="o">=</span> <span class="nb">fsockopen</span><span class="p">(</span><span class="s1">&#39;xxx.xxx.xx.xx&#39;</span><span class="p">,</span><span class="s1">&#39;9999&#39;</span><span class="p">);</span> <span class="c1">// x-es represent the pi IP</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="nx">code</span><span class="o">&gt;&lt;/</span><span class="nx">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>And write it to the server:</p>
 
-<p>{% codeblock lang:php %}</p>
-
-<pre><code>fwrite($fp, $out);
-</code></pre>
-
-<p>} // if-statement ends here
-{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;/</span><span class="nx">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="nb">fwrite</span><span class="p">(</span><span class="nv">$fp</span><span class="p">,</span> <span class="nv">$out</span><span class="p">);</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="nx">code</span><span class="o">&gt;&lt;/</span><span class="nx">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">}</span> <span class="c1">// if-statement ends here</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>Hooray! I don't have pictures, but it was pretty great.</p>
 

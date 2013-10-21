@@ -4,7 +4,7 @@
   <title><![CDATA[Category: programming | everything's interesting]]></title>
   <link href="http://aerenchyma.github.com/blog/categories/programming/atom.xml" rel="self"/>
   <link href="http://aerenchyma.github.com/"/>
-  <updated>2013-10-21T15:28:07-04:00</updated>
+  <updated>2013-10-21T15:45:31-04:00</updated>
   <id>http://aerenchyma.github.com/</id>
   <author>
     <name><![CDATA[Jackie Cohen]]></name>
@@ -56,7 +56,7 @@
 <ol>
 <li><p>I avoid all simple past verbs (many things can be "chopped" or "sliced" so it worked best not to consider these when looking for places in the directions where amounts or fuller ingredient descriptions needed to be inserted).</p></li>
 <li><p>Whether my boolean variables <code>vegan</code> and <code>non-dairy</code> should be turned False: are any of these words in my meat words or dairy words lists? (Common allergies are another set of categories I'm likely to add in the future.)</p></li>
-<li><p>In a show of relatively poor performance (only speedwise -- it detracts from the speed of a run, but not noticeably for these purposes{% fn_ref 1 %}), I loop through the ingredients in the dictionary of ingredients I created earlier, in a nested loop.</p></li>
+<li><p>In a show of relatively poor performance (only speedwise -- it detracts from the speed of a run, but not noticeably for these purposes<sup id='fnref:1'><a href='#fn:1' rel='footnote'>1</a></sup>), I loop through the ingredients in the dictionary of ingredients I created earlier, in a nested loop.</p></li>
 </ol>
 
 
@@ -109,7 +109,7 @@
 
 <p>Celery and celery seed are two different ingredients. Until common bigrams (or better parsing mechanisms?) are implemented, this code will treat both occurrences of the word "celery" the same, though. You'll see this, if you try the chicken pot pie recipe. I tilted my head at it for a moment and then laughed, adding to the list.</p>
 
-<p>This happens only when the shared token ("celery", in this case) comes first in a phrase: for instance, it's fine if a recipe includes both <em>shredded mozzarella</em> and <em>smoked mozzarella</em>{% fn_ref 2 %}, because replacing happens on first occurrence. This is a Big Bad Problem, but I found it interesting that it came up as late as it did; it's not a terribly unusual case.</p>
+<p>This happens only when the shared token ("celery", in this case) comes first in a phrase: for instance, it's fine if a recipe includes both <em>shredded mozzarella</em> and <em>smoked mozzarella</em><sup id='fnref:2'><a href='#fn:2' rel='footnote'>2</a></sup>, because replacing happens on first occurrence. This is a Big Bad Problem, but I found it interesting that it came up as late as it did; it's not a terribly unusual case.</p>
 
 <h2>takeaways</h2>
 
@@ -124,10 +124,16 @@
 
 <hr />
 
-<p>{% footnotes %}
-{% fn %} But it's important to be aware I'm doing more looping than necessary -- it's a TODO. I think it's sometimes fun to make things work without immediate concern about performance, but I hesitate to phrase it that way, because it falsely implies that optimizing code isn't fun. Let's just say I'm gettin' there.
-{% fn %} Assuming, for the sake of this example, that each of these mozzerellas is intended for a different end within the relevant concoction.
-{% endfootnotes %}</p>
+<p><div class="footnotes">
+	<ol>
+		<li id='fn:1'><p> But it's important to be aware I'm doing more looping than necessary -- it's a TODO. I think it's sometimes fun to make things work without immediate concern about performance, but I hesitate to phrase it that way, because it falsely implies that optimizing code isn't fun. Let's just say I'm gettin' there.
+<a href='#fnref:1' rev='footnote'>↩</a></p>
+</li><li id='fn:2'><p> Assuming, for the sake of this example, that each of these mozzerellas is intended for a different end within the relevant concoction.
+<a href='#fnref:2' rev='footnote'>↩</a></p>
+</li>
+	</ol>
+</div>
+</p>
 ]]></content>
   </entry>
   
@@ -145,41 +151,52 @@
 
 <p>The second line of that op-ed reads <em>I wrote code that ran at the levels between flashy human interfaces and the deep cores of operating systems, like the role of altos in a chorus, who provide the structure without your taking much notice of their melodic lines</em>, and I was instantly fascinated. I am interested in all the things she mentions in that sentence, but altos-in-a-chorus-y scripts I recognize as the kind of programming that, so far at least, brings me the most joy. (It's a tough choice.)</p>
 
-<p>This is for reasons Ullman talks about. Describing sitting at a table with clients for a "city-wide database for AIDS service providers," she writes about the disconnect between she herself, a senior programmer tasked with building this system, and the other people around the table: runners of clinics, doctors, dentists, hospice directors. <em>I was there at the edge,</em> she writes, <em>the interface of the system, in all its existence, to the people, in all their existence.</em>{% fn_ref 1 %}</p>
+<p>This is for reasons Ullman talks about. Describing sitting at a table with clients for a "city-wide database for AIDS service providers," she writes about the disconnect between she herself, a senior programmer tasked with building this system, and the other people around the table: runners of clinics, doctors, dentists, hospice directors. <em>I was there at the edge,</em> she writes, <em>the interface of the system, in all its existence, to the people, in all their existence.</em><sup id='fnref:1'><a href='#fn:1' rel='footnote'>1</a></sup></p>
 
 <p>Right now, that's the most thrilling thing for me about <em>being a programmer</em>, and also the most frustrating. There is so much knowledge I learnt over years that I wish I could convey in a matter of minutes. But my ability to make something that I <em>know</em> makes someone's life easier, watch them use it, and make it better for their use, never gets old.</p>
 
-<p>Still: I don't know others' jobs better than they do. Maybe <em>I</em> think a command-line script will solve a lot of problems but it won't help if the users-to-be are confused by "the command line." And maybe I'm <em>wrong.</em> <a href="https://medium.com/close-to-the-machine/8c2d491886fa">Diana Kimball wrote about arrogance and obsession</a>, and how arrogance can be a tool. This resonates with me. (Sometimes, I'm right.) But the same kind of obsession that makes me happy also scares me. I've walked away from conversations about problem-solving feeling like an ass. <em>I talked, asked questions, but I saw I was operating at a different speed from the people at the table,</em> Ullman writes.{% fn_ref 2 %} That's familiar. Sometimes I'm focusing on a detail that is important for the <em>database</em> but not the users. Sometimes I'm rushing ahead -- this platform, that language, yes yes yes... What?</p>
+<p>Still: I don't know others' jobs better than they do. Maybe <em>I</em> think a command-line script will solve a lot of problems but it won't help if the users-to-be are confused by "the command line." And maybe I'm <em>wrong.</em> <a href="https://medium.com/close-to-the-machine/8c2d491886fa">Diana Kimball wrote about arrogance and obsession</a>, and how arrogance can be a tool. This resonates with me. (Sometimes, I'm right.) But the same kind of obsession that makes me happy also scares me. I've walked away from conversations about problem-solving feeling like an ass. <em>I talked, asked questions, but I saw I was operating at a different speed from the people at the table,</em> Ullman writes.<sup id='fnref:2'><a href='#fn:2' rel='footnote'>2</a></sup> That's familiar. Sometimes I'm focusing on a detail that is important for the <em>database</em> but not the users. Sometimes I'm rushing ahead -- this platform, that language, yes yes yes... What?</p>
 
 <p>Many of these tools to switch on are incredibly useful in programming but the opposite when explaining, and so walking the line between the technical and the non-technical (these are terms I hesitate to use) -- say, teaching programming, or working on tech systems for a multi-disciplinary organization -- means careful attention is important. What are my assumptions (today)?</p>
 
-<p>Ellen Ullman gives voice to a lot of the things that scare me, and a lot of the things that I find incredibly exciting. <em>In . . . software engineering, there is something almost shameful in this helpful, social-services system we're building. The whole project smacks of . . . people who just want to use the stuff we write and don't care how we did it.</em>{% fn_ref 3 %} I think that I understand what this says, but I don't feel good about understanding it. Yet also, I love that I kind of get it. <em>We had started with some scratchings on a white-board and built this: this operational program, this functional thing.</em>{% fn_ref 4 %} That realization, that's <em>amazing.</em> Every time.</p>
+<p>Ellen Ullman gives voice to a lot of the things that scare me, and a lot of the things that I find incredibly exciting. <em>In . . . software engineering, there is something almost shameful in this helpful, social-services system we're building. The whole project smacks of . . . people who just want to use the stuff we write and don't care how we did it.</em><sup id='fnref:3'><a href='#fn:3' rel='footnote'>3</a></sup> I think that I understand what this says, but I don't feel good about understanding it. Yet also, I love that I kind of get it. <em>We had started with some scratchings on a white-board and built this: this operational program, this functional thing.</em><sup id='fnref:4'><a href='#fn:4' rel='footnote'>4</a></sup> That realization, that's <em>amazing.</em> Every time.</p>
 
 <p>I finished <em>Close to the Machine</em> a couple days ago -- a quick read, and one I enjoyed -- and I'm still thinking about it because of precisely this problem. Computer Science often revolves around complexity, but complexity is definitely not unique to it. I talk to my friend, a manager at a non-profit organization, about how a script could speed up tasks. Together, we write something that brings one process from months to days long, but just because programming can speed things up does not mean there isn't always more.</p>
 
 <p>Programming is an <em>awesome</em> tool and also an awesome, awesome practice. But while I believe there is an huge amount of value in all stripes of Computer Science and programming as disciplines -- and do I ever, especially when it's approached the way <a href="http://bit.ly/ZlCrEw">it is at Hacker School</a> -- I also think programming's value depends a great deal on domain expertise. Its use as an awesome tool depends often on the experiences of hospice directors and doctors and runners of clinics. The knowledge of economists, and leaders of campaigns against hunger, and linguists doing fieldwork. Its value is, in my opinion, multiplied exponentially by experience -- not just experience programming, but experience of how an medical clinic worker goes about their day, for instance.</p>
 
-<p>The value of programming depends on willingness to listen. Listening to other programmers is important, but also keeping one foot out of <em>the universe where two human beings can simultaneously understand the statement 'if space is numeric!'</em> matters, sometimes.{% fn_ref 5 %} And yet often the best work is done when absorbed in that universe. These facts coexist, and Ullman's work is one of the first (non-tweet) things I've read that acknowledges this.{% fn_ref 6 %}</p>
+<p>The value of programming depends on willingness to listen. Listening to other programmers is important, but also keeping one foot out of <em>the universe where two human beings can simultaneously understand the statement 'if space is numeric!'</em> matters, sometimes.<sup id='fnref:5'><a href='#fn:5' rel='footnote'>5</a></sup> And yet often the best work is done when absorbed in that universe. These facts coexist, and Ullman's work is one of the first (non-tweet) things I've read that acknowledges this.<sup id='fnref:6'><a href='#fn:6' rel='footnote'>6</a></sup></p>
 
 <p>I liked spending hours in a beige classroom scribbling logic on a chalkboard with other people -- as Ullman puts it, <em>other weird logic-dreamers like myself.</em> It's something I love about programming, and something I loved about <a href="http://www.hackerschool.com/about">Hacker School</a>: there's always more. There's certainly happiness in belonging to a group of people who love something, but there's a danger in homogenizing that love in your head. Because it makes it very easy, then, to keep people <em>out</em> instead of bringing people in. There are infinite kinds of experience, and equally many ways to love something.</p>
 
 <p>If everyone were "a programmer" first, little to nothing would ever get done outside that numeric space universe.</p>
 
-<p>But if more people were "a programmer" by varied definitions, or offered the opportunity to be if they want -- the opportunity to truthfully say 'I've read a line or more of code'? 'I've written a short program'? 'I understand possibilities this tool could offer me'? 'I am committed to making sure a new system works for the people who will need to <em>use</em> it'? 'I will talk to people in technological domains about the complexity <em>I</em> am faced with and hope we can reach common ground', or something else -- then, I think more <em>would</em>. I've seen firsthand that it's useful and interesting to hear about types of complexity I'm unfamiliar with. It isn't because I am a programmer. And this: <em>We build the system, we live in its midst, and we are changed.</em>{% fn_ref 7 %} That's certainly not unique to programmers, but I think it's <em>common</em> to them.</p>
+<p>But if more people were "a programmer" by varied definitions, or offered the opportunity to be if they want -- the opportunity to truthfully say 'I've read a line or more of code'? 'I've written a short program'? 'I understand possibilities this tool could offer me'? 'I am committed to making sure a new system works for the people who will need to <em>use</em> it'? 'I will talk to people in technological domains about the complexity <em>I</em> am faced with and hope we can reach common ground', or something else -- then, I think more <em>would</em>. I've seen firsthand that it's useful and interesting to hear about types of complexity I'm unfamiliar with. It isn't because I am a programmer. And this: <em>We build the system, we live in its midst, and we are changed.</em><sup id='fnref:7'><a href='#fn:7' rel='footnote'>7</a></sup> That's certainly not unique to programmers, but I think it's <em>common</em> to them.</p>
 
 <p>That's pretty cool.</p>
 
 <hr />
 
-<p>{% footnotes %}
-{% fn %} Ullman, Ellen. <u>Close to the Machine</u>. Picador: USA. 1997; 2012 reprint. p 12.
-{% fn %} <em>Ibid.</em>
-{% fn %} <em>Ibid,</em> p 9.
-{% fn %} <em>Ibid,</em> p 173.
-{% fn %} <em>Ibid,</em> p 2.
-{% fn %} I'm sure there are others/similar and welcome recommendations
-{% fn %} <em>Ibid,</em> p 30.
-{% endfootnotes %}</p>
+<p><div class="footnotes">
+	<ol>
+		<li id='fn:1'><p> Ullman, Ellen. <u>Close to the Machine</u>. Picador: USA. 1997; 2012 reprint. p 12.
+<a href='#fnref:1' rev='footnote'>↩</a></p>
+</li><li id='fn:2'><p> <em>Ibid.</em>
+<a href='#fnref:2' rev='footnote'>↩</a></p>
+</li><li id='fn:3'><p> <em>Ibid,</em> p 9.
+<a href='#fnref:3' rev='footnote'>↩</a></p>
+</li><li id='fn:4'><p> <em>Ibid,</em> p 173.
+<a href='#fnref:4' rev='footnote'>↩</a></p>
+</li><li id='fn:5'><p> <em>Ibid,</em> p 2.
+<a href='#fnref:5' rev='footnote'>↩</a></p>
+</li><li id='fn:6'><p> I'm sure there are others/similar and welcome recommendations
+<a href='#fnref:6' rev='footnote'>↩</a></p>
+</li><li id='fn:7'><p> <em>Ibid,</em> p 30.
+<a href='#fnref:7' rev='footnote'>↩</a></p>
+</li>
+	</ol>
+</div>
+</p>
 ]]></content>
   </entry>
   
@@ -219,58 +236,89 @@
 
 <p>We needed to create the server:</p>
 
-<p>{% codeblock lang:python %}
-import SocketServer</p>
-
-<p>class MyTCPHandler(SocketServer.StreamRequestHandler):</p>
-
-<pre><code>def handle(self):
-    # self.rfile is a file-like object created by the handler
-    # we can now use e.g. readline() instead of raw recv() calls
-    self.data = self.rfile.readline().strip()
-    print self.data # see what's going on
-    list_vals = [int(x) for x in self.data.split(",")]
-    lights_start(*list_vals)
-    # Likewise, self.wfile is a file-like object used to write back to the client
-    self.wfile.write("YES") # acknowledge something's happening
-</code></pre>
-
-<p>{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">import</span> <span class="nn">SocketServer</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="k">class</span> <span class="nc">MyTCPHandler</span><span class="p">(</span><span class="n">SocketServer</span><span class="o">.</span><span class="n">StreamRequestHandler</span><span class="p">):</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="k">def</span> <span class="nf">handle</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span class='line'>    <span class="c"># self.rfile is a file-like object created by the handler</span>
+</span><span class='line'>    <span class="c"># we can now use e.g. readline() instead of raw recv() calls</span>
+</span><span class='line'>    <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</span><span class='line'>    <span class="k">print</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="c"># see what&#39;s going on</span>
+</span><span class='line'>    <span class="n">list_vals</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&quot;,&quot;</span><span class="p">)]</span>
+</span><span class='line'>    <span class="n">lights_start</span><span class="p">(</span><span class="o">*</span><span class="n">list_vals</span><span class="p">)</span>
+</span><span class='line'>    <span class="c"># Likewise, self.wfile is a file-like object used to write back to the client</span>
+</span><span class='line'>    <span class="bp">self</span><span class="o">.</span><span class="n">wfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;YES&quot;</span><span class="p">)</span> <span class="c"># acknowledge something&#39;s happening</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>The function in line 10 there, and the functionality from lines 7-9, I'll address shortly.</p>
 
 <p>And at the bottom of the script,</p>
 
-<p>{% codeblock lang:python %}
-HOST, PORT = "0.0.0.0", 9999</p>
-
-<h1>Create the server, binding to localhost on port 9999</h1>
-
-<p>server = SocketServer.TCPServer((HOST, PORT), MyTCPHandler)</p>
-
-<p>server.serve_forever()
-{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">HOST</span><span class="p">,</span> <span class="n">PORT</span> <span class="o">=</span> <span class="s">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">9999</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">Create</span> <span class="n">the</span> <span class="n">server</span><span class="p">,</span> <span class="n">binding</span> <span class="n">to</span> <span class="n">localhost</span> <span class="n">on</span> <span class="n">port</span> <span class="mi">9999</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">server</span> <span class="o">=</span> <span class="n">SocketServer</span><span class="o">.</span><span class="n">TCPServer</span><span class="p">((</span><span class="n">HOST</span><span class="p">,</span> <span class="n">PORT</span><span class="p">),</span> <span class="n">MyTCPHandler</span><span class="p">)</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">server</span><span class="o">.</span><span class="n">serve_forever</span><span class="p">()</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>We also needed to use the <a href="http://www.opendmx.net/index.php/OLA_Python_API">OLA Python API</a> to deal with DMX, which was a simple matter of inspecting and copying over code.</p>
 
 <p>At the top of the file,</p>
 
-<p>{% codeblock lang:python %}
-import array # data must be transmitted to DMX in an array
-from ola.ClientWrapper import ClientWrapper
-{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">import</span> <span class="nn">array</span> <span class="c"># data must be transmitted to DMX in an array</span>
+</span><span class='line'><span class="kn">from</span> <span class="nn">ola.ClientWrapper</span> <span class="kn">import</span> <span class="n">ClientWrapper</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>And then, to instantiate a ClientWrapper for OLA and defining a function to deal with it:</p>
 
-<p>{% codeblock lang:python %}
-wrapper = ClientWrapper()</p>
-
-<p>def DmxSent(state):</p>
-
-<pre><code>wrapper.Stop()
-</code></pre>
-
-<p>{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">wrapper</span> <span class="o">=</span> <span class="n">ClientWrapper</span><span class="p">()</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="k">def</span> <span class="nf">DmxSent</span><span class="p">(</span><span class="n">state</span><span class="p">):</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="n">wrapper</span><span class="o">.</span><span class="n">Stop</span><span class="p">()</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>Next, a function to turn on the lights. We assumed we would always want the same color coming from each of the four (or five) lights.</p>
 
@@ -278,23 +326,39 @@ wrapper = ClientWrapper()</p>
 
 <p>But just appending one after another was easy to lose track of and not pretty. Hence the function:</p>
 
-<p>{% codeblock lang:python %}
-def lights_do(bright, red, green, blue, rotate, sp): # the sp parameter is 0 or 1 and indicates whether the special case light goes on or not</p>
-
-<pre><code>universe = 1 # this is required by DMX -- the lights are essentially attributes of 'universe 1'
-data = array.array('B') # also required; see the OLA Python API specs
-light_data = [bright, red, green, blue, rotate]
-normal_light = light_data[:-1] # for extra clarity
-tmp = [data.append(x) for x in normal_light*4]
-if sp == 1:
-    tmp = [data.append(x) for x in light_data]
-
-client = wrapper.Client() # wrapper, above, is global in this script
-client.SendDmx(universe, data, DmxSent)
-wrapper.Run()
-</code></pre>
-
-<p>{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="k">def</span> <span class="nf">lights_do</span><span class="p">(</span><span class="n">bright</span><span class="p">,</span> <span class="n">red</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">blue</span><span class="p">,</span> <span class="n">rotate</span><span class="p">,</span> <span class="n">sp</span><span class="p">):</span> <span class="c"># the sp parameter is 0 or 1 and indicates whether the special case light goes on or not&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="n">universe</span> <span class="o">=</span> <span class="mi">1</span> <span class="c"># this is required by DMX -- the lights are essentially attributes of &#39;universe 1&#39;</span>
+</span><span class='line'><span class="n">data</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="s">&#39;B&#39;</span><span class="p">)</span> <span class="c"># also required; see the OLA Python API specs</span>
+</span><span class='line'><span class="n">light_data</span> <span class="o">=</span> <span class="p">[</span><span class="n">bright</span><span class="p">,</span> <span class="n">red</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">blue</span><span class="p">,</span> <span class="n">rotate</span><span class="p">]</span>
+</span><span class='line'><span class="n">normal_light</span> <span class="o">=</span> <span class="n">light_data</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c"># for extra clarity</span>
+</span><span class='line'><span class="n">tmp</span> <span class="o">=</span> <span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">normal_light</span><span class="o">*</span><span class="mi">4</span><span class="p">]</span>
+</span><span class='line'><span class="k">if</span> <span class="n">sp</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+</span><span class='line'>    <span class="n">tmp</span> <span class="o">=</span> <span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">light_data</span><span class="p">]</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">client</span> <span class="o">=</span> <span class="n">wrapper</span><span class="o">.</span><span class="n">Client</span><span class="p">()</span> <span class="c"># wrapper, above, is global in this script</span>
+</span><span class='line'><span class="n">client</span><span class="o">.</span><span class="n">SendDmx</span><span class="p">(</span><span class="n">universe</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">DmxSent</span><span class="p">)</span>
+</span><span class='line'><span class="n">wrapper</span><span class="o">.</span><span class="n">Run</span><span class="p">()</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>The use of previously assigned global variables is a little cringe-worthy, but it achieved our purpose, and while I'll make arguments for good practices all the time, the goal of this project was nifty colored lights, to be perfectly honest. Now that we know it works, we'll do some brief polishing (both on the script and the wiring ends, but especially on the interface -- these are in progress).</p>
 
@@ -304,32 +368,55 @@ wrapper.Run()
 
 <p>Finally, we needed a wrapper function to handle whether or not the special case was on, so everything would go off or on as appropriate before passing new values to the lights to turn them on/change properties of the input channels (e.g. color, brightness).</p>
 
-<p>{% codeblock lang:python %}</p>
-
-<p>def lights_start(bright,red,green,blue,rotate,sp):</p>
-
-<pre><code>lights_do(0,0,0,0,0,1)
-lights_do(bright,red,green,blue,rotate,sp)
-</code></pre>
-
-<p>{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="k">def</span> <span class="nf">lights_start</span><span class="p">(</span><span class="n">bright</span><span class="p">,</span><span class="n">red</span><span class="p">,</span><span class="n">green</span><span class="p">,</span><span class="n">blue</span><span class="p">,</span><span class="n">rotate</span><span class="p">,</span><span class="n">sp</span><span class="p">):</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="n">lights_do</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+</span><span class='line'><span class="n">lights_do</span><span class="p">(</span><span class="n">bright</span><span class="p">,</span><span class="n">red</span><span class="p">,</span><span class="n">green</span><span class="p">,</span><span class="n">blue</span><span class="p">,</span><span class="n">rotate</span><span class="p">,</span><span class="n">sp</span><span class="p">)</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>So, let's go back to the <code>handle()</code> method of the <code>MyTCPHandler</code> class:</p>
 
-<p>{% codeblock lang:python %}
-def handle(self):</p>
-
-<pre><code># self.rfile is a file-like object created by the handler
-# we can now use e.g. readline() instead of raw recv() calls
-self.data = self.rfile.readline().strip()
-print self.data # see what's going on
-list_vals = [int(x) for x in self.data.split(",")]
-lights_start(*list_vals)
-# Likewise, self.wfile is a file-like object used to write back to the client
-self.wfile.write("YES") # acknowledge something's happening
-</code></pre>
-
-<p>{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="k">def</span> <span class="nf">handle</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="c"># self.rfile is a file-like object created by the handler</span>
+</span><span class='line'><span class="c"># we can now use e.g. readline() instead of raw recv() calls</span>
+</span><span class='line'><span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rfile</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</span><span class='line'><span class="k">print</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="c"># see what&#39;s going on</span>
+</span><span class='line'><span class="n">list_vals</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&quot;,&quot;</span><span class="p">)]</span>
+</span><span class='line'><span class="n">lights_start</span><span class="p">(</span><span class="o">*</span><span class="n">list_vals</span><span class="p">)</span>
+</span><span class='line'><span class="c"># Likewise, self.wfile is a file-like object used to write back to the client</span>
+</span><span class='line'><span class="bp">self</span><span class="o">.</span><span class="n">wfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;YES&quot;</span><span class="p">)</span> <span class="c"># acknowledge something&#39;s happening</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>When this script is served on the Raspberry Pi, wired to the lights in question, it can accept input from a client.</p>
 
@@ -349,33 +436,53 @@ self.wfile.write("YES") # acknowledge something's happening
 
 <p>"SWEET," I said. So, a hasty HTML form (we weren't playing designers here):</p>
 
-<p>{% codeblock lang:html %}
-<head></p>
-
-<pre><code>&lt;title&gt;Pick a color&lt;/title&gt;
-</code></pre>
-
-<p></head>
-<body></p>
-
-<pre><code>&lt;form action="light.php" method="post"&gt;
-    Choose Color:&lt;br&gt;
-    &lt;input type="color" name="color"&gt;
-    &lt;br&gt;
-    Brightness:
-    &lt;br&gt;
-    &lt;input type="text" name="bright" value="255"&gt;
-    &lt;br&gt;
-    &lt;input type="submit" value="submit"&gt;
-&lt;/form&gt;
-</code></pre>
-
-<p></body>
-{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;head&gt;&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;pre&gt;&lt;code&gt;</span><span class="ni">&amp;lt;</span>title<span class="ni">&amp;gt;</span>Pick a color<span class="ni">&amp;lt;</span>/title<span class="ni">&amp;gt;</span>
+</span><span class='line'><span class="nt">&lt;/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;p&gt;&lt;/head&gt;</span>
+</span><span class='line'><span class="nt">&lt;body&gt;&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;pre&gt;&lt;code&gt;</span><span class="ni">&amp;lt;</span>form action=&quot;light.php&quot; method=&quot;post&quot;<span class="ni">&amp;gt;</span>
+</span><span class='line'>    Choose Color:<span class="ni">&amp;lt;</span>br<span class="ni">&amp;gt;</span>
+</span><span class='line'>    <span class="ni">&amp;lt;</span>input type=&quot;color&quot; name=&quot;color&quot;<span class="ni">&amp;gt;</span>
+</span><span class='line'>    <span class="ni">&amp;lt;</span>br<span class="ni">&amp;gt;</span>
+</span><span class='line'>    Brightness:
+</span><span class='line'>    <span class="ni">&amp;lt;</span>br<span class="ni">&amp;gt;</span>
+</span><span class='line'>    <span class="ni">&amp;lt;</span>input type=&quot;text&quot; name=&quot;bright&quot; value=&quot;255&quot;<span class="ni">&amp;gt;</span>
+</span><span class='line'>    <span class="ni">&amp;lt;</span>br<span class="ni">&amp;gt;</span>
+</span><span class='line'>    <span class="ni">&amp;lt;</span>input type=&quot;submit&quot; value=&quot;submit&quot;<span class="ni">&amp;gt;</span>
+</span><span class='line'><span class="ni">&amp;lt;</span>/form<span class="ni">&amp;gt;</span>
+</span><span class='line'><span class="nt">&lt;/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;p&gt;&lt;/body&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>In the browser, this looks like:</p>
 
-<p>{% img http://jaclynzetta.files.wordpress.com/2013/04/colorform_remotelighting.png %}</p>
+<p><img src="http://jaclynzetta.files.wordpress.com/2013/04/colorform_remotelighting.png"></p>
 
 <p>We chose 255 as a default brightness, because that seemed overall most likely, and 0 -- black, or off, as a 'default' for all the color inputs.</p>
 
@@ -383,69 +490,117 @@ self.wfile.write("YES") # acknowledge something's happening
 
 <p>That would get us a hex color value. We would need to convert that value to RGB. (The 0-255 integer values determining the colors -- of course, the input values for <code>red, green, blue</code> must always add up to 255 in total.) We decided to use PHP (mainly because my expertise, with regards to languages we used, was in Python, and my friend's, in PHP):</p>
 
-<p>{% codeblock lang:php %}
-function hex2rgb($hex) {
-   $hex = str_replace("#", "", $hex);</p>
-
-<p>   if(strlen($hex) == 3) {</p>
-
-<pre><code>  $r = hexdec(substr($hex,0,1).substr($hex,0,1));
-  $g = hexdec(substr($hex,1,1).substr($hex,1,1));
-  $b = hexdec(substr($hex,2,1).substr($hex,2,1));
-</code></pre>
-
-<p>   } else {</p>
-
-<pre><code>  $r = hexdec(substr($hex,0,2));
-  $g = hexdec(substr($hex,2,2));
-  $b = hexdec(substr($hex,4,2));
-</code></pre>
-
-<p>   }
-   $rgb = array($r, $g, $b);
-   //return implode(",", $rgb); // returns the rgb values separated by commas
-   return $rgb; // returns an array with the rgb values
-}
-{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="k">function</span> <span class="nf">hex2rgb</span><span class="p">(</span><span class="nv">$hex</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>   <span class="nv">$hex</span> <span class="o">=</span> <span class="nb">str_replace</span><span class="p">(</span><span class="s2">&quot;#&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="nv">$hex</span><span class="p">);</span><span class="o">&lt;/</span><span class="nx">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>   <span class="k">if</span><span class="p">(</span><span class="nb">strlen</span><span class="p">(</span><span class="nv">$hex</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span> <span class="p">{</span><span class="o">&lt;/</span><span class="nx">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span>  <span class="nv">$r</span> <span class="o">=</span> <span class="nx">hexdec</span><span class="p">(</span><span class="nx">substr</span><span class="p">(</span><span class="nv">$hex</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="nx">substr</span><span class="p">(</span><span class="nv">$hex</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">));</span>
+</span><span class='line'>  <span class="nv">$g</span> <span class="o">=</span> <span class="nx">hexdec</span><span class="p">(</span><span class="nx">substr</span><span class="p">(</span><span class="nv">$hex</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="nx">substr</span><span class="p">(</span><span class="nv">$hex</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">));</span>
+</span><span class='line'>  <span class="nv">$b</span> <span class="o">=</span> <span class="nx">hexdec</span><span class="p">(</span><span class="nx">substr</span><span class="p">(</span><span class="nv">$hex</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="nx">substr</span><span class="p">(</span><span class="nv">$hex</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">));</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="nx">code</span><span class="o">&gt;&lt;/</span><span class="nx">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>   <span class="p">}</span> <span class="k">else</span> <span class="p">{</span><span class="o">&lt;/</span><span class="nx">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span>  <span class="nv">$r</span> <span class="o">=</span> <span class="nx">hexdec</span><span class="p">(</span><span class="nx">substr</span><span class="p">(</span><span class="nv">$hex</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">));</span>
+</span><span class='line'>  <span class="nv">$g</span> <span class="o">=</span> <span class="nx">hexdec</span><span class="p">(</span><span class="nx">substr</span><span class="p">(</span><span class="nv">$hex</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">));</span>
+</span><span class='line'>  <span class="nv">$b</span> <span class="o">=</span> <span class="nx">hexdec</span><span class="p">(</span><span class="nx">substr</span><span class="p">(</span><span class="nv">$hex</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">));</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="nx">code</span><span class="o">&gt;&lt;/</span><span class="nx">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>   <span class="p">}</span>
+</span><span class='line'>   <span class="nv">$rgb</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="nv">$r</span><span class="p">,</span> <span class="nv">$g</span><span class="p">,</span> <span class="nv">$b</span><span class="p">);</span>
+</span><span class='line'>   <span class="c1">//return implode(&quot;,&quot;, $rgb); // returns the rgb values separated by commas</span>
+</span><span class='line'>   <span class="k">return</span> <span class="nv">$rgb</span><span class="p">;</span> <span class="c1">// returns an array with the rgb values</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>So if a color was chosen on the interface, then we wanted to POST that RGB information, and whatever brightness was selected, to the server:</p>
 
-<p>{% codeblock lang:php %}
-if ($_POST['color']) { // if-statement begins</p>
-
-<pre><code>$color = hex2rgb($_POST['color']);
-$bright = $_POST['bright'];
-</code></pre>
-
-<p>{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="k">if</span> <span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">])</span> <span class="p">{</span> <span class="c1">// if-statement begins&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="nv">$color</span> <span class="o">=</span> <span class="nx">hex2rgb</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">]);</span>
+</span><span class='line'><span class="nv">$bright</span> <span class="o">=</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;bright&#39;</span><span class="p">];</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="nx">code</span><span class="o">&gt;&lt;/</span><span class="nx">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>and, still in this if-statement, turn the returned array from <code>hex2rgb()</code> to a string separated by commas. The quick-n-dirty way:</p>
 
-<p>{% codeblock lang:php %}</p>
-
-<pre><code>$out = $bright . ',' . $color[0] . ',' . $color[1] . ',' . $color[2] . ',255,0';
-</code></pre>
-
-<p>{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;/</span><span class="nx">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="nv">$out</span> <span class="o">=</span> <span class="nv">$bright</span> <span class="o">.</span> <span class="s1">&#39;,&#39;</span> <span class="o">.</span> <span class="nv">$color</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">.</span> <span class="s1">&#39;,&#39;</span> <span class="o">.</span> <span class="nv">$color</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">.</span> <span class="s1">&#39;,&#39;</span> <span class="o">.</span> <span class="nv">$color</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">.</span> <span class="s1">&#39;,255,0&#39;</span><span class="p">;</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="nx">code</span><span class="o">&gt;&lt;/</span><span class="nx">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>Then we create a file pointer to the open socket, and pass it the IP address of the Raspberry Pi and the appropriate port (which in our case, as you can see earlier in the post, was port 9999):</p>
 
-<p>{% codeblock lang:php %}</p>
-
-<pre><code>$fp = fsockopen('xxx.xxx.xx.xx','9999'); // x-es represent the pi IP
-</code></pre>
-
-<p>{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;/</span><span class="nx">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="nv">$fp</span> <span class="o">=</span> <span class="nb">fsockopen</span><span class="p">(</span><span class="s1">&#39;xxx.xxx.xx.xx&#39;</span><span class="p">,</span><span class="s1">&#39;9999&#39;</span><span class="p">);</span> <span class="c1">// x-es represent the pi IP</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="nx">code</span><span class="o">&gt;&lt;/</span><span class="nx">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>And write it to the server:</p>
 
-<p>{% codeblock lang:php %}</p>
-
-<pre><code>fwrite($fp, $out);
-</code></pre>
-
-<p>} // if-statement ends here
-{% endcodeblock %}</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;/</span><span class="nx">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="nb">fwrite</span><span class="p">(</span><span class="nv">$fp</span><span class="p">,</span> <span class="nv">$out</span><span class="p">);</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="nx">code</span><span class="o">&gt;&lt;/</span><span class="nx">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">}</span> <span class="c1">// if-statement ends here</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>Hooray! I don't have pictures, but it was pretty great.</p>
 
@@ -491,7 +646,7 @@ The way they were currently approaching these problems, she explained, was makin
 
 <p>Was there a faster way? <em>Yes</em>, I said.</p>
 
-<p>There are many services, both specific to the state of Michigan or metro Detroit and nationally or internationally that provide open source mapping and data services: <a href="http://datadrivendetroit.org/">Data Driven Detroit</a>, <a href="http://datakind.org/">DataKind</a>, <a href="http://www.openstreetmap.org/">Open Street Map</a>, among others. There are also many technical solutions to any problem of creating maps, but for those (like me) immersed in technical solutions, it is easy to forget the time and energy it takes to reach the baseline for these tools (for example, <a href="http://postgis.net/">PostGIS</a>).{% fn_ref 1 %}</p>
+<p>There are many services, both specific to the state of Michigan or metro Detroit and nationally or internationally that provide open source mapping and data services: <a href="http://datadrivendetroit.org/">Data Driven Detroit</a>, <a href="http://datakind.org/">DataKind</a>, <a href="http://www.openstreetmap.org/">Open Street Map</a>, among others. There are also many technical solutions to any problem of creating maps, but for those (like me) immersed in technical solutions, it is easy to forget the time and energy it takes to reach the baseline for these tools (for example, <a href="http://postgis.net/">PostGIS</a>).<sup id='fnref:1'><a href='#fn:1' rel='footnote'>1</a></sup></p>
 
 <p>However, some (not all) of these services are prohibitively expensive, some require a more intermediate level of technical skill for productive use than her organization could spare or hire, and most are dependent upon data collections already existing. Thus, her question. She and others were spending a lot of time copying and pasting that didn't need to be spent. The missing piece for a quicker finish for their project was a short -- but admittedly sharp -- learning curve. <em>You can write a script to do that</em>, I said, or at least thought. <em>I can write this -- it'll be fun.</em></p>
 
@@ -503,9 +658,9 @@ The way they were currently approaching these problems, she explained, was makin
 
 <p>Well, scraping, while useful, has the potential of stepping over TOS boundaries, not something we want -- on the "client" end as an organization, nor as a developer. Nor indeed as a decent person, I guess, though I admit this judgment could depend somewhat on the TOS. (Heh.) But spending potentially-hundreds of hours copying and pasting leads to <em>some</em> (not all) of the same ends as scraping does.</p>
 
-<p>If public data is being shared, and it's not being used commercially{% fn_ref 2 %} , it is probably being gotten and used all the time. That's what we use a phone book for, the ones that the city leaves on our doorsteps in Ann Arbor: say, where are the nearest couple churches? Well...</p>
+<p>If public data is being shared, and it's not being used commercially<sup id='fnref:2'><a href='#fn:2' rel='footnote'>2</a></sup> , it is probably being gotten and used all the time. That's what we use a phone book for, the ones that the city leaves on our doorsteps in Ann Arbor: say, where are the nearest couple churches? Well...</p>
 
-<p>Whatif we access a big service provider, I thought -- one that wouldn't have to <em>worry</em> about funding bandwidth for a hit of a few seconds, with engineered breaks -- what if we only hit the server once, really? Instead of leaving people to copy and paste for weeks and weeks? Say I save a sample couple html pages for testing. They just need the data faster -- they need to get their project done, and they would like to make it efficient. I can write a script that automates that human effort. Maybe they'll hit it once, or twice, thrice, not too quickly, not even within the same day, and do the rest of the analysis offline.{% fn_ref 3 %}</p>
+<p>Whatif we access a big service provider, I thought -- one that wouldn't have to <em>worry</em> about funding bandwidth for a hit of a few seconds, with engineered breaks -- what if we only hit the server once, really? Instead of leaving people to copy and paste for weeks and weeks? Say I save a sample couple html pages for testing. They just need the data faster -- they need to get their project done, and they would like to make it efficient. I can write a script that automates that human effort. Maybe they'll hit it once, or twice, thrice, not too quickly, not even within the same day, and do the rest of the analysis offline.<sup id='fnref:3'><a href='#fn:3' rel='footnote'>3</a></sup></p>
 
 <h2>architecture basics</h2>
 
@@ -546,7 +701,7 @@ start_pg = results.uri # this is the page to start scraping from
 pg = Nokogiri::HTML(open(start_pg)) # Nokogiri document of the start page
 </code></p>
 
-<p>Next, I have a <code>create_hashes(page)</code> function which expects a Nokogiri document (e.g. <code>pg</code> ) as a parameter. This function uses Nokogiri functionality to grab different pieces of information that we cared about -- e.g. the name of a given place, its address, its phone number. The function handles exceptions and keeps count of the individual results gathered.{% fn_ref 4 %}</p>
+<p>Next, I have a <code>create_hashes(page)</code> function which expects a Nokogiri document (e.g. <code>pg</code> ) as a parameter. This function uses Nokogiri functionality to grab different pieces of information that we cared about -- e.g. the name of a given place, its address, its phone number. The function handles exceptions and keeps count of the individual results gathered.<sup id='fnref:4'><a href='#fn:4' rel='footnote'>4</a></sup></p>
 
 <p>So <code>create_hashes</code> calls another function to make sure no duplicate entries are included in any set of .csv files corresponding to the the same search. It then pulls all associated pieces of information into a Ruby hash data structure and adds that to a Ruby array of hashes, each of which corresponds to one result (one church, for example).</p>
 
@@ -581,7 +736,7 @@ fname = today_string() + "-" + location.gsub!(",","").split(' ').map {|w| CGI.es
 
 <p>This script I typed out on first go, post the original discussion with my friend, is not exactly the code I'm most proud of from a technical perspective: programmatically, I don't think there's a great deal to learn for someone who is already confident with web programming in Ruby.</p>
 
-<p>So while I’m always pleased to write good-smelling code{% fn_ref 5 %}, I honestly saw this whole scenario through rose-colored glasses because it <em>worked</em>, even though I didn’t spend a ton of hours honing it; I knew there was a possibility here so I sat down and wrote it and ran it and it helped, and that was what mattered.</p>
+<p>So while I’m always pleased to write good-smelling code<sup id='fnref:5'><a href='#fn:5' rel='footnote'>5</a></sup>, I honestly saw this whole scenario through rose-colored glasses because it <em>worked</em>, even though I didn’t spend a ton of hours honing it; I knew there was a possibility here so I sat down and wrote it and ran it and it helped, and that was what mattered.</p>
 
 <p>My friend and her team needed something that worked better (in this case, “better” meant faster – and potentially more reliable) than their previous method(s) of data-gathering. I believe this solution satisfied that without crawling rudely or putting undue weight anywhere except an individual computer for a minute or so. (That is to say, it wasn't as efficient as it really ought to be, and while it is a sustainable solution in some senses, it isn't in others. More on this to follow.)</p>
 
@@ -589,7 +744,7 @@ fname = today_string() + "-" + location.gsub!(",","").split(' ').map {|w| CGI.es
 
 <p>Is there a faster way? Yes. This script brought down the team's time expectation for the mapping project from months to days.</p>
 
-<p>And there are lessons to be gained for your average programmer from this small project. Maybe I'd wince to ship this and maybe I wouldn't, but in this particular case, it <em>should</em> have been shipped: it did all it needed to do for the small scope we assigned it.{% fn_ref 6 %} It also made me think seriously about what important questions are for a developer when the end-user is someone running a (simple? perhaps yes!) script on the command line, especially if that person is not necessarily <em>comfortable</em> with its use.</p>
+<p>And there are lessons to be gained for your average programmer from this small project. Maybe I'd wince to ship this and maybe I wouldn't, but in this particular case, it <em>should</em> have been shipped: it did all it needed to do for the small scope we assigned it.<sup id='fnref:6'><a href='#fn:6' rel='footnote'>6</a></sup> It also made me think seriously about what important questions are for a developer when the end-user is someone running a (simple? perhaps yes!) script on the command line, especially if that person is not necessarily <em>comfortable</em> with its use.</p>
 
 <p>What's the input? What's the output? How does the API work? What's the easiest solution, the fastest solution, the most elegant?</p>
 
@@ -601,14 +756,24 @@ fname = today_string() + "-" + location.gsub!(",","").split(' ').map {|w| CGI.es
 
 <hr />
 
-<p>{% footnotes %}
-{% fn %} I'll come back to this issue in Part II
-{% fn %} Arguably, not even in other creative works -- but this is a whole 'nother issue so we'll leave that aside for the moment
-{% fn %} Note: no TOS was violated in the making of this script, but it is somewhat unclear for the current incarnation, thus the pause and non-public full code.
-{% fn %} The count is kept specifically because the results were intended for use with ArcGIS, which, for the organization's current tools, worked best with .CSV files of 1000 lines or fewer.
-{% fn %} <a href="http://en.wikipedia.org/wiki/Code_smell">On code smell</a> -- thanks to David Albert for my introduction to the term
-{% fn %} I still welcome what code reviews are possible without posting most of the code, and/or comments or suggestions. It <em>will</em> all be open-source under the MIT license.
-{% endfootnotes %}</p>
+<p><div class="footnotes">
+	<ol>
+		<li id='fn:1'><p> I'll come back to this issue in Part II
+<a href='#fnref:1' rev='footnote'>↩</a></p>
+</li><li id='fn:2'><p> Arguably, not even in other creative works -- but this is a whole 'nother issue so we'll leave that aside for the moment
+<a href='#fnref:2' rev='footnote'>↩</a></p>
+</li><li id='fn:3'><p> Note: no TOS was violated in the making of this script, but it is somewhat unclear for the current incarnation, thus the pause and non-public full code.
+<a href='#fnref:3' rev='footnote'>↩</a></p>
+</li><li id='fn:4'><p> The count is kept specifically because the results were intended for use with ArcGIS, which, for the organization's current tools, worked best with .CSV files of 1000 lines or fewer.
+<a href='#fnref:4' rev='footnote'>↩</a></p>
+</li><li id='fn:5'><p> <a href="http://en.wikipedia.org/wiki/Code_smell">On code smell</a> -- thanks to David Albert for my introduction to the term
+<a href='#fnref:5' rev='footnote'>↩</a></p>
+</li><li id='fn:6'><p> I still welcome what code reviews are possible without posting most of the code, and/or comments or suggestions. It <em>will</em> all be open-source under the MIT license.
+<a href='#fnref:6' rev='footnote'>↩</a></p>
+</li>
+	</ol>
+</div>
+</p>
 ]]></content>
   </entry>
   

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: docs | everything's interesting]]></title>
   <link href="http://aerenchyma.github.com/blog/categories/docs/atom.xml" rel="self"/>
   <link href="http://aerenchyma.github.com/"/>
-  <updated>2013-10-21T15:28:07-04:00</updated>
+  <updated>2013-10-21T15:45:31-04:00</updated>
   <id>http://aerenchyma.github.com/</id>
   <author>
     <name><![CDATA[Jackie Cohen]]></name>
@@ -49,7 +49,7 @@ The way they were currently approaching these problems, she explained, was makin
 
 <p>Was there a faster way? <em>Yes</em>, I said.</p>
 
-<p>There are many services, both specific to the state of Michigan or metro Detroit and nationally or internationally that provide open source mapping and data services: <a href="http://datadrivendetroit.org/">Data Driven Detroit</a>, <a href="http://datakind.org/">DataKind</a>, <a href="http://www.openstreetmap.org/">Open Street Map</a>, among others. There are also many technical solutions to any problem of creating maps, but for those (like me) immersed in technical solutions, it is easy to forget the time and energy it takes to reach the baseline for these tools (for example, <a href="http://postgis.net/">PostGIS</a>).{% fn_ref 1 %}</p>
+<p>There are many services, both specific to the state of Michigan or metro Detroit and nationally or internationally that provide open source mapping and data services: <a href="http://datadrivendetroit.org/">Data Driven Detroit</a>, <a href="http://datakind.org/">DataKind</a>, <a href="http://www.openstreetmap.org/">Open Street Map</a>, among others. There are also many technical solutions to any problem of creating maps, but for those (like me) immersed in technical solutions, it is easy to forget the time and energy it takes to reach the baseline for these tools (for example, <a href="http://postgis.net/">PostGIS</a>).<sup id='fnref:1'><a href='#fn:1' rel='footnote'>1</a></sup></p>
 
 <p>However, some (not all) of these services are prohibitively expensive, some require a more intermediate level of technical skill for productive use than her organization could spare or hire, and most are dependent upon data collections already existing. Thus, her question. She and others were spending a lot of time copying and pasting that didn't need to be spent. The missing piece for a quicker finish for their project was a short -- but admittedly sharp -- learning curve. <em>You can write a script to do that</em>, I said, or at least thought. <em>I can write this -- it'll be fun.</em></p>
 
@@ -61,9 +61,9 @@ The way they were currently approaching these problems, she explained, was makin
 
 <p>Well, scraping, while useful, has the potential of stepping over TOS boundaries, not something we want -- on the "client" end as an organization, nor as a developer. Nor indeed as a decent person, I guess, though I admit this judgment could depend somewhat on the TOS. (Heh.) But spending potentially-hundreds of hours copying and pasting leads to <em>some</em> (not all) of the same ends as scraping does.</p>
 
-<p>If public data is being shared, and it's not being used commercially{% fn_ref 2 %} , it is probably being gotten and used all the time. That's what we use a phone book for, the ones that the city leaves on our doorsteps in Ann Arbor: say, where are the nearest couple churches? Well...</p>
+<p>If public data is being shared, and it's not being used commercially<sup id='fnref:2'><a href='#fn:2' rel='footnote'>2</a></sup> , it is probably being gotten and used all the time. That's what we use a phone book for, the ones that the city leaves on our doorsteps in Ann Arbor: say, where are the nearest couple churches? Well...</p>
 
-<p>Whatif we access a big service provider, I thought -- one that wouldn't have to <em>worry</em> about funding bandwidth for a hit of a few seconds, with engineered breaks -- what if we only hit the server once, really? Instead of leaving people to copy and paste for weeks and weeks? Say I save a sample couple html pages for testing. They just need the data faster -- they need to get their project done, and they would like to make it efficient. I can write a script that automates that human effort. Maybe they'll hit it once, or twice, thrice, not too quickly, not even within the same day, and do the rest of the analysis offline.{% fn_ref 3 %}</p>
+<p>Whatif we access a big service provider, I thought -- one that wouldn't have to <em>worry</em> about funding bandwidth for a hit of a few seconds, with engineered breaks -- what if we only hit the server once, really? Instead of leaving people to copy and paste for weeks and weeks? Say I save a sample couple html pages for testing. They just need the data faster -- they need to get their project done, and they would like to make it efficient. I can write a script that automates that human effort. Maybe they'll hit it once, or twice, thrice, not too quickly, not even within the same day, and do the rest of the analysis offline.<sup id='fnref:3'><a href='#fn:3' rel='footnote'>3</a></sup></p>
 
 <h2>architecture basics</h2>
 
@@ -104,7 +104,7 @@ start_pg = results.uri # this is the page to start scraping from
 pg = Nokogiri::HTML(open(start_pg)) # Nokogiri document of the start page
 </code></p>
 
-<p>Next, I have a <code>create_hashes(page)</code> function which expects a Nokogiri document (e.g. <code>pg</code> ) as a parameter. This function uses Nokogiri functionality to grab different pieces of information that we cared about -- e.g. the name of a given place, its address, its phone number. The function handles exceptions and keeps count of the individual results gathered.{% fn_ref 4 %}</p>
+<p>Next, I have a <code>create_hashes(page)</code> function which expects a Nokogiri document (e.g. <code>pg</code> ) as a parameter. This function uses Nokogiri functionality to grab different pieces of information that we cared about -- e.g. the name of a given place, its address, its phone number. The function handles exceptions and keeps count of the individual results gathered.<sup id='fnref:4'><a href='#fn:4' rel='footnote'>4</a></sup></p>
 
 <p>So <code>create_hashes</code> calls another function to make sure no duplicate entries are included in any set of .csv files corresponding to the the same search. It then pulls all associated pieces of information into a Ruby hash data structure and adds that to a Ruby array of hashes, each of which corresponds to one result (one church, for example).</p>
 
@@ -139,7 +139,7 @@ fname = today_string() + "-" + location.gsub!(",","").split(' ').map {|w| CGI.es
 
 <p>This script I typed out on first go, post the original discussion with my friend, is not exactly the code I'm most proud of from a technical perspective: programmatically, I don't think there's a great deal to learn for someone who is already confident with web programming in Ruby.</p>
 
-<p>So while I’m always pleased to write good-smelling code{% fn_ref 5 %}, I honestly saw this whole scenario through rose-colored glasses because it <em>worked</em>, even though I didn’t spend a ton of hours honing it; I knew there was a possibility here so I sat down and wrote it and ran it and it helped, and that was what mattered.</p>
+<p>So while I’m always pleased to write good-smelling code<sup id='fnref:5'><a href='#fn:5' rel='footnote'>5</a></sup>, I honestly saw this whole scenario through rose-colored glasses because it <em>worked</em>, even though I didn’t spend a ton of hours honing it; I knew there was a possibility here so I sat down and wrote it and ran it and it helped, and that was what mattered.</p>
 
 <p>My friend and her team needed something that worked better (in this case, “better” meant faster – and potentially more reliable) than their previous method(s) of data-gathering. I believe this solution satisfied that without crawling rudely or putting undue weight anywhere except an individual computer for a minute or so. (That is to say, it wasn't as efficient as it really ought to be, and while it is a sustainable solution in some senses, it isn't in others. More on this to follow.)</p>
 
@@ -147,7 +147,7 @@ fname = today_string() + "-" + location.gsub!(",","").split(' ').map {|w| CGI.es
 
 <p>Is there a faster way? Yes. This script brought down the team's time expectation for the mapping project from months to days.</p>
 
-<p>And there are lessons to be gained for your average programmer from this small project. Maybe I'd wince to ship this and maybe I wouldn't, but in this particular case, it <em>should</em> have been shipped: it did all it needed to do for the small scope we assigned it.{% fn_ref 6 %} It also made me think seriously about what important questions are for a developer when the end-user is someone running a (simple? perhaps yes!) script on the command line, especially if that person is not necessarily <em>comfortable</em> with its use.</p>
+<p>And there are lessons to be gained for your average programmer from this small project. Maybe I'd wince to ship this and maybe I wouldn't, but in this particular case, it <em>should</em> have been shipped: it did all it needed to do for the small scope we assigned it.<sup id='fnref:6'><a href='#fn:6' rel='footnote'>6</a></sup> It also made me think seriously about what important questions are for a developer when the end-user is someone running a (simple? perhaps yes!) script on the command line, especially if that person is not necessarily <em>comfortable</em> with its use.</p>
 
 <p>What's the input? What's the output? How does the API work? What's the easiest solution, the fastest solution, the most elegant?</p>
 
@@ -159,14 +159,24 @@ fname = today_string() + "-" + location.gsub!(",","").split(' ').map {|w| CGI.es
 
 <hr />
 
-<p>{% footnotes %}
-{% fn %} I'll come back to this issue in Part II
-{% fn %} Arguably, not even in other creative works -- but this is a whole 'nother issue so we'll leave that aside for the moment
-{% fn %} Note: no TOS was violated in the making of this script, but it is somewhat unclear for the current incarnation, thus the pause and non-public full code.
-{% fn %} The count is kept specifically because the results were intended for use with ArcGIS, which, for the organization's current tools, worked best with .CSV files of 1000 lines or fewer.
-{% fn %} <a href="http://en.wikipedia.org/wiki/Code_smell">On code smell</a> -- thanks to David Albert for my introduction to the term
-{% fn %} I still welcome what code reviews are possible without posting most of the code, and/or comments or suggestions. It <em>will</em> all be open-source under the MIT license.
-{% endfootnotes %}</p>
+<p><div class="footnotes">
+	<ol>
+		<li id='fn:1'><p> I'll come back to this issue in Part II
+<a href='#fnref:1' rev='footnote'>↩</a></p>
+</li><li id='fn:2'><p> Arguably, not even in other creative works -- but this is a whole 'nother issue so we'll leave that aside for the moment
+<a href='#fnref:2' rev='footnote'>↩</a></p>
+</li><li id='fn:3'><p> Note: no TOS was violated in the making of this script, but it is somewhat unclear for the current incarnation, thus the pause and non-public full code.
+<a href='#fnref:3' rev='footnote'>↩</a></p>
+</li><li id='fn:4'><p> The count is kept specifically because the results were intended for use with ArcGIS, which, for the organization's current tools, worked best with .CSV files of 1000 lines or fewer.
+<a href='#fnref:4' rev='footnote'>↩</a></p>
+</li><li id='fn:5'><p> <a href="http://en.wikipedia.org/wiki/Code_smell">On code smell</a> -- thanks to David Albert for my introduction to the term
+<a href='#fnref:5' rev='footnote'>↩</a></p>
+</li><li id='fn:6'><p> I still welcome what code reviews are possible without posting most of the code, and/or comments or suggestions. It <em>will</em> all be open-source under the MIT license.
+<a href='#fnref:6' rev='footnote'>↩</a></p>
+</li>
+	</ol>
+</div>
+</p>
 ]]></content>
   </entry>
   
