@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[everything's interesting]]></title>
-  <link href="http://aerenchyma.github.com/atom.xml" rel="self"/>
-  <link href="http://aerenchyma.github.com/"/>
-  <updated>2013-10-22T14:53:15-04:00</updated>
-  <id>http://aerenchyma.github.com/</id>
+  <link href="http://aerenchyma.github.io/atom.xml" rel="self"/>
+  <link href="http://aerenchyma.github.io/"/>
+  <updated>2013-10-22T14:55:44-04:00</updated>
+  <id>http://aerenchyma.github.io/</id>
   <author>
     <name><![CDATA[Jackie Cohen]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Globes and maps]]></title>
-    <link href="http://aerenchyma.github.com/blog/2013/07/25/globes-and-maps/"/>
+    <link href="http://aerenchyma.github.io/blog/2013/07/25/globes-and-maps/"/>
     <updated>2013-07-25T17:07:00-04:00</updated>
-    <id>http://aerenchyma.github.com/blog/2013/07/25/globes-and-maps</id>
+    <id>http://aerenchyma.github.io/blog/2013/07/25/globes-and-maps</id>
     <content type="html"><![CDATA[<p><a href="http://bit.ly/18Akcfu">Writes Bonnie Bogle of MapBox</a>,  &#8220;The diversity of our team has made our team stronger, our tools better, and our approaches smarter and more innovative.&#8221;</p>
 
 <p>The aim I see here is really great. This is what I&#8217;d like to see more of.</p>
@@ -34,9 +34,9 @@
   
   <entry>
     <title type="html"><![CDATA[Recipe formatting]]></title>
-    <link href="http://aerenchyma.github.com/blog/2013/07/15/recipe-formatting/"/>
+    <link href="http://aerenchyma.github.io/blog/2013/07/15/recipe-formatting/"/>
     <updated>2013-07-15T18:21:00-04:00</updated>
-    <id>http://aerenchyma.github.com/blog/2013/07/15/recipe-formatting</id>
+    <id>http://aerenchyma.github.io/blog/2013/07/15/recipe-formatting</id>
     <content type="html"><![CDATA[<h2>the what</h2>
 
 <p>Almost four years ago, I was having a discussion with a friend about recipes: we determined that ideally, ingredient amounts should be integrated into recipe directions as well as in a list at the beginning of the recipe for shopping/gathering/whatever. Rather than looking at &#8220;Now, add rice vinegar&#8221; and flipping gaze back to the beginning to see just how much, it should say &#8220;add 1/4 cup rice vinegar&#8221; right in the instructions.</p>
@@ -160,9 +160,9 @@
   
   <entry>
     <title type="html"><![CDATA[Here at the edge]]></title>
-    <link href="http://aerenchyma.github.com/blog/2013/05/25/here-at-the-edge/"/>
+    <link href="http://aerenchyma.github.io/blog/2013/05/25/here-at-the-edge/"/>
     <updated>2013-05-25T21:13:00-04:00</updated>
-    <id>http://aerenchyma.github.com/blog/2013/05/25/here-at-the-edge</id>
+    <id>http://aerenchyma.github.io/blog/2013/05/25/here-at-the-edge</id>
     <content type="html"><![CDATA[<p><a href="http://www.powells.com/biblio/9780872863323"><em>Close to the Machine</em></a> was published in 1997, which was also the year I first (technically) got access to the Internet and eleven years before I seriously thought about programming myself.</p>
 
 <p>I came across the memoir in 2013, after Ellen Ullman&#8217;s op-ed <a href="http://nyti.ms/10UrtAc">How to Be a &#8216;Woman Programmer&#8217;</a> was published in the New York Times on May 18.</p>
@@ -225,9 +225,9 @@
   
   <entry>
     <title type="html"><![CDATA[Things worthwhile]]></title>
-    <link href="http://aerenchyma.github.com/blog/2013/04/29/things-worthwhile/"/>
+    <link href="http://aerenchyma.github.io/blog/2013/04/29/things-worthwhile/"/>
     <updated>2013-04-29T23:55:00-04:00</updated>
-    <id>http://aerenchyma.github.com/blog/2013/04/29/things-worthwhile</id>
+    <id>http://aerenchyma.github.io/blog/2013/04/29/things-worthwhile</id>
     <content type="html"><![CDATA[<p>In between projects, or at least time for documentation of them here (my very own Raspberry Pi arrived the other day! But I must acquire other hardware to do the project(s) I want first. I&#8217;ve been shoving new front-end-dev-y information into my head rapidly for a work project over the past week or so!) &#8211;</p>
 
 <p><a href="http://geekfeminism.org/author/brainwane/">Sumana Harihareswara</a> posted <a href="http://geekfeminism.org/?p=7554">this</a>, &#8220;From &#8216;Sit Still&#8217; to &#8216;Scratch your own itch&#8217;&#8221; on <a href="http://geekfeminism.org">GeekFeminism.org</a> recently, and I wish to share it all over because I think it&#8217;s wonderful.</p>
@@ -259,9 +259,9 @@
   
   <entry>
     <title type="html"><![CDATA[remote lighting]]></title>
-    <link href="http://aerenchyma.github.com/blog/2013/04/21/remote-lighting/"/>
+    <link href="http://aerenchyma.github.io/blog/2013/04/21/remote-lighting/"/>
     <updated>2013-04-21T12:01:00-04:00</updated>
-    <id>http://aerenchyma.github.com/blog/2013/04/21/remote-lighting</id>
+    <id>http://aerenchyma.github.io/blog/2013/04/21/remote-lighting</id>
     <content type="html"><![CDATA[<p>This past Friday, I joined forces with a friend for a fun remote lighting project using a Raspberry Pi.</p>
 
 <p>Remote lighting? you say. You know the colored stage lights you see in theatres? If you ever did tech for a production in high school in a small theatre without super-intense equipment, those are the ones we used. They were hooked up via <a href="http://en.wikipedia.org/wiki/DMX_(lighting">DMX</a> ). (See <a href="http://www.opendmx.net/index.php/OLA_Python_API">here</a> for more information about the Python API, which we used.)</p>
@@ -578,9 +578,9 @@
   
   <entry>
     <title type="html"><![CDATA[the # sign]]></title>
-    <link href="http://aerenchyma.github.com/blog/2013/04/17/the-number-sign/"/>
+    <link href="http://aerenchyma.github.io/blog/2013/04/17/the-number-sign/"/>
     <updated>2013-04-17T22:40:00-04:00</updated>
-    <id>http://aerenchyma.github.com/blog/2013/04/17/the-number-sign</id>
+    <id>http://aerenchyma.github.io/blog/2013/04/17/the-number-sign</id>
     <content type="html"><![CDATA[<p>Today, I went back to my old high school to help a friend teach middle schoolers an introductory workshop on Python and Raspberry Pi. It was thoroughly awesome, but amidst the awesome &#8211; which I&#8217;m not going to talk about in detail yet &#8211; I noticed something interesting:</p>
 
 <p>Discussing comments in Python, someone in the room who graduated college several years before I did called &#8216;#&#8217;, without hesitation, <em>the pound sign.</em></p>
@@ -603,9 +603,9 @@
   
   <entry>
     <title type="html"><![CDATA[A useful Ruby script (part I)]]></title>
-    <link href="http://aerenchyma.github.com/blog/2013/04/15/a-useful-ruby-script-for-mapping-projects/"/>
+    <link href="http://aerenchyma.github.io/blog/2013/04/15/a-useful-ruby-script-for-mapping-projects/"/>
     <updated>2013-04-15T11:46:00-04:00</updated>
-    <id>http://aerenchyma.github.com/blog/2013/04/15/a-useful-ruby-script-for-mapping-projects</id>
+    <id>http://aerenchyma.github.io/blog/2013/04/15/a-useful-ruby-script-for-mapping-projects</id>
     <content type="html"><![CDATA[<h2>once upon a time</h2>
 
 <p>in late 2012, I was at a bar with some friends, but the night ended with some excitement.</p>
@@ -787,9 +787,9 @@ The way they were currently approaching these problems, she explained, was makin
   
   <entry>
     <title type="html"><![CDATA[instabitly]]></title>
-    <link href="http://aerenchyma.github.com/blog/2013/03/25/instabitly/"/>
+    <link href="http://aerenchyma.github.io/blog/2013/03/25/instabitly/"/>
     <updated>2013-03-25T00:29:00-04:00</updated>
-    <id>http://aerenchyma.github.com/blog/2013/03/25/instabitly</id>
+    <id>http://aerenchyma.github.io/blog/2013/03/25/instabitly</id>
     <content type="html"><![CDATA[<p>Quick drive-by: <a href="https://github.com/aerenchyma/instabitly">instabitly</a>, a script I wrote recently to import saved links from <a href="http://instapaper.com">Instapaper</a> to <a href="https://bitly.com/">bit.ly</a>.</p>
 
 <p>I did it for personal reasons &#8211; primarily because I want all this stuff stored redundantly. Obviously I haven&#8217;t solved that problem in its entirety, but there were also other reasons. Because I care about things like this. There&#8217;s a README. More, like more in the other documentation series I&#8217;ve discussed so far, will have to appear after recent projects calm down some.</p>
@@ -802,9 +802,9 @@ The way they were currently approaching these problems, she explained, was makin
   
   <entry>
     <title type="html"><![CDATA[Open.Michigan Analytics, the what]]></title>
-    <link href="http://aerenchyma.github.com/blog/2013/02/18/open-dot-michigan-analytics/"/>
+    <link href="http://aerenchyma.github.io/blog/2013/02/18/open-dot-michigan-analytics/"/>
     <updated>2013-02-18T17:05:00-05:00</updated>
-    <id>http://aerenchyma.github.com/blog/2013/02/18/open-dot-michigan-analytics</id>
+    <id>http://aerenchyma.github.io/blog/2013/02/18/open-dot-michigan-analytics</id>
     <content type="html"><![CDATA[<p>Starting in January 2013, I have been a software developer at the <a href="http://open.umich.edu">Open.Michigan Initiative</a>, which is housed within the University of Michigan Medical School. Open.Michigan (OM) promotes open licensing and open educational resources (OER), and we publish OER on our website, which is run on the <a href="https://github.com/openmichigan/OERbit">OERbit</a> framework, which in turn is based on <a href="http://drupal.org/">Drupal</a>.</p>
 
 <p><small>(True to our goals, all the code we produce is open source, free for use and adaptation with attribution. See licenses.)</small></p>
@@ -914,18 +914,18 @@ The way they were currently approaching these problems, she explained, was makin
   
   <entry>
     <title type="html"><![CDATA[Testing, testing]]></title>
-    <link href="http://aerenchyma.github.com/blog/2013/02/18/initial-post/"/>
+    <link href="http://aerenchyma.github.io/blog/2013/02/18/initial-post/"/>
     <updated>2013-02-18T15:24:00-05:00</updated>
-    <id>http://aerenchyma.github.com/blog/2013/02/18/initial-post</id>
+    <id>http://aerenchyma.github.io/blog/2013/02/18/initial-post</id>
     <content type="html"><![CDATA[<p>Initial post. Content to come.</p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[what hacker school is like (or, what I did this summer)]]></title>
-    <link href="http://aerenchyma.github.com/blog/2012/08/15/what-hacker-school-is-like/"/>
+    <link href="http://aerenchyma.github.io/blog/2012/08/15/what-hacker-school-is-like/"/>
     <updated>2012-08-15T07:48:00-04:00</updated>
-    <id>http://aerenchyma.github.com/blog/2012/08/15/what-hacker-school-is-like</id>
+    <id>http://aerenchyma.github.io/blog/2012/08/15/what-hacker-school-is-like</id>
     <content type="html"><![CDATA[<p>Last May, when I was first thinking about applying to <a href="http://www.hackerschool.com">Hacker School</a>, I did a lot of searching for posts and tweets about it. I wanted to know what the experience was like, the day-to-day, the people. I found some, and <a href="https://www.hackerschool.com/about" target="_blank">the website does give a very accurate picture</a> of <a href="https://www.hackerschool.com/testimonials" target="_blank">the environment</a> around all the time at Hacker School, but I wished for more because I&#8217;m curious, especially about the environment alongside the programming. Hacker School is all about being a better programmer &#8211; going after that goal has come with a lot of side pluses.</p>
 
 <p>(There&#8217;s now <a href="http://www.reddit.com/r/IAmA/comments/y7kld/iama_hacker_at_hacker_school_in_nyc_ama/">an IAmA for Hacker School going on @ Reddit</a>, where a bunch of current Hackerschoolers and alums are articulately answering questions. So you should go there.)</p>
@@ -957,9 +957,9 @@ The way they were currently approaching these problems, she explained, was makin
   
   <entry>
     <title type="html"><![CDATA[highlight of the job]]></title>
-    <link href="http://aerenchyma.github.com/blog/2012/05/02/highlight-of-the-job/"/>
+    <link href="http://aerenchyma.github.io/blog/2012/05/02/highlight-of-the-job/"/>
     <updated>2012-05-02T14:15:00-04:00</updated>
-    <id>http://aerenchyma.github.com/blog/2012/05/02/highlight-of-the-job</id>
+    <id>http://aerenchyma.github.io/blog/2012/05/02/highlight-of-the-job</id>
     <content type="html"><![CDATA[<p>On May first, I reached the end of Michigan&#8217;s 2012 Winter semester, and with it the end of one of the best jobs. A student called the deadline for the final projects the &#8220;end of an era&#8221; &#8211; that&#8217;s what it felt like to us (the staff), too. (&#8220;It feels like we&#8217;re doing twenty projects!&#8221;)</p>
 
 <p>Except that it&#8217;s more thrilling to watch people work together and seriously, rapidly and usefully learn stuff, and help each other &#8211; better to watch forty-some eureka moments than only have a few yourself.</p>
@@ -985,9 +985,9 @@ The way they were currently approaching these problems, she explained, was makin
   
   <entry>
     <title type="html"><![CDATA[and some killer awesome students, too]]></title>
-    <link href="http://aerenchyma.github.com/blog/2012/03/06/and-some-killer-awesome-students/"/>
+    <link href="http://aerenchyma.github.io/blog/2012/03/06/and-some-killer-awesome-students/"/>
     <updated>2012-03-06T16:04:00-05:00</updated>
-    <id>http://aerenchyma.github.com/blog/2012/03/06/and-some-killer-awesome-students</id>
+    <id>http://aerenchyma.github.io/blog/2012/03/06/and-some-killer-awesome-students</id>
     <content type="html"><![CDATA[<p>A brief interlude, relating to teaching programming. My co-IA and I subbed for lecture today; the professor we work for is at a conference in another state.</p>
 
 <p>The class has a facebook group for posting tips and asking each other questions. Halfway through class (I found this out afterward), this appears on the group, and by half an hour after the class is over, it looks like this:</p>
@@ -1000,9 +1000,9 @@ The way they were currently approaching these problems, she explained, was makin
   
   <entry>
     <title type="html"><![CDATA[what would you say?]]></title>
-    <link href="http://aerenchyma.github.com/blog/2011/11/07/what-would-you-say/"/>
+    <link href="http://aerenchyma.github.io/blog/2011/11/07/what-would-you-say/"/>
     <updated>2011-11-07T16:10:00-05:00</updated>
-    <id>http://aerenchyma.github.com/blog/2011/11/07/what-would-you-say</id>
+    <id>http://aerenchyma.github.io/blog/2011/11/07/what-would-you-say</id>
     <content type="html"><![CDATA[<p><a href="http://www.igniteannarbor.com/" target="_blank">Five minutes. Twenty slides. What would you say?</a></p>
 
 <p>I spoke at Ignite Ann Arbor on Sunday &#8211; &#8220;Data Entry, Coffee Dripping, and Other Things as Interesting as Watching Paint Dry.&#8221; You can see the video and my slides linked on my <a href="http://aerenchyma.github.io/about/">about</a> page.</p>

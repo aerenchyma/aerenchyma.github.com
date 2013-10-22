@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: maps | everything's interesting]]></title>
-  <link href="http://aerenchyma.github.com/blog/categories/maps/atom.xml" rel="self"/>
-  <link href="http://aerenchyma.github.com/"/>
-  <updated>2013-10-22T14:53:15-04:00</updated>
-  <id>http://aerenchyma.github.com/</id>
+  <link href="http://aerenchyma.github.io/blog/categories/maps/atom.xml" rel="self"/>
+  <link href="http://aerenchyma.github.io/"/>
+  <updated>2013-10-22T14:55:44-04:00</updated>
+  <id>http://aerenchyma.github.io/</id>
   <author>
     <name><![CDATA[Jackie Cohen]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Globes and maps]]></title>
-    <link href="http://aerenchyma.github.com/blog/2013/07/25/globes-and-maps/"/>
+    <link href="http://aerenchyma.github.io/blog/2013/07/25/globes-and-maps/"/>
     <updated>2013-07-25T17:07:00-04:00</updated>
-    <id>http://aerenchyma.github.com/blog/2013/07/25/globes-and-maps</id>
+    <id>http://aerenchyma.github.io/blog/2013/07/25/globes-and-maps</id>
     <content type="html"><![CDATA[<p><a href="http://bit.ly/18Akcfu">Writes Bonnie Bogle of MapBox</a>,  "The diversity of our team has made our team stronger, our tools better, and our approaches smarter and more innovative."</p>
 
 <p>The aim I see here is really great. This is what I'd like to see more of.</p>

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: programming | everything's interesting]]></title>
-  <link href="http://aerenchyma.github.com/blog/categories/programming/atom.xml" rel="self"/>
-  <link href="http://aerenchyma.github.com/"/>
-  <updated>2013-10-22T14:53:15-04:00</updated>
-  <id>http://aerenchyma.github.com/</id>
+  <link href="http://aerenchyma.github.io/blog/categories/programming/atom.xml" rel="self"/>
+  <link href="http://aerenchyma.github.io/"/>
+  <updated>2013-10-22T14:55:44-04:00</updated>
+  <id>http://aerenchyma.github.io/</id>
   <author>
     <name><![CDATA[Jackie Cohen]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Recipe formatting]]></title>
-    <link href="http://aerenchyma.github.com/blog/2013/07/15/recipe-formatting/"/>
+    <link href="http://aerenchyma.github.io/blog/2013/07/15/recipe-formatting/"/>
     <updated>2013-07-15T18:21:00-04:00</updated>
-    <id>http://aerenchyma.github.com/blog/2013/07/15/recipe-formatting</id>
+    <id>http://aerenchyma.github.io/blog/2013/07/15/recipe-formatting</id>
     <content type="html"><![CDATA[<h2>the what</h2>
 
 <p>Almost four years ago, I was having a discussion with a friend about recipes: we determined that ideally, ingredient amounts should be integrated into recipe directions as well as in a list at the beginning of the recipe for shopping/gathering/whatever. Rather than looking at "Now, add rice vinegar" and flipping gaze back to the beginning to see just how much, it should say "add 1/4 cup rice vinegar" right in the instructions.</p>
@@ -139,9 +139,9 @@
   
   <entry>
     <title type="html"><![CDATA[Here at the edge]]></title>
-    <link href="http://aerenchyma.github.com/blog/2013/05/25/here-at-the-edge/"/>
+    <link href="http://aerenchyma.github.io/blog/2013/05/25/here-at-the-edge/"/>
     <updated>2013-05-25T21:13:00-04:00</updated>
-    <id>http://aerenchyma.github.com/blog/2013/05/25/here-at-the-edge</id>
+    <id>http://aerenchyma.github.io/blog/2013/05/25/here-at-the-edge</id>
     <content type="html"><![CDATA[<p><a href="http://www.powells.com/biblio/9780872863323"><em>Close to the Machine</em></a> was published in 1997, which was also the year I first (technically) got access to the Internet and eleven years before I seriously thought about programming myself.</p>
 
 <p>I came across the memoir in 2013, after Ellen Ullman's op-ed <a href="http://nyti.ms/10UrtAc">How to Be a 'Woman Programmer'</a> was published in the New York Times on May 18.</p>
@@ -202,9 +202,9 @@
   
   <entry>
     <title type="html"><![CDATA[remote lighting]]></title>
-    <link href="http://aerenchyma.github.com/blog/2013/04/21/remote-lighting/"/>
+    <link href="http://aerenchyma.github.io/blog/2013/04/21/remote-lighting/"/>
     <updated>2013-04-21T12:01:00-04:00</updated>
-    <id>http://aerenchyma.github.com/blog/2013/04/21/remote-lighting</id>
+    <id>http://aerenchyma.github.io/blog/2013/04/21/remote-lighting</id>
     <content type="html"><![CDATA[<p>This past Friday, I joined forces with a friend for a fun remote lighting project using a Raspberry Pi.</p>
 
 <p>Remote lighting? you say. You know the colored stage lights you see in theatres? If you ever did tech for a production in high school in a small theatre without super-intense equipment, those are the ones we used. They were hooked up via <a href="http://en.wikipedia.org/wiki/DMX_(lighting">DMX</a> ). (See <a href="http://www.opendmx.net/index.php/OLA_Python_API">here</a> for more information about the Python API, which we used.)</p>
@@ -612,9 +612,9 @@
   
   <entry>
     <title type="html"><![CDATA[A useful Ruby script (part I)]]></title>
-    <link href="http://aerenchyma.github.com/blog/2013/04/15/a-useful-ruby-script-for-mapping-projects/"/>
+    <link href="http://aerenchyma.github.io/blog/2013/04/15/a-useful-ruby-script-for-mapping-projects/"/>
     <updated>2013-04-15T11:46:00-04:00</updated>
-    <id>http://aerenchyma.github.com/blog/2013/04/15/a-useful-ruby-script-for-mapping-projects</id>
+    <id>http://aerenchyma.github.io/blog/2013/04/15/a-useful-ruby-script-for-mapping-projects</id>
     <content type="html"><![CDATA[<h2>once upon a time</h2>
 
 <p>in late 2012, I was at a bar with some friends, but the night ended with some excitement.</p>
@@ -779,9 +779,9 @@ fname = today_string() + "-" + location.gsub!(",","").split(' ').map {|w| CGI.es
   
   <entry>
     <title type="html"><![CDATA[instabitly]]></title>
-    <link href="http://aerenchyma.github.com/blog/2013/03/25/instabitly/"/>
+    <link href="http://aerenchyma.github.io/blog/2013/03/25/instabitly/"/>
     <updated>2013-03-25T00:29:00-04:00</updated>
-    <id>http://aerenchyma.github.com/blog/2013/03/25/instabitly</id>
+    <id>http://aerenchyma.github.io/blog/2013/03/25/instabitly</id>
     <content type="html"><![CDATA[<p>Quick drive-by: <a href="https://github.com/aerenchyma/instabitly">instabitly</a>, a script I wrote recently to import saved links from <a href="http://instapaper.com">Instapaper</a> to <a href="https://bitly.com/">bit.ly</a>.</p>
 
 <p>I did it for personal reasons -- primarily because I want all this stuff stored redundantly. Obviously I haven't solved that problem in its entirety, but there were also other reasons. Because I care about things like this. There's a README. More, like more in the other documentation series I've discussed so far, will have to appear after recent projects calm down some.</p>

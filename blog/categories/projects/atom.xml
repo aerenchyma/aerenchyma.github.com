@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: projects | everything's interesting]]></title>
-  <link href="http://aerenchyma.github.com/blog/categories/projects/atom.xml" rel="self"/>
-  <link href="http://aerenchyma.github.com/"/>
-  <updated>2013-10-22T14:53:15-04:00</updated>
-  <id>http://aerenchyma.github.com/</id>
+  <link href="http://aerenchyma.github.io/blog/categories/projects/atom.xml" rel="self"/>
+  <link href="http://aerenchyma.github.io/"/>
+  <updated>2013-10-22T14:55:44-04:00</updated>
+  <id>http://aerenchyma.github.io/</id>
   <author>
     <name><![CDATA[Jackie Cohen]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[instabitly]]></title>
-    <link href="http://aerenchyma.github.com/blog/2013/03/25/instabitly/"/>
+    <link href="http://aerenchyma.github.io/blog/2013/03/25/instabitly/"/>
     <updated>2013-03-25T00:29:00-04:00</updated>
-    <id>http://aerenchyma.github.com/blog/2013/03/25/instabitly</id>
+    <id>http://aerenchyma.github.io/blog/2013/03/25/instabitly</id>
     <content type="html"><![CDATA[<p>Quick drive-by: <a href="https://github.com/aerenchyma/instabitly">instabitly</a>, a script I wrote recently to import saved links from <a href="http://instapaper.com">Instapaper</a> to <a href="https://bitly.com/">bit.ly</a>.</p>
 
 <p>I did it for personal reasons -- primarily because I want all this stuff stored redundantly. Obviously I haven't solved that problem in its entirety, but there were also other reasons. Because I care about things like this. There's a README. More, like more in the other documentation series I've discussed so far, will have to appear after recent projects calm down some.</p>

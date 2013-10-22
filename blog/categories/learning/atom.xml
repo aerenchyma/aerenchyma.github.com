@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: learning | everything's interesting]]></title>
-  <link href="http://aerenchyma.github.com/blog/categories/learning/atom.xml" rel="self"/>
-  <link href="http://aerenchyma.github.com/"/>
-  <updated>2013-10-22T14:53:15-04:00</updated>
-  <id>http://aerenchyma.github.com/</id>
+  <link href="http://aerenchyma.github.io/blog/categories/learning/atom.xml" rel="self"/>
+  <link href="http://aerenchyma.github.io/"/>
+  <updated>2013-10-22T14:55:44-04:00</updated>
+  <id>http://aerenchyma.github.io/</id>
   <author>
     <name><![CDATA[Jackie Cohen]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Things worthwhile]]></title>
-    <link href="http://aerenchyma.github.com/blog/2013/04/29/things-worthwhile/"/>
+    <link href="http://aerenchyma.github.io/blog/2013/04/29/things-worthwhile/"/>
     <updated>2013-04-29T23:55:00-04:00</updated>
-    <id>http://aerenchyma.github.com/blog/2013/04/29/things-worthwhile</id>
+    <id>http://aerenchyma.github.io/blog/2013/04/29/things-worthwhile</id>
     <content type="html"><![CDATA[<p>In between projects, or at least time for documentation of them here (my very own Raspberry Pi arrived the other day! But I must acquire other hardware to do the project(s) I want first. I've been shoving new front-end-dev-y information into my head rapidly for a work project over the past week or so!) --</p>
 
 <p><a href="http://geekfeminism.org/author/brainwane/">Sumana Harihareswara</a> posted <a href="http://geekfeminism.org/?p=7554">this</a>, "From 'Sit Still' to 'Scratch your own itch'" on <a href="http://geekfeminism.org">GeekFeminism.org</a> recently, and I wish to share it all over because I think it's wonderful.</p>

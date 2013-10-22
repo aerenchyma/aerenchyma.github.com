@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: misc | everything's interesting]]></title>
-  <link href="http://aerenchyma.github.com/blog/categories/misc/atom.xml" rel="self"/>
-  <link href="http://aerenchyma.github.com/"/>
-  <updated>2013-10-22T14:53:15-04:00</updated>
-  <id>http://aerenchyma.github.com/</id>
+  <link href="http://aerenchyma.github.io/blog/categories/misc/atom.xml" rel="self"/>
+  <link href="http://aerenchyma.github.io/"/>
+  <updated>2013-10-22T14:55:44-04:00</updated>
+  <id>http://aerenchyma.github.io/</id>
   <author>
     <name><![CDATA[Jackie Cohen]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Globes and maps]]></title>
-    <link href="http://aerenchyma.github.com/blog/2013/07/25/globes-and-maps/"/>
+    <link href="http://aerenchyma.github.io/blog/2013/07/25/globes-and-maps/"/>
     <updated>2013-07-25T17:07:00-04:00</updated>
-    <id>http://aerenchyma.github.com/blog/2013/07/25/globes-and-maps</id>
+    <id>http://aerenchyma.github.io/blog/2013/07/25/globes-and-maps</id>
     <content type="html"><![CDATA[<p><a href="http://bit.ly/18Akcfu">Writes Bonnie Bogle of MapBox</a>,  "The diversity of our team has made our team stronger, our tools better, and our approaches smarter and more innovative."</p>
 
 <p>The aim I see here is really great. This is what I'd like to see more of.</p>
@@ -34,9 +34,9 @@
   
   <entry>
     <title type="html"><![CDATA[Here at the edge]]></title>
-    <link href="http://aerenchyma.github.com/blog/2013/05/25/here-at-the-edge/"/>
+    <link href="http://aerenchyma.github.io/blog/2013/05/25/here-at-the-edge/"/>
     <updated>2013-05-25T21:13:00-04:00</updated>
-    <id>http://aerenchyma.github.com/blog/2013/05/25/here-at-the-edge</id>
+    <id>http://aerenchyma.github.io/blog/2013/05/25/here-at-the-edge</id>
     <content type="html"><![CDATA[<p><a href="http://www.powells.com/biblio/9780872863323"><em>Close to the Machine</em></a> was published in 1997, which was also the year I first (technically) got access to the Internet and eleven years before I seriously thought about programming myself.</p>
 
 <p>I came across the memoir in 2013, after Ellen Ullman's op-ed <a href="http://nyti.ms/10UrtAc">How to Be a 'Woman Programmer'</a> was published in the New York Times on May 18.</p>
@@ -97,9 +97,9 @@
   
   <entry>
     <title type="html"><![CDATA[Things worthwhile]]></title>
-    <link href="http://aerenchyma.github.com/blog/2013/04/29/things-worthwhile/"/>
+    <link href="http://aerenchyma.github.io/blog/2013/04/29/things-worthwhile/"/>
     <updated>2013-04-29T23:55:00-04:00</updated>
-    <id>http://aerenchyma.github.com/blog/2013/04/29/things-worthwhile</id>
+    <id>http://aerenchyma.github.io/blog/2013/04/29/things-worthwhile</id>
     <content type="html"><![CDATA[<p>In between projects, or at least time for documentation of them here (my very own Raspberry Pi arrived the other day! But I must acquire other hardware to do the project(s) I want first. I've been shoving new front-end-dev-y information into my head rapidly for a work project over the past week or so!) --</p>
 
 <p><a href="http://geekfeminism.org/author/brainwane/">Sumana Harihareswara</a> posted <a href="http://geekfeminism.org/?p=7554">this</a>, "From 'Sit Still' to 'Scratch your own itch'" on <a href="http://geekfeminism.org">GeekFeminism.org</a> recently, and I wish to share it all over because I think it's wonderful.</p>
@@ -131,9 +131,9 @@
   
   <entry>
     <title type="html"><![CDATA[the # sign]]></title>
-    <link href="http://aerenchyma.github.com/blog/2013/04/17/the-number-sign/"/>
+    <link href="http://aerenchyma.github.io/blog/2013/04/17/the-number-sign/"/>
     <updated>2013-04-17T22:40:00-04:00</updated>
-    <id>http://aerenchyma.github.com/blog/2013/04/17/the-number-sign</id>
+    <id>http://aerenchyma.github.io/blog/2013/04/17/the-number-sign</id>
     <content type="html"><![CDATA[<p>Today, I went back to my old high school to help a friend teach middle schoolers an introductory workshop on Python and Raspberry Pi. It was thoroughly awesome, but amidst the awesome -- which I'm not going to talk about in detail yet -- I noticed something interesting:</p>
 
 <p>Discussing comments in Python, someone in the room who graduated college several years before I did called '#', without hesitation, <em>the pound sign.</em></p>
@@ -156,9 +156,9 @@
   
   <entry>
     <title type="html"><![CDATA[Testing, testing]]></title>
-    <link href="http://aerenchyma.github.com/blog/2013/02/18/initial-post/"/>
+    <link href="http://aerenchyma.github.io/blog/2013/02/18/initial-post/"/>
     <updated>2013-02-18T15:24:00-05:00</updated>
-    <id>http://aerenchyma.github.com/blog/2013/02/18/initial-post</id>
+    <id>http://aerenchyma.github.io/blog/2013/02/18/initial-post</id>
     <content type="html"><![CDATA[<p>Initial post. Content to come.</p>
 ]]></content>
   </entry>

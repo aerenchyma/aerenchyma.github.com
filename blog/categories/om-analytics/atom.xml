@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: om-analytics | everything's interesting]]></title>
-  <link href="http://aerenchyma.github.com/blog/categories/om-analytics/atom.xml" rel="self"/>
-  <link href="http://aerenchyma.github.com/"/>
-  <updated>2013-10-22T14:53:15-04:00</updated>
-  <id>http://aerenchyma.github.com/</id>
+  <link href="http://aerenchyma.github.io/blog/categories/om-analytics/atom.xml" rel="self"/>
+  <link href="http://aerenchyma.github.io/"/>
+  <updated>2013-10-22T14:55:44-04:00</updated>
+  <id>http://aerenchyma.github.io/</id>
   <author>
     <name><![CDATA[Jackie Cohen]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Open.Michigan Analytics, the what]]></title>
-    <link href="http://aerenchyma.github.com/blog/2013/02/18/open-dot-michigan-analytics/"/>
+    <link href="http://aerenchyma.github.io/blog/2013/02/18/open-dot-michigan-analytics/"/>
     <updated>2013-02-18T17:05:00-05:00</updated>
-    <id>http://aerenchyma.github.com/blog/2013/02/18/open-dot-michigan-analytics</id>
+    <id>http://aerenchyma.github.io/blog/2013/02/18/open-dot-michigan-analytics</id>
     <content type="html"><![CDATA[<p>Starting in January 2013, I have been a software developer at the <a href="http://open.umich.edu">Open.Michigan Initiative</a>, which is housed within the University of Michigan Medical School. Open.Michigan (OM) promotes open licensing and open educational resources (OER), and we publish OER on our website, which is run on the <a href="https://github.com/openmichigan/OERbit">OERbit</a> framework, which in turn is based on <a href="http://drupal.org/">Drupal</a>.</p>
 
 <p><small>(True to our goals, all the code we produce is open source, free for use and adaptation with attribution. See licenses.)</small></p>

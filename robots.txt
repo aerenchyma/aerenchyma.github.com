@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://aerenchyma.github.com/sitemap.xml 
+Sitemap: http://aerenchyma.github.io/sitemap.xml 

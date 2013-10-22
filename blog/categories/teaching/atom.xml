@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: teaching | everything's interesting]]></title>
-  <link href="http://aerenchyma.github.com/blog/categories/teaching/atom.xml" rel="self"/>
-  <link href="http://aerenchyma.github.com/"/>
-  <updated>2013-10-22T14:53:15-04:00</updated>
-  <id>http://aerenchyma.github.com/</id>
+  <link href="http://aerenchyma.github.io/blog/categories/teaching/atom.xml" rel="self"/>
+  <link href="http://aerenchyma.github.io/"/>
+  <updated>2013-10-22T14:55:44-04:00</updated>
+  <id>http://aerenchyma.github.io/</id>
   <author>
     <name><![CDATA[Jackie Cohen]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[highlight of the job]]></title>
-    <link href="http://aerenchyma.github.com/blog/2012/05/02/highlight-of-the-job/"/>
+    <link href="http://aerenchyma.github.io/blog/2012/05/02/highlight-of-the-job/"/>
     <updated>2012-05-02T14:15:00-04:00</updated>
-    <id>http://aerenchyma.github.com/blog/2012/05/02/highlight-of-the-job</id>
+    <id>http://aerenchyma.github.io/blog/2012/05/02/highlight-of-the-job</id>
     <content type="html"><![CDATA[<p>On May first, I reached the end of Michigan's 2012 Winter semester, and with it the end of one of the best jobs. A student called the deadline for the final projects the "end of an era" -- that's what it felt like to us (the staff), too. ("It feels like we're doing twenty projects!")</p>
 
 <p>Except that it's more thrilling to watch people work together and seriously, rapidly and usefully learn stuff, and help each other -- better to watch forty-some eureka moments than only have a few yourself.</p>
@@ -43,9 +43,9 @@
   
   <entry>
     <title type="html"><![CDATA[and some killer awesome students, too]]></title>
-    <link href="http://aerenchyma.github.com/blog/2012/03/06/and-some-killer-awesome-students/"/>
+    <link href="http://aerenchyma.github.io/blog/2012/03/06/and-some-killer-awesome-students/"/>
     <updated>2012-03-06T16:04:00-05:00</updated>
-    <id>http://aerenchyma.github.com/blog/2012/03/06/and-some-killer-awesome-students</id>
+    <id>http://aerenchyma.github.io/blog/2012/03/06/and-some-killer-awesome-students</id>
     <content type="html"><![CDATA[<p>A brief interlude, relating to teaching programming. My co-IA and I subbed for lecture today; the professor we work for is at a conference in another state.</p>
 
 <p>The class has a facebook group for posting tips and asking each other questions. Halfway through class (I found this out afterward), this appears on the group, and by half an hour after the class is over, it looks like this:</p>

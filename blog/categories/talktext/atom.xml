@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: talktext | everything's interesting]]></title>
-  <link href="http://aerenchyma.github.com/blog/categories/talktext/atom.xml" rel="self"/>
-  <link href="http://aerenchyma.github.com/"/>
-  <updated>2013-10-22T14:53:15-04:00</updated>
-  <id>http://aerenchyma.github.com/</id>
+  <link href="http://aerenchyma.github.io/blog/categories/talktext/atom.xml" rel="self"/>
+  <link href="http://aerenchyma.github.io/"/>
+  <updated>2013-10-22T14:55:44-04:00</updated>
+  <id>http://aerenchyma.github.io/</id>
   <author>
     <name><![CDATA[Jackie Cohen]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[what would you say?]]></title>
-    <link href="http://aerenchyma.github.com/blog/2011/11/07/what-would-you-say/"/>
+    <link href="http://aerenchyma.github.io/blog/2011/11/07/what-would-you-say/"/>
     <updated>2011-11-07T16:10:00-05:00</updated>
-    <id>http://aerenchyma.github.com/blog/2011/11/07/what-would-you-say</id>
+    <id>http://aerenchyma.github.io/blog/2011/11/07/what-would-you-say</id>
     <content type="html"><![CDATA[<p><a href="http://www.igniteannarbor.com/" target="_blank">Five minutes. Twenty slides. What would you say?</a></p>
 
 <p>I spoke at Ignite Ann Arbor on Sunday -- "Data Entry, Coffee Dripping, and Other Things as Interesting as Watching Paint Dry." You can see the video and my slides linked on my <a href="http://aerenchyma.github.io/about/">about</a> page.</p>
