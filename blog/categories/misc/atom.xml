@@ -4,7 +4,7 @@
   <title><![CDATA[Category: misc | everything's interesting]]></title>
   <link href="http://aerenchyma.github.com/blog/categories/misc/atom.xml" rel="self"/>
   <link href="http://aerenchyma.github.com/"/>
-  <updated>2013-10-21T20:17:42-04:00</updated>
+  <updated>2013-10-21T21:22:23-04:00</updated>
   <id>http://aerenchyma.github.com/</id>
   <author>
     <name><![CDATA[Jackie Cohen]]></name>
@@ -155,45 +155,11 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[10 things I learnt as default tech support]]></title>
-    <link href="http://aerenchyma.github.com/blog/2013/04/10/10-things-i-learned-as-default-tech-support/"/>
-    <updated>2013-04-10T09:36:00-04:00</updated>
-    <id>http://aerenchyma.github.com/blog/2013/04/10/10-things-i-learned-as-default-tech-support</id>
-    <content type="html"><![CDATA[<ol>
-<li><p>Sometimes, the best system is Windows XP and Word 2000 and the mail app you hate.</p></li>
-<li><p>The hardest part of unpaid tech support is learning when not to argue about (1).</p></li>
-<li><p>"Being unpaid tech support" == being the youngest person in a group by 20+ years, having the most technical experience in a group re: profession or degree, or whichever turns out to be most applicable.</p></li>
-<li><p>"whichever turns out to be the most applicable" in (3) is chiefly determined by your confidence in tone, if there is any question as to who's landed the job.</p></li>
-<li><p>"Why" is the easiest question to ask and the hardest one to answer.*</p></li>
-<li><p>I do not like the Mac OS X mail app.</p></li>
-<li><p>Even beginning to describe the differences between what you work on and what their problem is tends to be worth it approximately 15% of the time. **</p></li>
-<li><p>The fact that email (and all of the cloud) is (<em>theoretically</em>) unconstrained by political boundaries is a real conceptual jump from "snail mail." Especially if one's professional life has been largely spent, for example, writing books on yellow notepads.</p></li>
-<li><p>"I can solve this problem I've never seen before", outside of work or a personal project, is often worth the frustration.***</p></li>
-<li><p>You're probably familiar with <a href="http://xkcd.com/627/">the quintessential flow chart</a> (credit Randall Monroe under a <a href="http://creativecommons.org/licenses/by-nc/2.5/">BY-NC</a> license), but there are people for whom the system this chart depends on makes sense, and there are people to whom it's another universe. The boundary is fluid -- I firmly believe this -- but if you're the resident expert (or whatever), it sure doesn't feel that way.</p></li>
-</ol>
-
-
-<p><font size="-4"></p>
-
-<p>*I have further thoughts about this, but they're neither publicly available nor all written down</p>
-
-<p>**I made this number up.</p>
-
-<p>*** Not always.
-</font></p>
-
-<p><font size="-4"><strong>notes on tech support background below</strong></font></p>
-
-<!-- more -->
-
-
-<p><font size="-4">
-I've worked in desktop support -- a little over two years ago now, on a hospital IT staff. I've also had interactions for a long time with others working in tech support roles/full-time jobs throughout most of my life. The post itself was prompted by a vacation on which I was the youngest by 45 years: let's guess what happened, eh? I think it was destined to be at that point, whether or not I'd actually let on that I work with computers.</p>
-
-<p>A lot of years ago, young me, and my even younger brother, accidentally changed the resolution on the computer once and, after some struggles to return the icons to their usual, unpixelated sizes, I sent a good friend of our dad's, a computer consultant, a detailed email about what had happened and what we'd tried, asking how to fix it. He was grateful for the detail ("you wouldn't believe how many people don't..."), and I was grateful in return. I don't have the email anymore, but I remember it. And the worry over tales in the hospital IT office of doctors known to have a roar specially bottled for the tech support was assuaged by the look on the face of the nurse to whom I explained the use of a laptop trackpad.</p>
-
-<p>This is to say, oh hey sarcasm font? (it keeps me alive! :D :D) -- and I really admire for the patient people who work(ed) full- or part-time in tech support longer than I have done so far. It's a really important job in a million circumstances, and it leads to pretty interesting revelations. (This vacation? I swear I didn't scream, just almost. But I learnt a lot.) I obviously have only my fraction of the experiences, yes. As usual, I welcome criticism and respect trying to learn new things. As with all lists of wide and silly generalizations, exceptions exist by the thousand, I know. [I've spent a lot (a LOT) of time on the internet.]
-</font></p>
+    <title type="html"><![CDATA[Testing, testing]]></title>
+    <link href="http://aerenchyma.github.com/blog/2013/02/18/initial-post/"/>
+    <updated>2013-02-18T15:24:00-05:00</updated>
+    <id>http://aerenchyma.github.com/blog/2013/02/18/initial-post</id>
+    <content type="html"><![CDATA[<p>Initial post. Content to come.</p>
 ]]></content>
   </entry>
   
