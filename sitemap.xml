@@ -88,13 +88,11 @@
     </url>
     <url>
         <loc>http://aerenchyma.github.com/portfolio/</loc>
-        <lastmod>2013-10-22T14:35:46-04:00</lastmod>
+        <lastmod>2013-10-22T14:37:20-04:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://aerenchyma.github.com/portfolio/Open-Educational-Resources-Dashboard-App/
-        </loc>
-        <lastmod>2013-10-21T22:22:13-04:00</lastmod>
+        <loc>http://aerenchyma.github.com/portfolio/OER-Dashboard-Flask-App/</loc>
+        <lastmod>2013-10-22T14:37:31-04:00</lastmod>
     </url>
     <url>
         <loc>http://aerenchyma.github.com/portfolio/REST-API-with-Express/</loc>
