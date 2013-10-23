@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>portfolio (in progress) - aerenchyma</title>
+  <title>Address-gathering Ruby script(s) for UWSEM - aerenchyma</title>
   <meta name="author" content="Jackie Cohen">
 
   
-  <meta name="description" content="portfolio (in progress) A2 DATADIVE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ADDRESS GATHERING SCRIPT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; OER DASHBOARD &hellip;">
+  <meta name="description" content="Address-gathering Ruby script(s) for UWSEM A friend at United Way for SouthEastern Michigan was working on a mapping project with ArcGIS for which, &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://aerenchyma.github.io/portfolio/">
+  <link rel="canonical" href="http://aerenchyma.github.io/portfolio/address-gathering-script/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -83,26 +83,19 @@
 <article role="article">
   
   <header>
-    <h1 class="entry-title">portfolio (in progress)</h1>
+    <h1 class="entry-title">Address-gathering Ruby script(s) for UWSEM</h1>
     
   </header>
   
-  <div class="gallery-item viewport clearfix"><b><a id="portimg" rel="gallery1" title="main-datadive2" href="/portfolio/A2-DataDive" class="fancybox"><span class="dark-background"><strong>A2 DATADIVE</strong></span><img src="/portfolio/A2-DataDive/main-datadive2.png"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></div>
+  <p>A friend at United Way for SouthEastern Michigan was working on a mapping project with ArcGIS for which, among other things, she needed a dataset of the addresses of places of worship within the <a href="http://en.wikipedia.org/wiki/Metro_Detroit">tri-county area</a> in Michigan. However, this isn&#8217;t a common type of publicly available data: mosques, churches, temples of different religions and communities were listed publicly and/or kept in public databases, but rarely were these things aggregated for easy use, especially not in a format she could use.</p>
 
+<p>Humans are good at this kind of problem: knowing what to search, and how to tell a result is good. The project wasn&#8217;t big enough at the time to address the second part computationally, but the first part had a time estimate of months which this set of scripts reduced to days. Written in Ruby, it allows my friend (or whomever) to choose a search term a region within which to search. It returns CSV files of this already-public but difficult-to-access data of lengths that were workable with ArcGIS + a middling connection (in this case, 1000 lines), waiting long enough between hits that it causes no server difficulty (when scraping: be polite). Another, smaller script is included to allow someone not quite fluent in Ruby/Python/etc or Excel to filter out these entries by various criteria.</p>
 
-<div class="gallery-item viewport clearfix"><b><a id="portimg" rel="gallery1" title="main-tricounty" href="/portfolio/address-gathering-script" class="fancybox"><span class="dark-background"><strong>ADDRESS GATHERING SCRIPT</strong></span><img src="/portfolio/address-gathering-script/main-tricounty.png"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></div>
+<p>Another benefit of this small project was that it was a friend&#8217;s first introduction to scripting, and prompted her to engage differently with mapping software her organization dealt with and to begin learning Python.</p>
 
+<p>The code can be found on GitHub <a href="https://github.com/aerenchyma/addressgathering/tree/improvements">here</a>. I wrote about an earlier iteration of this project (later parts of the story to come eventually) <a href="http://aerenchyma.github.io/blog/2013/04/15/a-useful-ruby-script-for-mapping-projects/">here</a>.</p>
 
-<div class="gallery-item viewport clearfix"><b><a id="portimg" rel="gallery1" title="main-expr-flaskapp" href="/portfolio/OER-Dashboard-Flask-App" class="fancybox"><span class="dark-background"><strong>OER DASHBOARD FLASK APP</strong></span><img src="/portfolio/OER-Dashboard-Flask-App/main-expr-flaskapp.png"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></div>
-
-
-<div class="gallery-item viewport clearfix"><b><a id="portimg" rel="gallery1" title="main-popquesttool" href="/portfolio/PopQuest-video-tool" class="fancybox"><span class="dark-background"><strong>POPQUEST VIDEO TOOL</strong></span><img src="/portfolio/PopQuest-video-tool/main-popquesttool.png"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></div>
-
-
-<div class="gallery-item viewport clearfix"><b><a id="portimg" rel="gallery1" title="main-expr-restapi" href="/portfolio/REST-API-with-Express" class="fancybox"><span class="dark-background"><strong>REST API WITH EXPRESS</strong></span><img src="/portfolio/REST-API-with-Express/main-expr-restapi.png"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></div>
-
-
-
+<p>Image is of Southeastern Michigan, taken by NASA, and is licensed under a <a href="http://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a> license by Otto Normalverbraucher.</p>
 
   
     <footer>
