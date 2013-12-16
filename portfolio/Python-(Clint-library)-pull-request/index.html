@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Python Clint library pull request - aerenchyma</title>
+  <meta name="author" content="Jackie Cohen">
+
+  
+  <meta name="description" content="Python Clint library pull request While I was at Hacker School, in the summer of 2012, our whole cohort of the workshop participated in something we &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://aerenchyma.github.io/portfolio/Python-(Clint-library)-pull-request/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="aerenchyma" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+<script src="/javascripts/footnote.js" type="text/javascript"></script>
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-40315607-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body    class="collapse-sidebar sidebar-footer" >
+  <header role="banner"><hgroup>
+  <h1><a href="/">aerenchyma</a></h1>
+  
+    <h2>useful structures within many wetland plants. also, Jackie Cohen's portfolio and docs stuff, in this case.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:aerenchyma.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/about">about</a></li>
+  <li><a href="/portfolio">portfolio</a></li>
+  <li><a href="/">blog</a></li>
+  <li><a href="/blog/archives">archives</a></li>
+  <li><a href="/license">licensing</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article role="article">
+  
+  <header>
+    <h1 class="entry-title">Python Clint library pull request</h1>
+    
+  </header>
+  
+  <p>While I was at <a href="http://hackerschool.com">Hacker School</a>, in the summer of 2012, our whole cohort of the workshop participated in something we called Open Source Week, when we focused the entire week on learning about (F)OSS projects and contributing to them. I spent the first part of the week learning about <a href="https://wiki.mozilla.org/Socorro">Socorro</a> thanks to <a href="http://www.laurathomson.com/">Laura Thomson</a> and <a href="https://blog.mozilla.org/webdev/2012/03/30/better-know-a-webdev-brandon-savage/">Brandon Savage</a> from Mozilla.</p>
+
+<p>Later in the week, my friend <a href="https://github.com/thomasballinger">Tom Ballinger</a>, a Hacker School facilitator, and I came upon <a href="https://github.com/kennethreitz/clint/issues/56">this issue</a> in the <a href="https://github.com/kennethreitz/clint?source=c">Clint</a> (Command Line Application Tools) library by <a href="https://github.com/kennethreitz">kennethreitz</a> and submitted <a href="https://github.com/kennethreitz/clint/pull/57">this pull request</a>, which was soon merged.</p>
+
+<p>It was a fairly quick and an enjoyable low-priority to solve and to play with, and it got me thinking a lot about what I really love about programming, especially the learning process itself. What does it mean that something is structured the way it is? What is the expected behavior of a library, especially a library intended to supplement command line functionality? What do the internals of <a href="http://www.diveintopython.net/power_of_introspection/getattr.html"><strong>getattr</strong>()</a> in Python really look like? And what&#8217;s the best way to explain these things to a group of people who haven&#8217;t yet encountered them? Fun questions.</p>
+
+  
+    <footer>
+      
+      
+        <div class="sharing">
+  
+  
+  
+</div>
+
+      
+    </footer>
+  
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Jackie Cohen -  <span class="license">All content, unless otherwise noted, is <a href="http://creativecommons.org/licenses/by-sa/3.0/us/" target=_blank>CC-BY-SA</a> licensed.</span> -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
