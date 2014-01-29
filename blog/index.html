@@ -9,7 +9,7 @@
   <meta name="author" content="Jackie Cohen">
 
   
-  <meta name="description" content="Writes Bonnie Bogle of MapBox, &#8220;The diversity of our team has made our team stronger, our tools better, and our approaches smarter and more &hellip;">
+  <meta name="description" content="what&#8217;s going on here My math background isn&#8217;t extensive. It&#8217;s continually increasing, because I&#8217;m interested in data: this is &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -81,6 +81,91 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/01/29/data-exploration-i-pca/">exploring data part I: Principal Component Analysis</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-01-29T14:48:00-05:00" pubdate data-updated="true">Jan 29<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h3>what&#8217;s going on here</h3>
+
+<p>My math background isn&#8217;t extensive. It&#8217;s continually increasing, because I&#8217;m interested in data: this is how I&#8217;ve learned linear algebra and what I know about differential equations; I find conceptual problems I need them for and I ask a lot of questions and I read a lot of things. I write a bunch of code that doesn&#8217;t work. And then I talk to people and eventually I write code that does work, and then I figure out why it works, and next time similar problems are easier.</p>
+
+<p>&#8220;Why&#8221; sounds like a silly question to some people, I think. Not because it&#8217;s not useful, but because, well, <em>maybe it should be obvious why.</em> I disagree with that under most circumstances. It&#8217;s not silly; exploratory data analysis is all about doing the what to move toward the why. &#8216;Why&#8217; is a big deal.</p>
+
+<p>I spend a lot of time thinking about datasets and their context(s), at work and otherwise, and, inspired by <a href="http://www.harihareswara.net/sumana/2013/11/06/0">some</a> <a href="http://jvns.ca/blog/2013/10/07/day-5-i-wrote-a-kernel-module/">people</a> <a href="http://blog.nullspace.io/building-search-engines.html">I</a> <a href="http://blog.lazerwalker.com/blog/2013/12/24/one-post-a-week-running-an-iron-blogger-challenge/">know and read</a>, I thought I&#8217;d share the brief explanation of what helped me start to understand the differences between PCA, EFA, and k-means clustering, and why you might use each.</p>
+
+<p>I&#8217;ll be glossing over details, but I&#8217;m going to talk about each, and then compare them and offer some examples that help me.</p>
+
+<h3>useful background</h3>
+
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/Correlation">Correlation</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Vector_space">Vectors</a></li>
+<li><strong><a href="http://en.wikipedia.org/wiki/Eigenvalues_and_eigenvectors">Eigenvectors</a></strong></li>
+<li><a href="http://en.wikipedia.org/wiki/K-means_clustering">k-means Clustering</a></li>
+</ul>
+
+
+<h3>what it does</h3>
+
+<p><a href="http://en.wikipedia.org/wiki/Principal_component_analysis">PCA</a> is usually used to explain variation of data, in just a very few dimensions (say 2-3).</p>
+
+<p>You&#8217;re basically finding the most <em>important</em> eigenvectors, the ones that capture the largest amount(s) of variation in your data.</p>
+
+<p>When you use PCA, you&#8217;re basically asking two questions:</p>
+
+<ol>
+<li><p><strong>Where does my data vary most?</strong></p></li>
+<li><p><strong>OK, knowing that, where&#8217;s the rest of the variation in the data?</strong></p></li>
+</ol>
+
+
+<p>And overall, <strong>How can I explain the variation in my data in as few different ways as possible?</strong></p>
+
+<p>You&#8217;re using <a href="http://en.wikipedia.org/wiki/Orthogonal_matrix">orthogonal transformation</a> when you do PCA. So you&#8217;re looking at <em>uncorrelated</em> factors that explain variation. (If you want to look at variables you suspect are correlated and dive into explanations, you&#8217;d want to do some Exploratory Factor Analysis.)</p>
+
+<p>It&#8217;s useful primarily for</p>
+
+<ul>
+<li>summarizing datasets: by figuring out how many factors explain most of the variation in a dataset</li>
+<li>compressing datasets: picking out a factor which captures the majority of the variation in the data such that you don&#8217;t have to store as much about the dataset and still capture what&#8217;s interesting about it.</li>
+</ul>
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2014/01/29/data-exploration-i-pca/">Read more &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -497,42 +582,6 @@
     <footer>
       <a rel="full-article" href="/blog/2013/02/18/open-dot-michigan-analytics/">Read more &rarr;</a>
     </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/02/18/initial-post/">Testing, testing</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-02-18T15:24:00-05:00" pubdate data-updated="true">Feb 18<span>th</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Initial post. Content to come.</p>
-</div>
-  
   
 
 

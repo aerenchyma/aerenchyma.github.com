@@ -4,7 +4,7 @@
   <title><![CDATA[aerenchyma]]></title>
   <link href="http://aerenchyma.github.io/atom.xml" rel="self"/>
   <link href="http://aerenchyma.github.io/"/>
-  <updated>2014-01-29T17:39:01-05:00</updated>
+  <updated>2014-01-29T17:39:24-05:00</updated>
   <id>http://aerenchyma.github.io/</id>
   <author>
     <name><![CDATA[Jackie Cohen]]></name>
@@ -12,6 +12,97 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[exploring data part I: Principal Component Analysis]]></title>
+    <link href="http://aerenchyma.github.io/blog/2014/01/29/data-exploration-i-pca/"/>
+    <updated>2014-01-29T14:48:00-05:00</updated>
+    <id>http://aerenchyma.github.io/blog/2014/01/29/data-exploration-i-pca</id>
+    <content type="html"><![CDATA[<h3>what&#8217;s going on here</h3>
+
+<p>My math background isn&#8217;t extensive. It&#8217;s continually increasing, because I&#8217;m interested in data: this is how I&#8217;ve learned linear algebra and what I know about differential equations; I find conceptual problems I need them for and I ask a lot of questions and I read a lot of things. I write a bunch of code that doesn&#8217;t work. And then I talk to people and eventually I write code that does work, and then I figure out why it works, and next time similar problems are easier.</p>
+
+<p>&#8220;Why&#8221; sounds like a silly question to some people, I think. Not because it&#8217;s not useful, but because, well, <em>maybe it should be obvious why.</em> I disagree with that under most circumstances. It&#8217;s not silly; exploratory data analysis is all about doing the what to move toward the why. &#8216;Why&#8217; is a big deal.</p>
+
+<p>I spend a lot of time thinking about datasets and their context(s), at work and otherwise, and, inspired by <a href="http://www.harihareswara.net/sumana/2013/11/06/0">some</a> <a href="http://jvns.ca/blog/2013/10/07/day-5-i-wrote-a-kernel-module/">people</a> <a href="http://blog.nullspace.io/building-search-engines.html">I</a> <a href="http://blog.lazerwalker.com/blog/2013/12/24/one-post-a-week-running-an-iron-blogger-challenge/">know and read</a>, I thought I&#8217;d share the brief explanation of what helped me start to understand the differences between PCA, EFA, and k-means clustering, and why you might use each.</p>
+
+<p>I&#8217;ll be glossing over details, but I&#8217;m going to talk about each, and then compare them and offer some examples that help me.</p>
+
+<h3>useful background</h3>
+
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/Correlation">Correlation</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Vector_space">Vectors</a></li>
+<li><strong><a href="http://en.wikipedia.org/wiki/Eigenvalues_and_eigenvectors">Eigenvectors</a></strong></li>
+<li><a href="http://en.wikipedia.org/wiki/K-means_clustering">k-means Clustering</a></li>
+</ul>
+
+
+<h3>what it does</h3>
+
+<p><a href="http://en.wikipedia.org/wiki/Principal_component_analysis">PCA</a> is usually used to explain variation of data, in just a very few dimensions (say 2-3).</p>
+
+<p>You&#8217;re basically finding the most <em>important</em> eigenvectors, the ones that capture the largest amount(s) of variation in your data.</p>
+
+<p>When you use PCA, you&#8217;re basically asking two questions:</p>
+
+<ol>
+<li><p><strong>Where does my data vary most?</strong></p></li>
+<li><p><strong>OK, knowing that, where&#8217;s the rest of the variation in the data?</strong></p></li>
+</ol>
+
+
+<p>And overall, <strong>How can I explain the variation in my data in as few different ways as possible?</strong></p>
+
+<p>You&#8217;re using <a href="http://en.wikipedia.org/wiki/Orthogonal_matrix">orthogonal transformation</a> when you do PCA. So you&#8217;re looking at <em>uncorrelated</em> factors that explain variation. (If you want to look at variables you suspect are correlated and dive into explanations, you&#8217;d want to do some Exploratory Factor Analysis.)</p>
+
+<p>It&#8217;s useful primarily for</p>
+
+<ul>
+<li>summarizing datasets: by figuring out how many factors explain most of the variation in a dataset</li>
+<li>compressing datasets: picking out a factor which captures the majority of the variation in the data such that you don&#8217;t have to store as much about the dataset and still capture what&#8217;s interesting about it.</li>
+</ul>
+
+
+<!--more-->
+
+
+<h3>when you&#8217;d use it</h3>
+
+<p>Say you have a huge, very skinny, set of data points. For example, a set of students who all have grades for biology, for chemistry, and for neuroscience lab, and are ranked by how well they&#8217;re doing in their classes. (I&#8217;m really not into ranking by grades. Because it&#8217;s usually a bad idea. But that&#8217;s another topic entirely.) You want a way to rank the students by grades, and you want to know what is the best determining factor to look at to guess at this.</p>
+
+<p>In practice, let&#8217;s say there&#8217;s a lot more variety in the biology grades than the other two. It&#8217;s not exactly a straight line, because there&#8217;s still some variety in the chemistry grades and the neuroscience grades, but not nearly as much as there are in the bio grades. So the distribution of points is very visually skinny: you don&#8217;t <em>really</em> need PCA to figure this out, because you can see where the biggest variety is. Or maybe you only have 20 students in all the classes, and you can just ask around and sort of figure this out. OK. That&#8217;s fine.</p>
+
+<p>But if your datasets reach a certain size, you can&#8217;t tell on glimpse where the largest amount of variation is. If there are fifty million students you&#8217;re looking at, and they&#8217;re all somehow taking classes in these same three subjects, and you want to know what to start looking at to explain variation in their overall GPA rankings, maybe the point set is big enough you can&#8217;t just tell where the largest amount of variation is. That&#8217;s where PCA comes in.</p>
+
+<p>Let&#8217;s say also, for the sake of the example, that there&#8217;s definitely more variety in the chemistry grades than in the neuroscience grades, it&#8217;s just not nearly as dramatic as the variation in the biology grades. OK, cool. We&#8217;re probably going to get the most information about a student&#8217;s grade ranking from looking at their biology grade, but that won&#8217;t totally explain our data. It helps but it&#8217;s not as helpful as it could be. (We&#8217;ll come back to this.)</p>
+
+<h3>pca and compression</h3>
+
+<p>Because it draws out these <em>principal</em> components, or factors, of a multifaceted dataset, PCA is also useful for compression. Why compression? Well, what if one particular factor was really the best explanation of a dataset?</p>
+
+<p>Say you had 10x2.789<sup>17</sup> data points for two variables. Maybe you have 10x2.789<sup>17</sup> coordinate pairs. That&#8217;s a lot.</p>
+
+<p>But then you find that there&#8217;s one eigenvector that describes this data pretty well, in the whole scheme of things. Performing principal component analysis pulls out this eigenvector, and then you can summarize your huge dataset not with 10x2.789<sup>17</sup> * 2 coordinate points, but with 1 eigenvector and 10x2.789<sup>17</sup> points on it, marking where along that eigenvector your various datapoints stand. You lose the information in other dimensions of the dataset besides that one, but maybe they&#8217;re not that comparatively important. It&#8217;s just like compression in other filetypes, images or music. You lose some quality. Some information. But it&#8217;s comparatively unimportant enough that you only notice when you blow the image up to a really huge size, or if you play the song through really quality speakers. When you&#8217;re looking at the image on your phone, playing the song off your computer, or want to be able to explain a dataset in relatively simple terms, the compressed version is not only fine, it&#8217;s sometimes better. (For one thing, if you stored songs on an iPhone with a much higher quality than .mp3s, you&#8217;d be able to carry a lot fewer songs around with you.)</p>
+
+<p>You can use PCA to pick out the one eigenvector that helps explain your dataset. If that&#8217;s good enough &#8211; there you go, you have the .mp3-esque version of the dataset, with all the stuff you need to know for your analysis (like on your phone with .mp3s, you have all the data you need to hear the song just fine).</p>
+
+<h3>what it means (kinda)</h3>
+
+<p>In our somewhat impractical student example here, let&#8217;s answer PCA question <strong>#1:</strong>
+OK, my data varies most with respect to biology grades. But I mean, I&#8217;m not sure the dataset is &#8216;skinny&#8217; enough to suggest that I can capture enough information about overall grade ranking to summarize the dataset by looking only at biology grade variation. Is there another factor going on here that could help me? So,</p>
+
+<p><strong>#2:</strong> The second biggest amount of variation is happening among chemistry grades.</p>
+
+<p>Maybe if we want to explain the data about student ranking by grades, the <em>Principal Components</em> of our analysis are biology class grades and chemistry class grades. Those are the best ways to explain the student grade data overall. Knowing this, we could study biology classes or methods of student studying for biology exams, for instance, and try to figure out where that variation is coming from.</p>
+
+<p>PCA won&#8217;t answer the ultimate whys for a dataset. (It doesn&#8217;t spit out &#8220;chemistry grades&#8221; &#8211; the human has to know what factors are playing here.) But it gives us a tool to figure out what <em>principle components</em> of a complex dataset are: it finds the eigenvectors in a dataset with the heaviest weights.</p>
+
+<h3>next up</h3>
+
+<p>PCA is basically a subset of Exploratory Factor Analysis (EFA), which is used less for this summarizing and compression and more for <em>exploring,</em> trying to find a model that fits the data. Often, you&#8217;d use PCA if you suspected that model will fit your dataset well: there are probably just a couple factors that can mainly explain the data you&#8217;ve got.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Globes and maps]]></title>
