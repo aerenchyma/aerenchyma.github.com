@@ -4,7 +4,7 @@
   <title><![CDATA[Category: modeling | aerenchyma]]></title>
   <link href="http://aerenchyma.github.io/blog/categories/modeling/atom.xml" rel="self"/>
   <link href="http://aerenchyma.github.io/"/>
-  <updated>2014-01-29T17:39:24-05:00</updated>
+  <updated>2014-01-29T17:52:33-05:00</updated>
   <id>http://aerenchyma.github.io/</id>
   <author>
     <name><![CDATA[Jackie Cohen]]></name>
@@ -69,7 +69,7 @@
 
 <h3>when you'd use it</h3>
 
-<p>Say you have a huge, very skinny, set of data points. For example, a set of students who all have grades for biology, for chemistry, and for neuroscience lab, and are ranked by how well they're doing in their classes. (I'm really not into ranking by grades. Because it's usually a bad idea. But that's another topic entirely.) You want a way to rank the students by grades, and you want to know what is the best determining factor to look at to guess at this.</p>
+<p>Say you have a huge, very skinny, set of data points. For example, a set of students who all have grades for biology, for chemistry, and for neuroscience lab, and are ranked by how well they're doing in their classes. (I'm really not into ranking by grades. Because it's usually a bad idea. But that's another topic entirely.) You want a way to rank the students by approximate grade point average, and you want to know what is the best determining factor to look at to get there.</p>
 
 <p>In practice, let's say there's a lot more variety in the biology grades than the other two. It's not exactly a straight line, because there's still some variety in the chemistry grades and the neuroscience grades, but not nearly as much as there are in the bio grades. So the distribution of points is very visually skinny: you don't <em>really</em> need PCA to figure this out, because you can see where the biggest variety is. Or maybe you only have 20 students in all the classes, and you can just ask around and sort of figure this out. OK. That's fine.</p>
 
