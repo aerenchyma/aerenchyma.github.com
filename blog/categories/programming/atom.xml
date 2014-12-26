@@ -4,7 +4,7 @@
   <title><![CDATA[Category: programming | aerenchyma]]></title>
   <link href="http://aerenchyma.github.io/blog/categories/programming/atom.xml" rel="self"/>
   <link href="http://aerenchyma.github.io/"/>
-  <updated>2014-12-26T15:56:22-05:00</updated>
+  <updated>2014-12-26T15:58:40-05:00</updated>
   <id>http://aerenchyma.github.io/</id>
   <author>
     <name><![CDATA[Jackie Cohen]]></name>
@@ -101,130 +101,6 @@ OK, my data varies most with respect to biology grades. But I mean, I'm not sure
 <h3>next up</h3>
 
 <p>PCA is basically a subset of Exploratory Factor Analysis (EFA), which is used less for this summarizing and compression and more for <em>exploring,</em> trying to find a model that fits the data. Often, you'd use PCA if you suspected that model will fit your dataset well: there are probably just a couple factors that can mainly explain the data you've got.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Recipe formatting]]></title>
-    <link href="http://aerenchyma.github.io/blog/2013/07/15/recipe-formatting/"/>
-    <updated>2013-07-15T18:21:00-04:00</updated>
-    <id>http://aerenchyma.github.io/blog/2013/07/15/recipe-formatting</id>
-    <content type="html"><![CDATA[<h2>the what</h2>
-
-<p>Almost four years ago, I was having a discussion with a friend about recipes: we determined that ideally, ingredient amounts should be integrated into recipe directions as well as in a list at the beginning of the recipe for shopping/gathering/whatever. Rather than looking at "Now, add rice vinegar" and flipping gaze back to the beginning to see just how much, it should say "add 1/4 cup rice vinegar" right in the instructions.</p>
-
-<p>We talked about compiling recipes this way, about indexing them in useful ways; by ingredient, dietary preference alignment, allergy compliance, and how you should scale them for a thirty-person cooperative. I thought about doing it programmatically; I'd begun to learn Python a few months before. I shook my head, at the time: it sounded so difficult, and I thought maybe later.</p>
-
-<p>A few weeks ago, it seemed a lot more doable. The overhead on web scraping feels lighter now: I've done it a whole lot more. My attitude toward solving problems is neither less nor more enthusiastic four years later (freaking love 'em then and now) but it is significantly more confident. I felt that the problem would be less overwhelming now.</p>
-
-<p>Less overwhelming, perhaps. It still turns out to be hard.</p>
-
-<!-- more -->
-
-
-<p>But it's a fun problem, and an interesting one, because challenging pieces continue to rise to the surface -- not as sudden "oh, crap!" surprises, but slowly looming challenges of various size.</p>
-
-<p>I decided to attempt only parsing recipes from the site <a href="http://www.allrecipes.com">AllRecipes</a>, in order to be able to scrape reliably and not turn it into as much of a Machine Learning problem (what's an ingredient, etc) or add another layer of a parsing problem to the challenge. Even with this limit, it's not <em>easy</em>. (A few issues remain unsolved with the method I used.)</p>
-
-<h2>the how</h2>
-
-<p>I wrote my current attempt in Python, doing the scraping with <a href="https://beautiful-soup-4.readthedocs.org/en/latest/">BeautifulSoup</a>.</p>
-
-<p>Most of it is currently being done via a procedural script. I use one helper function that I call <code>word_sans_comma(w)</code> in order to strip words of punctuation non-destructively, needing a function because strings are, of course, immutable in Python.</p>
-
-<p>To test, I save the brief version of an AllRecipes URL in a <code>test_recipe</code> variable to save me typing or entering otherwise. I tested several recipes, with different ingredients, to try and catch bugs, which I'll address shortly. For one example, there's <code>http://allrecipes.com/Recipe/Chicken-Pot-Pie-IX/</code>.</p>
-
-<p>I also have pre-compiled lists of words, which need to be gathered in more responsible ways: stopwords (things like "in", "on", "and"; words that don't add much to meaning individually and don't help in searches), meat words (e.g. "chicken" or "beef", words that indicate there are meat products in the recipe), dairy words (I assume we get the picture), and other non-vegan words which don't fall into any of the former categories (right now only including "egg" -- I welcome other suggestions).</p>
-
-<p>I open the recipe page and create a <code>soup</code> instance with BeautifulSoup, pull out the title and the number of servings. I find the part of the page that lists ingredients with <code>test_ingr = rec_doc.findAll("p", {"class" : "fl-ing"})</code>. (See <a href="https://github.com/aerenchyma/allrecipe_parsing">the code</a>.) Or in English, <em>find all the occurrences of <code>&lt;p class="fl-ing"&gt;&lt;/p&gt;</code> tags on the page.</em></p>
-
-<p>I iterate through the list I get in <code>test_ingr</code>, and if it includes a name and a discrete amount (1/2 cup, 1 pinch, whatever -- they're all labeled with the HTML id <code>lblIngAmount</code>, while the ingredient names all are wrapped within a tag id'd <code>lblIngName</code>), I add these things to a Python dictionary of ingredients where the Key:Value pairs are Ingredient-Name:Ingredient-Amount.</p>
-
-<p>Using <code>.findAll()</code> means I will get a return value of a Python list, so right there I have what I need: each of the ingredients, with their respective amounts.</p>
-
-<p>The ingredient directions on AllRecipes recipes are wrapped in their own <code>div</code>. I split up the directions into words with Python's <code>.split()</code>, and iterate through the non-stopwords in the resulting list. I am concerned with a few things during this iteration:</p>
-
-<ol>
-<li><p>I avoid all simple past verbs (many things can be "chopped" or "sliced" so it worked best not to consider these when looking for places in the directions where amounts or fuller ingredient descriptions needed to be inserted).</p></li>
-<li><p>Whether my boolean variables <code>vegan</code> and <code>non-dairy</code> should be turned False: are any of these words in my meat words or dairy words lists? (Common allergies are another set of categories I'm likely to add in the future.)</p></li>
-<li><p>In a show of relatively poor performance (only speedwise -- it detracts from the speed of a run, but not noticeably for these purposes<sup id='fnref:1'><a href='#fn:1' rel='footnote'>1</a></sup>), I loop through the ingredients in the dictionary of ingredients I created earlier, in a nested loop.</p></li>
-</ol>
-
-
-<p>I split each ingredient name into a Python list of individual words and compare these words, without punctuation (using my <code>word_sans_comma(w)</code> function), to each relevant word in the ingredient directions. If it's a match, I replace that word in the directions with the string composed of [INGREDIENT AMOUNT] + [INGREDIENT NAME (as listed in the original ingredients dictionary)], correct for punctuation as needed, and fix punctuation issues. For example, if the directions state</p>
-
-<p><code>stir in the pasta, then add the lemon</code></p>
-
-<p>you'd want that comma, e.g. <code>stir in the 1/2 lb of whole wheat pasta, then ...</code> is better than <code>stir in the 1/2 lb of whole wheat pasta then add the lemon</code>. The former reads more clearly (to me, anyway).</p>
-
-<p>I need that <code>word_sans_comma</code> function in order to compare words without attached punctuation to other similarly unencumbered words, but retain the original, punctuation-ful strings for the final result. It'd be pretty ugly to take out all the commas and periods from a recipe in order to insert ingredient amounts in the directions. The varying ways in which punctuation is used contributes to a lot of hard and interesting linguistics problems (not only computational), and it certainly contributes here. Among others, <a href="http://books.google.com/books/about/The_Linguistics_of_Punctuation.html?id=Sh-sruuKjJwC">Geoffrey Nunberg wrote about this</a>.</p>
-
-<p>Finally, if any words remain doubled, I remove one of the occurrences of the word. For example, if the directions read <code>take the chicken, chopped ...</code> then replacing that to result in <code>take the 2 chicken breasts, chopped chopped</code> is unfortunate.</p>
-
-<p>I separate the sentences in the directions into lines, and write the recipe title, dietary preference categories, serving number, and enhanced line-by-line directions to a file.</p>
-
-<p>(I'm still deciding on what I want my LaTeX template for these purposes to look like, so at the moment it's a text file, but a much clearer text file than the print version of most of these recipes.)</p>
-
-<p>Upcoming: pretty TeX, better indexing, allergy categorization, hosting, removal of awkwardness (e.g. replacing the phrase "parsley" with "1/2 cup freshly chopped, bright green parsley" six times in a row -- it's not <em>necessarily</em> inaccurate, but it's certainly annoying), and an issues list on GitHub to keep track of these things outside my personal issue tracker.</p>
-
-<p>You can see the code <a href="https://github.com/aerenchyma/allrecipe_parsing">here</a>.</p>
-
-<h2>the issues</h2>
-
-<p>In discussions with variously similarly-minded people, most of the solutions proposed for this problem of re-laying-out AllRecipes' recipes are either much like mine, involve using a full parser, or involve employing a variety of minimum edit distance in combination with part of my solution. Each of these ideas for solutions offer their own advantages and their own problems. Most notably, I think, none makes it easy, and none seems to make the problems invisible.</p>
-
-<p>The most significant issues remaining in mine are three (or four, depending upon how you separate them).</p>
-
-<ul>
-<li><strong>Clarity.</strong></li>
-</ul>
-
-
-<p>The example I gave earlier about chopped chicken and accidental word-reduplication is sometimes particularly problematic. What if the original recipe states <code>put the chopped chicken in the pan</code> and the ingredient list includes <code>2 chicken breasts, chopped</code>? The current algorithm may result in <code>put the chopped 2 chicken breasts, chopped</code>. Bad.</p>
-
-<p>With the current algorithm, replacing also occurs in places it ought not, creating some problematic sentences (this problem often overlaps with the awkwardness of multiple insertions of a long ingredient phrase that I refer to above). My favorite resulting gem: <em>Continue baking until cheese is melted and 4 skinless, boneless chicken breast halves juices run clear</em>.</p>
-
-<p>Yay, evaluation.</p>
-
-<ul>
-<li><strong>Amount separation.</strong></li>
-</ul>
-
-
-<p>This algorithm does not account at all for occurrences of splitting up an amount of a single type of ingredient. For example, if a recipe calls for 2 cups of sugar but has you <em>stir in 1.5 cups of sugar</em> at the beginning of the process, then <em>sprinkle 1/2 cup of sugar</em> on top at the end of the preparations, this will turn your recipe pretty confusing.</p>
-
-<ul>
-<li><strong>Overlapping names.</strong></li>
-</ul>
-
-
-<p>Celery and celery seed are two different ingredients. Until common bigrams (or better parsing mechanisms?) are implemented, this code will treat both occurrences of the word "celery" the same, though. You'll see this, if you try the chicken pot pie recipe. I tilted my head at it for a moment and then laughed, adding to the list.</p>
-
-<p>This happens only when the shared token ("celery", in this case) comes first in a phrase: for instance, it's fine if a recipe includes both <em>shredded mozzarella</em> and <em>smoked mozzarella</em><sup id='fnref:2'><a href='#fn:2' rel='footnote'>2</a></sup>, because replacing happens on first occurrence. This is a Big Bad Problem, but I found it interesting that it came up as late as it did; it's not a terribly unusual case.</p>
-
-<h2>takeaways</h2>
-
-<ul>
-<li><p>Even if you're really familiar with a language, its gotchas may still get you. (I spent more than a second wondering why Python's <code>.replace()</code> was working the way it was, though I've probably used it thousands of times.)</p></li>
-<li><p>Tiny human problems are often fun ones: I can't honestly say that I've used this often in the weeks since it's existed on my hard drive, but I've used it more than once -- and I've certainly thought about it.</p></li>
-<li><p>Language is amazing. NLP, and issues I've thought about and written about as both a linguist and a programmer repeatedly arise, even when I don't come at a problem thinking it's a <em>language parsing problem</em>. A <em>lot</em> of things are language parsing problems, I am finding. Recipes rely so much on human knowledge! Every day I come up with a new angle on my senior thesis from years ago (that's another story entirely).</p></li>
-<li><p>Evaluation is a hard problem. When I told people about this and they proposed a different solution, I spent a couple minutes thinking <em>oh, duh</em> -- and realized it wasn't obvious at all. Maybe their solutions result in problems that generate less confusion, or less amusement (that's an inclusive OR). Certainly there are more elegant ways to write this, in fewer lines of code, such that it will run faster, relying on different architecture. But none of them solve everything, insofar as I can tell, without more time. It's not a snap-your-fingers-problem.</p></li>
-<li><p>And I've learned a lot. I couldn't do this in any kind of hasty side-project kinda way four years ago: I wasn't comfortable enough just <em>playing.</em> It seemed so serious, like so much to hold in your head. It may not be a simple problem exactly but it isn't overwhelming anymore. I've had a lot of fun discussions about this; the best part, probably, was comparing solutions, because it was possible to hold them in my head and compare them piece-by-piece. It's a, if not <em>the</em>, way I think project-based-learning should go.</p></li>
-</ul>
-
-
-<hr />
-
-<p><div class="footnotes">
-	<ol>
-		<li id='fn:1'><p> But it's important to be aware I'm doing more looping than necessary -- it's a TODO. I think it's sometimes fun to make things work without immediate concern about performance, but I hesitate to phrase it that way, because it falsely implies that optimizing code isn't fun. Let's just say I'm gettin' there.
-<a href='#fnref:1' rev='footnote'>↩</a></p>
-</li><li id='fn:2'><p> Assuming, for the sake of this example, that each of these mozzerellas is intended for a different end within the relevant concoction.
-<a href='#fnref:2' rev='footnote'>↩</a></p>
-</li>
-	</ol>
-</div>
-</p>
 ]]></content>
   </entry>
   
@@ -702,169 +578,51 @@ OK, my data varies most with respect to biology grades. But I mean, I'm not sure
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[A useful Ruby script (part I)]]></title>
-    <link href="http://aerenchyma.github.io/blog/2013/04/15/a-useful-ruby-script-for-mapping-projects/"/>
-    <updated>2013-04-15T11:46:00-04:00</updated>
-    <id>http://aerenchyma.github.io/blog/2013/04/15/a-useful-ruby-script-for-mapping-projects</id>
-    <content type="html"><![CDATA[<h2>once upon a time</h2>
+    <title type="html"><![CDATA[instabitly]]></title>
+    <link href="http://aerenchyma.github.io/blog/2013/03/25/instabitly/"/>
+    <updated>2013-03-25T00:29:00-04:00</updated>
+    <id>http://aerenchyma.github.io/blog/2013/03/25/instabitly</id>
+    <content type="html"><![CDATA[<p>Quick drive-by: <a href="https://github.com/aerenchyma/instabitly">instabitly</a>, a script I wrote recently to import saved links from <a href="http://instapaper.com">Instapaper</a> to <a href="https://bitly.com/">bit.ly</a>.</p>
 
-<p>in late 2012, I was at a bar with some friends, but the night ended with some excitement.</p>
+<p>I did it for personal reasons -- primarily because I want all this stuff stored redundantly. Obviously I haven't solved that problem in its entirety, but there were also other reasons. Because I care about things like this. There's a README. More, like more in the other documentation series I've discussed so far, will have to appear after recent projects calm down some.</p>
 
-<p>Soon after I left, I began writing a script in order to put together .csv files of locations, names, and phone numbers of various types of sites within a certain radius! The exclamation point there is a little facetious, but the excitement isn't really. I'm writing about this largely because I think its greatest value was in its original, unpolished, somewhat inefficient state: what's inefficient to a computer is not necessarily so to a human, and it's easy for a programmer to forget that.</p>
+<p>Let me also take this opportunity to encourage you to <a href="http://www.instapaper.com/subscription">support Instapaper</a> if you can and it's a service you like/use.</p>
 
-<p>This is a project that's taken place in a couple parts, and due to various pending Terms-of-Service (TOS) agreements and new <a href="http://en.wikipedia.org/wiki/Api">API</a> developments, I won't be publishing the final version of the code online <em>yet.</em></p>
+<p>In my imaginary free time, I have been trying to absorb all the <a href="http://pyvideo.org/category/33/pycon-us-2013">fantastic PyCon</a> <a href="https://speakerdeck.com/pyconslides">talks</a> (I have an active imagination).</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[what hacker school is like (or, what I did this summer)]]></title>
+    <link href="http://aerenchyma.github.io/blog/2012/08/15/what-hacker-school-is-like/"/>
+    <updated>2012-08-15T07:48:00-04:00</updated>
+    <id>http://aerenchyma.github.io/blog/2012/08/15/what-hacker-school-is-like</id>
+    <content type="html"><![CDATA[<p>Last May, when I was first thinking about applying to <a href="http://www.hackerschool.com">Hacker School</a>, I did a lot of searching for posts and tweets about it. I wanted to know what the experience was like, the day-to-day, the people. I found some, and <a href="https://www.hackerschool.com/about" target="_blank">the website does give a very accurate picture</a> of <a href="https://www.hackerschool.com/testimonials" target="_blank">the environment</a> around all the time at Hacker School, but I wished for more because I'm curious, especially about the environment alongside the programming. Hacker School is all about being a better programmer -- going after that goal has come with a lot of side pluses.</p>
 
-<p><a href="http://aerenchyma.github.io/blog/2013/04/15/a-useful-ruby-script-for-mapping-projects/">Part I</a> (this post) will address the basic technical architecture of writing a Ruby script to speed up data-gathering for a non-profit organization and the initial questions that led to the script writing. <a href="">Part II</a> (to come) will address the whys -- specifically, why Ruby worked pretty well for this project and what I found to be useful takeaways from it. I am especially interested in takeaways with respect to teaching programming, ways of looking at projects as a developer, and application of technical skills as a service. <a href="">Part III</a> (to come) will address further technical possibilities -- what should work better, and what further questions this generated.</p>
+<p>(There's now <a href="http://www.reddit.com/r/IAmA/comments/y7kld/iama_hacker_at_hacker_school_in_nyc_ama/">an IAmA for Hacker School going on @ Reddit</a>, where a bunch of current Hackerschoolers and alums are articulately answering questions. So you should go there.)</p>
 
-<!-- more -->
+<p>First, I'd say that if you have a real inclination to apply -- if you think you might love programming -- if the sound of Hacker School interests you -- do it. Do it soon, do it now! <a href="http://www.hackerschool.com/apply">Just click here</a>! I understand that moving to NYC on somewhat quick notice is intimidating, that you're not sure what will happen with work or other potential commitments, that maybe the cost is concerning, but I swear the facilitators and even your fellow batch-mates (especially if there are people coming back who are familiar with the process!) are incredibly helpful with that stuff, in particular with finding housing. It's workable, not so bad, even without much stress!, and having the option is worth the application time.</p>
+
+<p>If you're a woman who needs financial assistance, I can't emphasize enough, <i>don't</i> hesitate because you're afraid it won't work out! This batch, every accepted woman who requested a grant received one, and there's no reason to believe that won't happen again.</p>
+
+<p>Secondly, here's another addition to the growing library of 'what it's like at Hacker School'. As we approach the end of batch[3] -- (numbers started at 0, of course), I'm just gonna list you some things I did this summer, in no particular order.</p>
+
+<ul>
+<li><p>Spent a wholly worthwhile thirteen total out of about forty hours in Central Park one Thursday - Friday. Most of those were waiting in line for tickets to As You Like It in the Park. Many of those hours were talking and laughing with a Hacker School friend. Some were making an attempt at a picnic at sunrise. Some of them were us programming in Python in a text editor and REPL with an Android phone. (Three of the hours were at night, watching the show, which was one of the best Shakespeare performances I've ever seen.)</p></li>
+<li><p>Played in a Hacker School Ping Pong tournament. (No requirement to be especially good. Hence &lt;-- .) The first Ping Pong tournament, a laptop was pulled out midway through... now, there is a relative-player-ranking system that a fellow Hackerschooler implemented.</p></li>
+<li><p>Almost made it to building and launching homemade water rockets.</p></li>
+<li><p>Went on an 11-person, 120-total-dumpling tour in Chinatown. Wandered for hours below 14th street talking about fascinating things incl. translations of brand names and living in different areas of the country. (...not on the same day.)</p></li>
+<li><p>Got delicious Malaysian food, tasted the best guacamole of my life, ventured to Long Island for a cupcake baked by an awesome fellow Hackerschooler (worth the trip!). I&#039;ve eaten crazy delicious stuff while in New York [and most of it wasn't too expensive + in good company].</p></li>
+<li><p>Had many dinners and lunches and otherwise hanging out with alums, current batch members, Hacker School facilitators wherein there were discussions of topics ranging from the structure of Git, to islands in the Pacific where time is measured differently, to what is nerve-wracking about interviews, to the best kind of chocolate (no consensus), to what we were like as teenagers in various capacity, to awesome books recently read, to the differences between ricotta, queso fresco and paneer.</p></li>
+<li><p>Collapsed laughing over the packaging of bear-shaped cookies sold at a nearby cafe during a quick programming break. Began to learn Cued Speech. Ran outside to dance around in a sudden rainstorm by the Brooklyn Bridge.</p></li>
+<li><p>Got basically addicted to iced coffee: people at a nearby cafe* have started recognizing some of our orders; we joke about it, slash about how many times we've been there. <s>Each day.</s> I've been there a...lot. (Coffee ice cubes in the iced coffee/espresso drinks. Need I say more.)</p></li>
+<li><p>Learned tons about parsing, web scraping, Ruby, dealing with dynamic web content, tree- and graph-traversal algorithms, multiple web frameworks, client-side Javascript debugging, how to structure my time, how to read a large code base better, short presentations, window managers, various contributions to open source projects, awesome <a href="http://en.wikipedia.org/wiki/REPL">REPL</a>s, how to use Git well (and <a href="http://marthakelly.github.com/blog/2012/06/04/hacker-school-day-one/" target="_blank">don't worry at all</a> if you don't know about any one or any of those things). Also, about baking, varieties of international visas, mapping, moving, chemicals, New York, regions of the US, circuits, public speaking, work environments, acidic agents in cheese-making and tons of other things; that's not a comprehensive list. I'm going back to school (for grad school in CS) in the fall (this was already a plan when I applied to Hacker School), but I now feel solidly on a trajectory to doing whatever the hell I want, and learning whatever that requires, in a way I did not at the beginning of June. (I've also gained an even more thorough respect for transportation networks, something I already loved a lot.) Seeing pairs of people attempt things totally new to them and be ridiculous successful while you and others do the same at the next table is the best.</p></li>
+<li><p>Met some of the most impressive and inspiring thinkers, programmers, cooks, writers, feminists, and <i>people</i> I've ever met at once. I've made really good friends with whom I've done lots of entirely random and excellent things, who have changed how I think about things spanning-realms-within and far-beyond programming, and I'm not planning to disappear -- I'll be back to visit.</p></li>
+<li><p>More than a year later, I come back to this post, and while I have plenty to add, the most important cultural thing I can say about Hacker School now is that not only do I continue to realize things I gained in the summer of 2012, programming and other-wise, but on numerous trips around the country (the US, in my case), it's often Hacker Schoolers in all these cities that make them feel a little bit like home.</p></li>
+</ul>
 
 
-<h2>initiation</h2>
-
-<p>"Is there a faster way?" my friend asked, wondering if there were a way to automate some data gathering her organization was doing. <em>Is there a faster way?</em>  The answer is usually yes.</p>
-
-<p>My friend and the organization she worked for wanted a faster way to gather data for a mapping project: for example, amidst this project, they might want to gather .csv files that held lists of places of worship (e.g. churches, mosques, temples...), within the tri-county area of Southeastern Michigan. They would analyze and separate these data in various ways and upload the final files for a given search to <a href="http://www.arcgis.com/about/">ArcGIS</a>, in order to create maps.</p>
-
-<p>The problems?</p>
-
-<ol>
-<li><p><strong>Getting the data was hard:</strong>
-In some cases for mapping sites of given types or categories, the data was readily available. The governent provides data files, including GIS shape files, with a lot of publicly available information; beyond things like that, there are available lists from many public sources; lists of public schools and locations, for example. But it's hard to find a list of all <em>places of worship</em>, say, because though this may be one category at a given level, on an organizational level these belong to many different categories: churches of a given denomination and Sikh Temples are usually not listed in the same public dataset, especially not throughout the tri-county area.</p></li>
-<li><p><strong>Getting the data was slow:</strong>
-The way they were currently approaching these problems, she explained, was making educated searches for terms (e.g. places of worship) that weren't easily correlated in your average public database and which didn't have an overarching organization. When the resulting data wasn't available in a database or google spreadsheet form, they copied them into Excel and spot-checked them for accuracy, going back and searching. They were working on a lot of projects simultaneously and this process was turning into quite a timesink for some.</p></li>
-</ol>
-
-
-<p>Was there a faster way? <em>Yes</em>, I said.</p>
-
-<p>There are many services, both specific to the state of Michigan or metro Detroit and nationally or internationally that provide open source mapping and data services: <a href="http://datadrivendetroit.org/">Data Driven Detroit</a>, <a href="http://datakind.org/">DataKind</a>, <a href="http://www.openstreetmap.org/">Open Street Map</a>, among others. There are also many technical solutions to any problem of creating maps, but for those (like me) immersed in technical solutions, it is easy to forget the time and energy it takes to reach the baseline for these tools (for example, <a href="http://postgis.net/">PostGIS</a>).<sup id='fnref:1'><a href='#fn:1' rel='footnote'>1</a></sup></p>
-
-<p>However, some (not all) of these services are prohibitively expensive, some require a more intermediate level of technical skill for productive use than her organization could spare or hire, and most are dependent upon data collections already existing. Thus, her question. She and others were spending a lot of time copying and pasting that didn't need to be spent. The missing piece for a quicker finish for their project was a short -- but admittedly sharp -- learning curve. <em>You can write a script to do that</em>, I said, or at least thought. <em>I can write this -- it'll be fun.</em></p>
-
-<p>Okay.</p>
-
-<h2>first steps &amp; ethical questions</h2>
-
-<p>The next question for me, the script-writer, then, was: is there a service that provides this information in a useful way, and do they have an API? The initial answers to this ("sort of") are what keep me from posting code in its entirety (and leave me hoping that things will soon improve), but common sense took me a step further. Neither the Google Places API nor the Maps API on their own provided results fine-grained enough for the numbers we were looking for, knowing that, for example, there are somewhere (give or take large numbers) around 4500 places of worship in the <a href="http://en.wikipedia.org/wiki/Metro_Detroit">tri-county area</a> of Southeastern Michigan. Okay -- what next?</p>
-
-<p>Well, scraping, while useful, has the potential of stepping over TOS boundaries, not something we want -- on the "client" end as an organization, nor as a developer. Nor indeed as a decent person, I guess, though I admit this judgment could depend somewhat on the TOS. (Heh.) But spending potentially-hundreds of hours copying and pasting leads to <em>some</em> (not all) of the same ends as scraping does.</p>
-
-<p>If public data is being shared, and it's not being used commercially<sup id='fnref:2'><a href='#fn:2' rel='footnote'>2</a></sup> , it is probably being gotten and used all the time. That's what we use a phone book for, the ones that the city leaves on our doorsteps in Ann Arbor: say, where are the nearest couple churches? Well...</p>
-
-<p>Whatif we access a big service provider, I thought -- one that wouldn't have to <em>worry</em> about funding bandwidth for a hit of a few seconds, with engineered breaks -- what if we only hit the server once, really? Instead of leaving people to copy and paste for weeks and weeks? Say I save a sample couple html pages for testing. They just need the data faster -- they need to get their project done, and they would like to make it efficient. I can write a script that automates that human effort. Maybe they'll hit it once, or twice, thrice, not too quickly, not even within the same day, and do the rest of the analysis offline.<sup id='fnref:3'><a href='#fn:3' rel='footnote'>3</a></sup></p>
-
-<h2>architecture basics</h2>
-
-<p>I used the <a href="http://mechanize.rubyforge.org/">Mechanize</a> and <a href="http://nokogiri.org/">Nokogiri</a> gems for the original script: Mechanize to submit appropriate query/ies to forms, Nokogiri to parse the results displayed on webpages, and the rest is all scripting in Ruby 1.9.3. (1.9.x Ruby was important here, because of its <a href="http://www.igvita.com/2009/02/04/ruby-19-internals-ordered-hash/">ordered hashes</a>.)</p>
-
-<p>First, initialization of a Mechanize agent:</p>
-
-<p><code>ruby
-$agent = Mechanize.new
-</code></p>
-
-<p>I used this agent in several smaller scopes and thus (yes, I can hear the scolding; I accept it) made it global for the moment.</p>
-
-<p>Then, saving a query in a variable like so:</p>
-
-<p><code>ruby
-query = "community center" # example
-</code></p>
-
-<p>Then, I access the page's forms to allow me to search for a query (in this case, the first form on the page was the relevant one for information we were interested in). For example,</p>
-
-<p><code>ruby
-page = $agent.get('http://YOURURL.com')
-forms = page.forms
-searchform = forms.first
-searchform.search_terms = query
-results = $agent.submit(searchform)
-start_pg = results.uri # this is the page to start scraping from
-</code></p>
-
-<p>(Note that <strong>search_terms</strong> here is specific to the form. You'll want to take a look at the form(s), perhaps by <code>forms.each do {|f| p f}</code> in the console, to see what the appropriate entry box is <em>named</em> on the web form you're trying to enter a query in.</p>
-
-<p>Also note that a form may have several fields you need to enter -- say, a search term and location -- and you'll need to look for all of those fields and write a line similar to that in line 4 in the snippet above for each.)</p>
-
-<p>Immediately after this, I throw the results into a Nokogiri document for ease of parsing HTML to pull out relevant information, since the result web pages are intended for end-user viewers and not in easy-to-parse XML or JSON like you would get from the result of an API.</p>
-
-<p><code>
-pg = Nokogiri::HTML(open(start_pg)) # Nokogiri document of the start page
-</code></p>
-
-<p>Next, I have a <code>create_hashes(page)</code> function which expects a Nokogiri document (e.g. <code>pg</code> ) as a parameter. This function uses Nokogiri functionality to grab different pieces of information that we cared about -- e.g. the name of a given place, its address, its phone number. The function handles exceptions and keeps count of the individual results gathered.<sup id='fnref:4'><a href='#fn:4' rel='footnote'>4</a></sup></p>
-
-<p>So <code>create_hashes</code> calls another function to make sure no duplicate entries are included in any set of .csv files corresponding to the the same search. It then pulls all associated pieces of information into a Ruby hash data structure and adds that to a Ruby array of hashes, each of which corresponds to one result (one church, for example).</p>
-
-<p>For instance, one hash might look like:</p>
-
-<p><code>ruby
-{ "name" =&gt; "Generic Church Name", "addr" =&gt; "1000 Streetname Dr", "city" =&gt; "Detroit", "state" =&gt; "MI", "zip" =&gt; "48126", "phone" =&gt; "555-555-5555" }
-</code></p>
-
-<p><font size="-3">n.b. that is NOT a real address or phone number</font></p>
-
-<p>I have a function <code>transform_hash(hn)</code>, where <code>hn</code> is a hash corresponding to a single result, which transforms one of the aggregated hashes into a line in a .csv file. In the case of the information I was gathering, that looked like:</p>
-
-<p><code>ruby
-def transform_hash(hn)
-  s = "#{hn['name']}, #{hn['addr']}, #{hn['city']}, #{hn['state']}, #{hn['zip']}, #{hn['phone']}\n"
-  s
-end
-</code></p>
-
-<p>And I make sure that every .csv file created has the form of {date search occurred}-{location for search}-{search query}{#, if there are > 1000 unique results}, so I create a filename and open a new file with that filename for writing.</p>
-
-<p><font size="-3">( <code>today_string()</code> is a function which creates a string of the current date in the string format I wanted: YYYY-MM-DD)</font></p>
-
-<p><code>ruby
-fname = today_string() + "-" + location.gsub!(",","").split(' ').map {|w| CGI.escape(w)}.join("") + query.split(' ').map {|w| CGI.escape(w)}.join("")
-</code></p>
-
-<p>And finally, the script writes .csv files as appropriate, starting a new file with the header ( <code>Name, Address, City, State, Phone</code> ) each time one file reaches 990 entries (AKA 991 lines).</p>
-
-<h2>discussion</h2>
-
-<p>This script I typed out on first go, post the original discussion with my friend, is not exactly the code I'm most proud of from a technical perspective: programmatically, I don't think there's a great deal to learn for someone who is already confident with web programming in Ruby.</p>
-
-<p>So while I’m always pleased to write good-smelling code<sup id='fnref:5'><a href='#fn:5' rel='footnote'>5</a></sup>, I honestly saw this whole scenario through rose-colored glasses because it <em>worked</em>, even though I didn’t spend a ton of hours honing it; I knew there was a possibility here so I sat down and wrote it and ran it and it helped, and that was what mattered.</p>
-
-<p>My friend and her team needed something that worked better (in this case, “better” meant faster – and potentially more reliable) than their previous method(s) of data-gathering. I believe this solution satisfied that without crawling rudely or putting undue weight anywhere except an individual computer for a minute or so. (That is to say, it wasn't as efficient as it really ought to be, and while it is a sustainable solution in some senses, it isn't in others. More on this to follow.)</p>
-
-<p>And thus I like this as an example of a good <em>use</em> of programming skill. A web app for this is in progress, but the process of hacking together a solution to this problem was valuable to me as a programmer.</p>
-
-<p>Is there a faster way? Yes. This script brought down the team's time expectation for the mapping project from months to days.</p>
-
-<p>And there are lessons to be gained for your average programmer from this small project. Maybe I'd wince to ship this and maybe I wouldn't, but in this particular case, it <em>should</em> have been shipped: it did all it needed to do for the small scope we assigned it.<sup id='fnref:6'><a href='#fn:6' rel='footnote'>6</a></sup> It also made me think seriously about what important questions are for a developer when the end-user is someone running a (simple? perhaps yes!) script on the command line, especially if that person is not necessarily <em>comfortable</em> with its use.</p>
-
-<p>What's the input? What's the output? How does the API work? What's the easiest solution, the fastest solution, the most elegant?</p>
-
-<p>It's easy to get caught up in jargon just answering these questions. While there is <em>usually</em> reason to have these in-depth discussions, there do exist occurrences when they are a hinderance and not a help, at least not right away. Not a lot of programmers or computer scientists work in the non-profit industry overall, especially not in jobs where technology isn't the end goal of their particular projects. But programming skill can still be valuable there, and these kind of caveats (what questions not to ask, which performance issues (not) to worry about first...) are useful to keep in mind.</p>
-
-<hr />
-
-<p>Find <a href="">Part II</a> and <a href="">Part III</a></p>
-
-<hr />
-
-<p><div class="footnotes">
-	<ol>
-		<li id='fn:1'><p> I'll come back to this issue in Part II
-<a href='#fnref:1' rev='footnote'>↩</a></p>
-</li><li id='fn:2'><p> Arguably, not even in other creative works -- but this is a whole 'nother issue so we'll leave that aside for the moment
-<a href='#fnref:2' rev='footnote'>↩</a></p>
-</li><li id='fn:3'><p> Note: no TOS was violated in the making of this script, but it is somewhat unclear for the current incarnation, thus the pause and non-public full code.
-<a href='#fnref:3' rev='footnote'>↩</a></p>
-</li><li id='fn:4'><p> The count is kept specifically because the results were intended for use with ArcGIS, which, for the organization's current tools, worked best with .CSV files of 1000 lines or fewer.
-<a href='#fnref:4' rev='footnote'>↩</a></p>
-</li><li id='fn:5'><p> <a href="http://en.wikipedia.org/wiki/Code_smell">On code smell</a> -- thanks to David Albert for my introduction to the term
-<a href='#fnref:5' rev='footnote'>↩</a></p>
-</li><li id='fn:6'><p> I still welcome what code reviews are possible without posting most of the code, and/or comments or suggestions. It <em>will</em> all be open-source under the MIT license.
-<a href='#fnref:6' rev='footnote'>↩</a></p>
-</li>
-	</ol>
-</div>
-</p>
+<p>You should probably apply. If you read this you should apply. (If you didn't, and you enjoy programming, you should also apply, but that's probably not relevant at this juncture.)</p>
 ]]></content>
   </entry>
   
